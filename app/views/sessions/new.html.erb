@@ -1,1 +1,19 @@
-halihoo
+<%= form_tag do %>
+  <fieldset>
+    <h1>Please Login</h1>
+    <div>
+      <label for="username" >Name:</label>
+      <%= text_field_tag :username, params[:username] %>
+    </div>
+	<div>
+      <label for="password" >Password:</label>
+      <%= password_field_tag :password, params[:password] %>
+    </div>
+    <div>
+      <%= submit_tag "Login" %>
+    </div>
+  </fieldset>
+<% end %>
+<% if flash[:alert] %>
+  <p id="notice" ><%= flash[:alert] %></p>
+<% end %>

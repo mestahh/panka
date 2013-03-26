@@ -20,7 +20,7 @@ Feature: Login
 	
 		Given I visit the login page
 		And enter a non-existing username
-		And a password
+		And enter a password
 		When I click the login button
 		Then I should see the login page
 		And I should see an error message
@@ -36,5 +36,5 @@ Feature: Login
 		Given I am logged in
 		When I click on the logout link
 		Then I should see the login page
-		And my session should be deleted
+		And I should see the login page
 		

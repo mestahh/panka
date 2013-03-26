@@ -3,49 +3,51 @@ Given(/^I visit the login page$/) do
 end
 
 Given(/^enter the correct credentials$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in 'username', :with => 'bob'
+  fill_in 'password', :with => 'secret'
 end
 
 When(/^I click the login button$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button 'Login'
 end
 
 Then(/^I should see the main page$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'welcome'
 end
 
 Given(/^enter the correct username$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in 'username', :with => 'bob'
 end
 
 Given(/^enter the wrong password$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in 'password', :with => 'wrong'
 end
 
 Then(/^I should see the login page$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'Login'
 end
 
 Then(/^I should see an error message$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'Wrong'
 end
 
 Given(/^enter a non\-existing username$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in 'username', :with => 'notbob'
 end
 
-Given(/^a password$/) do
-  pending # express the regexp above with the code you wish you had
+Given(/^enter a password$/) do
+  fill_in 'password', :with => 'pass'
 end
 
 Given(/^I am logged in$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/login'
+  fill_in 'username', :with => 'bob'
+  fill_in 'password', :with => 'secret'
+  click_button 'Login'
 end
 
 When(/^I click on the logout link$/) do
-  pending # express the regexp above with the code you wish you had
+  click_link 'log out'
 end
 
-Then(/^my session should be deleted$/) do
-  pending # express the regexp above with the code you wish you had
-end
+
