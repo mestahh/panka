@@ -12,6 +12,8 @@ Panka::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  
+  resources :guests, :only => :show
 
   controller :sessions do
   	get 'login' => :new
