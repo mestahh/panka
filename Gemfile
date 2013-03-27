@@ -25,6 +25,7 @@ group :test do
   gem 'rspec-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'factory_girl', '4.1.0'
 end
 
 gem 'jquery-rails'
