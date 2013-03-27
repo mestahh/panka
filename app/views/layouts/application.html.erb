@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="leftmenu">
+	<%=
+		if session[:user]
+			link_to 'Log out', logout_path, :method => 'delete'
+			link_to 'Examinations', examinations_path
+			
+		end
+	%>
+</div>
+<div id="main">
+	<%= yield %>
+</div>
 
-<%= yield %>
 
 </body>
 </html>

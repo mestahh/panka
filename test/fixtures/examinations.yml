@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  user_id: 1
   anamnezis: MyString
   status: MyString
   treatment: MyString
   charge: MyString
 
 two:
+  user_id: 1
   anamnezis: MyString
   status: MyString
   treatment: MyString

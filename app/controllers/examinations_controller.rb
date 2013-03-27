@@ -1,5 +1,9 @@
 class ExaminationsController < ApplicationController
 
+	def index
+		@examinations = Examination.find(:all)
+	end
+
 	def new 
 		@guest_id = params[:guest_id]
 	end
@@ -13,4 +17,6 @@ class ExaminationsController < ApplicationController
 		examination.save
 		redirect_to guest_path(:id => params[:guest_id])
 	end
+	
+
 end

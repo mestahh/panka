@@ -17,4 +17,6 @@ Feature: Guest handling
 		Given I have a guest
 		When I visit the guests edit page
 		And change the values
-		Then I the new values should be stored
+		Then the new values should be stored
+		
+	

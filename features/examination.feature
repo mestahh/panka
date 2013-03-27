@@ -12,3 +12,10 @@ Feature: Examination
 		And press the add examination button
 		Then I should have a new examination in the database
 		And I should see the guests page.
+		
+	Scenario: List all examinations
+	
+		Given I have a guest
+		And I have an examination for that guest 
+	 	When I visit the examinations page
+		Then I should see the examination for that guest.

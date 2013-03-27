@@ -52,7 +52,7 @@ When(/^change the values$/) do
   click_button 'Edit'
 end
 
-Then(/^I the new values should be stored$/) do
+Then(/^the new values should be stored$/) do
   guest = Guest.find(@guest.id)
   guest.name.should == 'Kovacs Bela'
   guest.birth.should == '1956.05.25.'.to_date

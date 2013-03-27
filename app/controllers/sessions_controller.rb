@@ -8,13 +8,12 @@ class SessionsController < ApplicationController
 	end
 	
 	def create
-		user = User.find_by_username(params[:username])
-		
+ 		user = User.find_by_username(params[:username])
 		if (user && params['password'] == user.password)
-			session[:user] = user.username
-			redirect_to main_index_path
-		else
-			redirect_to_login 'Wrong login'	
+ 			session[:user] = user.username
+ 			redirect_to main_index_path
+ 		else
+ 			redirect_to_login 'Wrong login'	
 		end
 	end
 	

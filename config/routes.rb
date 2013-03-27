@@ -15,6 +15,8 @@ Panka::Application.routes.draw do
   
   resources :guests, :only => :show
 
+  resources :examinations, :only => :index
+
   controller :sessions do
   	get 'login' => :new
   	post 'login' => :create

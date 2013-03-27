@@ -25,3 +25,15 @@ end
 Then(/^I should see the guests page\.$/) do 
   current_path.should == guest_path(:id => @guest.id)
 end
+
+Given(/^I have an examination for that guest$/) do
+  @examination = FactoryGirl.create(:examination)
+end
+
+When(/^I visit the examinations page$/) do
+  visit examinations_path
+end
+
+Then(/^I should see the examination for that guest\.$/) do
+  page.should have_content 'Nyavaja'
+end

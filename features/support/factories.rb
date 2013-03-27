@@ -19,4 +19,12 @@ FactoryGirl.define do
   	user.email 'bob@gmail.com'
   end
   
+  factory :examination do |exam|
+  	exam.anamnezis 'Nyavaja'
+  	exam.treatment 'treatment'
+  	exam.charge '15000'
+  	exam.status 'brutal'
+  	exam.user_id 1
+  end
+  
 end
