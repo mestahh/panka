@@ -13,4 +13,10 @@ FactoryGirl.define do
 	guest.email 'bob@gmail.com'
   end
   
+  factory :user do |user|
+  	user.username 'bob'
+  	user.password 'secret'
+  	user.email 'bob@gmail.com'
+  end
+  
 end

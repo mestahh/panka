@@ -2,14 +2,17 @@ Given(/^I visit the login page$/) do
   visit login_path
 end
 
+Given(/^I have a user$/) do
+	@user = FactoryGirl.create(:user)
+end
+
 Given(/^I visit the page$/) do
   visit "/"
 end
 
-
 Given(/^enter the correct credentials$/) do
-  fill_in 'username', :with => 'bob'
-  fill_in 'password', :with => 'secret'
+  fill_in 'username', :with => @user.username
+  fill_in 'password', :with => @user.password
 end
 
 When(/^I click the login button$/) do
@@ -21,7 +24,7 @@ Then(/^I should see the main page$/) do
 end
 
 Given(/^enter the correct username$/) do
-  fill_in 'username', :with => 'bob'
+  fill_in 'username', :with => @user.username
 end
 
 Given(/^enter the wrong password$/) do
@@ -41,13 +44,14 @@ Given(/^enter a non\-existing username$/) do
 end
 
 Given(/^enter a password$/) do
-  fill_in 'password', :with => 'pass'
+  fill_in 'password', :with => @user.password
 end
 
 Given(/^I am logged in$/) do
+  @user = FactoryGirl.create(:user)
   visit '/login'
-  fill_in 'username', :with => 'bob'
-  fill_in 'password', :with => 'secret'
+  fill_in 'username', :with => @user.username
+  fill_in 'password', :with => @user.password
   click_button 'Login'
 end
 

@@ -8,8 +8,10 @@ class SessionsController < ApplicationController
 	end
 	
 	def create
-		if (params[:username] == 'bob' && params['password'] == 'secret')
-			session[:user] = 'bob'
+		user = User.find_by_username(params[:username])
+		
+		if (user && params['password'] == user.password)
+			session[:user] = user.username
 			redirect_to main_index_path
 		else
 			redirect_to_login 'Wrong login'	
