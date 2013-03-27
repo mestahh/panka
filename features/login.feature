@@ -38,3 +38,8 @@ Feature: Login
 		Then I should see the login page
 		And I should see the login page
 		
+	Scenario: The init page should be the login page
+	
+		Given I visit the page
+		Then I should see the login page
+		

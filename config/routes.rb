@@ -19,7 +19,10 @@ Panka::Application.routes.draw do
   	delete 'logout' => :destroy
   end
   
-  resources :guests 
+  controller :guests do
+  	get 'addguest' => :new
+  	post 'addguest' => :create
+  end 
 
   get "main/index"
 

@@ -1,6 +1,11 @@
 Given(/^I visit the login page$/) do
-  visit "/login"
+  visit login_path
 end
+
+Given(/^I visit the page$/) do
+  visit "/"
+end
+
 
 Given(/^enter the correct credentials$/) do
   fill_in 'username', :with => 'bob'
