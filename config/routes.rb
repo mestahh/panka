@@ -24,6 +24,8 @@ Panka::Application.routes.draw do
   controller :guests do
   	get 'addguest' => :new
   	post 'addguest' => :create
+	get 'edit_guest' => :edit
+	post 'edit_guest' => :update
   end 
 
   get "main/index"
