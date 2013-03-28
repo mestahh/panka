@@ -22,9 +22,9 @@ FactoryGirl.define do
   factory :examination do |exam|
   	exam.anamnezis 'Nyavaja'
   	exam.treatment 'treatment'
-  	exam.charge '15000'
+  	exam.charge 15000
   	exam.status 'brutal'
-  	exam.user_id 1
+  	exam.guest_id 1
   end
   
 end

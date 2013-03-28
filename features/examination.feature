@@ -13,9 +13,9 @@ Feature: Examination
 		Then I should have a new examination in the database
 		And I should see the guests page.
 		
-	Scenario: List all examinations
+	Scenario: List all examinations for a guest
 	
-		Given I have a guest
-		And I have an examination for that guest 
-	 	When I visit the examinations page
-		Then I should see the examination for that guest.
+		Given I have two guests
+		And I have an examination for both guests
+	 	When I visit the examinations page for the first guest
+		Then I should see the examinations for the first guest.

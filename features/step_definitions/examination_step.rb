@@ -26,14 +26,21 @@ Then(/^I should see the guests page\.$/) do
   current_path.should == guest_path(:id => @guest.id)
 end
 
-Given(/^I have an examination for that guest$/) do
-  @examination = FactoryGirl.create(:examination)
+Given(/^I have two guests$/) do
+  @guest = FactoryGirl.create(:guest)
+  @another_guest = FactoryGirl.create(:guest, name: 'Tim')
 end
 
-When(/^I visit the examinations page$/) do
-  visit examinations_path
+Given(/^I have an examination for both guests$/) do
+ @exam1 = FactoryGirl.create(:examination)
+ @exam2 = FactoryGirl.create(:examination, guest_id: @another_guest.id, anamnezis: 'Korsag')
 end
 
-Then(/^I should see the examination for that guest\.$/) do
+When(/^I visit the examinations page for the first guest$/) do
+  visit examinations_path(:guest_id => @guest.id)
+end
+
+Then(/^I should see the examinations for the first guest\.$/) do
   page.should have_content 'Nyavaja'
+  page.should_not have_content 'Korsag'
 end
