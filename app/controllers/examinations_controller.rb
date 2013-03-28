@@ -1,8 +1,11 @@
 class ExaminationsController < ApplicationController
 
 	def index
-		puts params[:guest_id]
-		@examinations = Examination.find_all_by_guest_id(params[:guest_id])
+		if (params[:guest_id])
+			@examinations = Examination.find_all_by_guest_id(params[:guest_id])
+		else
+			@examinations = Examination.find(:all)
+		end
 	end
 
 	def new 

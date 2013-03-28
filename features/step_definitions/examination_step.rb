@@ -44,3 +44,12 @@ Then(/^I should see the examinations for the first guest\.$/) do
   page.should have_content 'Nyavaja'
   page.should_not have_content 'Korsag'
 end
+
+When(/^I visit the examinations page without guest parameter$/) do
+  visit examinations_path
+end
+
+Then(/^I should see all the examinations for all guests$/) do
+  page.should have_content 'Nyavaja'
+  page.should have_content 'Korsag'
+end

@@ -19,3 +19,10 @@ Feature: Examination
 		And I have an examination for both guests
 	 	When I visit the examinations page for the first guest
 		Then I should see the examinations for the first guest.
+		
+	Scenario: List all examinations if the guest is not specified
+		
+		Given I have two guests
+		And I have an examination for both guests
+		When I visit the examinations page without guest parameter
+		Then I should see all the examinations for all guests
