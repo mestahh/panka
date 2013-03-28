@@ -12,6 +12,6 @@
 <% end %>
 
 <% @guests.each do |guest| %>
-  <p><%= guest.name %> <%= guest.mother %> <%= guest.birth %>
+  <p><%= link_to guest.name, guest_path(guest.id) %><%= guest.mother %> <%= guest.birth %>
   </p>
 <% end %>

@@ -1,4 +1,23 @@
 <% @examinations.each do |examination| %>
-  <p><%= examination.anamnezis %> <%= examination.updated_at %>
-  </p>
+  <div>
+  	
+  		<span><%= @examination.anamnezis.%></span>
+      <label for="anamnezis" >Anamnezis:</label>
+      <%= text_field_tag :anamnezis, params[:anamnezis] %>
+    </div>
+	<div>
+      <label for="status" >Status:</label>
+      <%= text_field_tag :status, params[:status] %>
+    </div>
+    <div>
+      <label for="treatment" >Treatment:</label>
+      <%= text_field_tag :treatment, params[:treatment] %>
+    </div>
+     <div>
+      <label for="charge" >Charge:</label>
+      <%= text_field_tag :charge, params[:charge] %>
+    </div>
+    <div>
+      <%= submit_tag "Add examination" %>
+    </div>
 <% end %>

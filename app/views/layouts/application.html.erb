@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Panka</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div id="leftmenu">
-	<%=
-		if session[:user]
-			link_to 'Log out', logout_path, :method => 'delete'
-			link_to 'Examinations', examinations_path
-			
-		end
-	%>
-</div>
-<div id="main">
-	<%= yield %>
-</div>
-
-
-</body>
+	<head>
+		<title>Panka</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<script language="javascript">
+			$(function() {
+				$("a").button();
+				$("input").button();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="container" class="ui-widget-content">
+			<div id="header">
+				<ul>
+					<li>
+						<%= link_to 'Add guest', addguest_path %>
+					</li>
+					<li>
+						<%= link_to 'Examinations', examinations_path %>
+					</li>
+					<li>
+						<%= link_to 'Log out', logout_path, :method => 'delete' %>
+					</li>
+				</ul>
+			</div>
+			<div id="leftmenu">
+				<ul>
+					<li>
+						<%= link_to 'Guests', guests_path %>
+					</li>
+				</ul>
+			</div>
+			<div id="main">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
 </html>

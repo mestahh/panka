@@ -1,2 +1,37 @@
-<%= @guest.name %>
-<%= link_to 'Add examination', newexamination_path(:guest_id => @guest.id) %>
+<h1><%= @guest.name %></h1>
+<div>
+	<span for="name" >Name:</span>
+	<span><%= @guest.name %></span>
+</div>
+<div>
+	<span for="birth" >Birth:</span>
+	<span><%= @guest.birth %></span>
+</div>
+<div>
+	<span for="mother" >Mother:</span>
+	<span><%= @guest.mother %></span>
+</div>
+<div>
+	<span for="address" >Address:</span>
+	<span><%= @guest.address %></span>
+</div>
+<div>
+	<span for="city" >City:</span>
+	<span><%= @guest.city %></span>
+</div>
+<div>
+	<span for="postal_code" >Postal code:</span>
+	<span><%= @guest.postal_code %></span>
+</div>
+<div>
+	<span for="phone" >Phone:</span>
+	<span><%= @guest.phone %></span>
+</div>
+<div>
+	<span for="email" >E-mail:</span>
+	<span><%= @guest.email %></span>
+</div>
+<div>
+	<%= link_to 'Edit', edit_guest_path(:id => @guest.id) %> <%= link_to 'Add examination', newexamination_path(:guest_id => @guest.id) %>
+</div>
+

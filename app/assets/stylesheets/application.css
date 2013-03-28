@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+#container {
+	overflow: auto;
+}
+
+ul>li{
+	display: inline;
+}
+
+#leftmenu {
+	float: left;
+	height: 400px;
+	width: 200px;
+}
+
+#main {
+	margin-left: 200px;
+	padding: 10px;
+	border-left: 1px dotted black;
+	border-top: 1px dotted black;
+}
