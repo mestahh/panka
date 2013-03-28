@@ -1,13 +1,21 @@
 class GuestsController < ApplicationController
 
 	def index 
-		@guests = Guest.find(:all)
+		if (params[:query])
+			@guests = Guest.search(params[:query])
+		else 
+			@guests = Guest.find(:all)
+		end
 	end
 	
 	def search
 		puts params[:search_field]
 		@guest = Guest.search(params[:search_field])
-		redirect_to guest_path(:id => @guest[0].id)
+		if (@guest.size > 1) 
+			redirect_to guests_path(:query => params[:search_field])
+		else 
+			redirect_to guest_path(:id => @guest[0].id)
+		end
 	end
 
 	def new

@@ -25,3 +25,12 @@ Feature: Guest handling
 		When I visit the page for displaying all guests
 		And search for his name
 		Then I should see the details about the guest.
+		
+	Scenario: Find a guest if there are more with the same name
+	
+		Given I have two guests with the same name and another different one
+		When I visit the page for displaying all guests
+		And search for his name
+		Then I should see the all guests page with the matching guests.
+		
+	

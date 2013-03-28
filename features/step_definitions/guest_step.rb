@@ -72,3 +72,16 @@ end
 When(/^I visit the page for displaying all guests$/) do
   visit guests_path
 end
+
+Given(/^I have two guests with the same name and another different one$/) do
+  @guest1 = FactoryGirl.create(:guest)
+  @guest2 = FactoryGirl.create(:guest, mother: 'Kovacs Klari')
+  @guest3 = FactoryGirl.create(:guest, name: 'Tim')
+end
+
+Then(/^I should see the all guests page with the matching guests\.$/) do
+  current_path.should == guests_path
+  page.should have_content 'Szabo Klari'
+  page.should have_content 'Kovacs Klari'
+  page.should_not have_content 'Tim'
+end
