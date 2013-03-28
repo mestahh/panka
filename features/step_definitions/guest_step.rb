@@ -63,3 +63,12 @@ Then(/^the new values should be stored$/) do
   guest.phone.should == '06205554535'
   guest.email.should == 'k.j@gmail.com'
 end
+
+When(/^search for his name$/) do
+  fill_in 'search_field', :with => 'Bo'
+  click_button 'Search'
+end
+
+When(/^I visit the page for displaying all guests$/) do
+  visit guests_path
+end

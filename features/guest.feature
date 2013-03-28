@@ -19,4 +19,9 @@ Feature: Guest handling
 		And change the values
 		Then the new values should be stored
 		
+	Scenario: Find guest with unique name
 	
+		Given I have a guest
+		When I visit the page for displaying all guests
+		And search for his name
+		Then I should see the details about the guest.

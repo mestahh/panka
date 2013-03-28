@@ -16,6 +16,7 @@ Panka::Application.routes.draw do
   resources :guests, :only => :show
 
   resources :examinations, :only => :index
+  resources :guests, :only => :index
 
   controller :sessions do
   	get 'login' => :new
@@ -28,6 +29,7 @@ Panka::Application.routes.draw do
   	post 'addguest' => :create
 	get 'edit_guest' => :edit
 	post 'edit_guest' => :update
+	post 'guests' => :search
   end 
   
   controller :examinations do

@@ -1,5 +1,15 @@
 class GuestsController < ApplicationController
 
+	def index 
+		@guests = Guest.find(:all)
+	end
+	
+	def search
+		puts params[:search_field]
+		@guest = Guest.search(params[:search_field])
+		redirect_to guest_path(:id => @guest[0].id)
+	end
+
 	def new
 	
 	end
