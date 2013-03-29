@@ -12,12 +12,17 @@ class ExaminationsController < ApplicationController
 		@guest_id = params[:guest_id]
 	end
 	
+	def show
+	  @examination = Examination.find(params[:id]);
+	end
+	
 	def create
 		examination = Examination.new
 		examination.anamnezis = params[:anamnezis]
 		examination.status = params[:status]
 		examination.treatment = params[:treatment]
 		examination.charge = params[:charge]
+		examination.guest_id = params[:guest_id]
 		examination.save
 		redirect_to guest_path(:id => params[:guest_id])
 	end

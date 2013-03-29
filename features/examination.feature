@@ -6,7 +6,7 @@ Feature: Examination
 	Scenario: Adding Examination
 	
 		Given I am logged in
-		And have a guest
+		And I have a guest
 		When I click on the add examination link on the guests page
 		And fill in all the fields on the examination
 		And press the add examination button
@@ -26,3 +26,10 @@ Feature: Examination
 		And I have an examination for both guests
 		When I visit the examinations page without guest parameter
 		Then I should see all the examinations for all guests
+		
+	Scenario: Examination page can be visited
+	
+		Given I have a guest
+		And I have an examination for that guest
+		When I visit that examinations page
+		Then I should see the examination details.

@@ -1,5 +1,16 @@
-Given(/^have a guest$/) do
-  @guest = FactoryGirl.create(:guest)
+Given(/^I have an examination for that guest$/) do
+  @exam = FactoryGirl.create(:examination)
+end
+
+When(/^I visit that examinations page$/) do
+  visit examination_path(:id => @exam.id)
+end
+
+Then(/^I should see the examination details\.$/) do
+  page.should have_content 'Nyavaja'
+  page.should have_content 'treatment'
+  page.should have_content 'brutal'
+  page.should have_content '15000'
 end
 
 When(/^I click on the add examination link on the guests page$/) do
@@ -8,10 +19,10 @@ When(/^I click on the add examination link on the guests page$/) do
 end
 
 When(/^fill in all the fields on the examination$/) do
- 	fill_in 'anamnezis', :with => 'testanamnezis'
- 	fill_in 'status', :with => 'status'
- 	fill_in 'treatment', :with => 'treatment'
- 	fill_in 'charge', :with => 'charge'
+  fill_in 'anamnezis', :with => 'testanamnezis'
+  fill_in 'status', :with => 'status'
+  fill_in 'treatment', :with => 'treatment'
+  fill_in 'charge', :with => 'charge'
 end
 
 When(/^press the add examination button$/) do
@@ -22,7 +33,7 @@ Then(/^I should have a new examination in the database$/) do
   Examination.count.should == 1
 end
 
-Then(/^I should see the guests page\.$/) do 
+Then(/^I should see the guests page\.$/) do
   current_path.should == guest_path(:id => @guest.id)
 end
 
@@ -32,8 +43,8 @@ Given(/^I have two guests$/) do
 end
 
 Given(/^I have an examination for both guests$/) do
- @exam1 = FactoryGirl.create(:examination)
- @exam2 = FactoryGirl.create(:examination, guest_id: @another_guest.id, anamnezis: 'Korsag')
+  @exam1 = FactoryGirl.create(:examination)
+  @exam2 = FactoryGirl.create(:examination, guest_id: @another_guest.id, anamnezis: 'Korsag')
 end
 
 When(/^I visit the examinations page for the first guest$/) do
