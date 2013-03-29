@@ -34,6 +34,16 @@ Feature: Examination
 		When I visit that examinations page
 		Then I should see the examination details.
 		
+	Scenario: Edit examination
+	
+		Given I have a guest
+		And I have an examination for that guest
+		When I visit that examinations edit page
+		And change its values
+		And press the edit button
+		Then the changes should be saved
+		And I should see the changed examination
+		
 	Scenario: Delete examination
 	
 		Given I have a guest

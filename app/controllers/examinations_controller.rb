@@ -33,5 +33,18 @@ class ExaminationsController < ApplicationController
 	  redirect_to guest_path(:id => examination.guest.id)
 	end
 	
+	def edit 
+	  @examination = Examination.find(params[:id])
+	end
+	
+	def update
+	  exam = Examination.find(params[:id])
+    exam.status = params[:status]
+    exam.treatment = params[:treatment]
+    exam.charge = params[:charge]
+    exam.anamnezis = params[:anamnezis]
+    exam.save
+    redirect_to guest_path(:id => exam.guest.id)
+	end
 
 end

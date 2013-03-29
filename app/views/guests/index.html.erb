@@ -17,6 +17,7 @@
 		<td>Birth</th>
 		<th>City</th>
 		<th></th>
+		<th></th>
 	</thead>
 
 <% @guests.each do |guest| %>
@@ -26,6 +27,7 @@
 	<td><%= guest.birth %></td>
 	<td><%= guest.city %></td>
 	<td><%= link_to 'Edit', edit_guest_path(:id => guest.id) %></td>
+	<td><%= link_to 'Delete guest', delete_guest_path(:id => guest.id), :method => 'delete' %></td>
 </tr>
   
  

@@ -1,6 +1,12 @@
 <table>
 	<thead>
-		<th>Date</th><th>Anamnezis</th><th>Status</th><th>Treatment</th><th>Charge</th>
+		<th>Date</th>
+		<th>Anamnezis</th>
+		<th>Status</th>
+		<th>Treatment</th>
+		<th>Charge</th>
+		<th></th>
+		<th></th>
 	</thead>
 	<% @examinations.each do |examination| %>
 	<tr>
@@ -9,6 +15,8 @@
 		<td><%= examination.status %></td>
 		<td><%= examination.treatment %></td>
 		<td><%= examination.charge %></td>
+		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id) %></td>
+		<td><%= link_to 'Delete', delete_examination_path(:id => examination.id) %></td>
 	</tr>
 	<% end %>
 </table>

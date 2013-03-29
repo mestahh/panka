@@ -1,4 +1,4 @@
-<h1><%= @examination.guest.name %></h1>
+<h1><%= link_to @examination.guest.name, guest_path(:id => @examination.guest.id) %></h1>
 <div>
 	<span>Last modified:</span>
 	<span><%= @examination.updated_at %></span>
@@ -23,4 +23,5 @@
 	<span><%= @examination.charge %></span>
 </div>
 <%= link_to 'Delete examination', delete_examination_path(:id => @examination.id), :method => 'delete' %>
+<%= link_to 'Edit', edit_examination_path(:id => @examination.id) %>
 
