@@ -15,7 +15,6 @@ Panka::Application.routes.draw do
 
   resources :guests, :only => :show
 
-  
   resources :guests, :only => :index
 
   controller :sessions do
@@ -30,6 +29,7 @@ Panka::Application.routes.draw do
     get 'edit_guest' => :edit
     post 'edit_guest' => :update
     post 'guests' => :search
+    delete 'delete_guest' => :destroy
   end
 
   controller :examinations do

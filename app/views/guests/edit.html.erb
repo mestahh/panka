@@ -1,42 +1,43 @@
 <%= form_tag do %>
-  <fieldset>
-    <h1>Edit guest</h1>
+<fieldset>
+	<h1>Edit guest</h1>
 	<%= hidden_field_tag :id, params[:id], :value => @guest.id %>
-    <div>
-      <label for="name" >Name:</label>
-      <%= text_field_tag :name, params[:name], :value => @guest.name %>
-    </div>
 	<div>
-      <label for="birth" >Birth:</label>
-      <%= text_field_tag :birth, params[:birth], :value => @guest.birth %>
-    </div>
-    <div>
-      <label for="mother" >Mother:</label>
-      <%= text_field_tag :mother, params[:mother], :value => @guest.mother %>
-    </div>
-     <div>
-      <label for="address" >Address:</label>
-      <%= text_field_tag :address, params[:address], :value => @guest.address %>
-    </div>
-    <div>
-      <label for="city" >City:</label>
-      <%= text_field_tag :city, params[:city], :value => @guest.city %>
-    </div>
-    <div>
-      <label for="postal_code" >Postal code:</label>
-      <%= text_field_tag :postal_code, params[:postal_code], :value => @guest.postal_code %>
-    </div>
-    <div>
-      <label for="phone" >Phone:</label>
-      <%= text_field_tag :phone, params[:phone], :value => @guest.phone %>
-    </div>
-    <div>
-      <label for="email" >E-mail:</label>
-      <%= text_field_tag :email, params[:email], :value => @guest.email %>
-    </div>
-   
-    <div>
-      <%= submit_tag "Edit" %>
-    </div>
-  </fieldset>
+		<label for="name" >Name:</label>
+		<%= text_field_tag :name, params[:name], :value => @guest.name %>
+	</div>
+	<div>
+		<label for="birth" >Birth:</label>
+		<%= text_field_tag :birth, params[:birth], :value => @guest.birth %>
+	</div>
+	<div>
+		<label for="mother" >Mother:</label>
+		<%= text_field_tag :mother, params[:mother], :value => @guest.mother %>
+	</div>
+	<div>
+		<label for="address" >Address:</label>
+		<%= text_field_tag :address, params[:address], :value => @guest.address %>
+	</div>
+	<div>
+		<label for="city" >City:</label>
+		<%= text_field_tag :city, params[:city], :value => @guest.city %>
+	</div>
+	<div>
+		<label for="postal_code" >Postal code:</label>
+		<%= text_field_tag :postal_code, params[:postal_code], :value => @guest.postal_code %>
+	</div>
+	<div>
+		<label for="phone" >Phone:</label>
+		<%= text_field_tag :phone, params[:phone], :value => @guest.phone %>
+	</div>
+	<div>
+		<label for="email" >E-mail:</label>
+		<%= text_field_tag :email, params[:email], :value => @guest.email %>
+	</div>
+
+	<div>
+		<%= submit_tag "Edit" %>
+	</div>
+</fieldset>
 <% end %>
+<%= link_to 'Delete guest', delete_guest_path(:id => @guest.id), :method => 'delete' %>

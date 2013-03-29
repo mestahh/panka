@@ -85,3 +85,15 @@ Then(/^I should see the all guests page with the matching guests\.$/) do
   page.should have_content 'Kovacs Klari'
   page.should_not have_content 'Tim'
 end
+
+When(/^click on the delete guest link$/) do
+  click_link 'Delete guest'
+end
+
+Then(/^the guest should be removed from the database$/) do
+  Guest.count.should == 0
+end
+
+Then(/^I should see the all guests page$/) do
+  current_path.should == guests_path
+end

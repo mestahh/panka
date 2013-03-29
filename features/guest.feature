@@ -19,6 +19,14 @@ Feature: Guest handling
 		And change the values
 		Then the new values should be stored
 		
+	Scenario: Delete a guest
+	
+		Given I have a guest
+		When I visit the guests edit page
+		And click on the delete guest link
+		Then the guest should be removed from the database
+		And I should see the all guests page
+		
 	Scenario: Find guest with unique name
 	
 		Given I have a guest
