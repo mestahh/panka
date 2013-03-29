@@ -22,4 +22,5 @@
 	<span> Charge:</span>
 	<span><%= @examination.charge %></span>
 </div>
+<%= link_to 'Delete examination', delete_examination_path(:id => @examination.id), :method => 'delete' %>
 

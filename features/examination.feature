@@ -33,3 +33,12 @@ Feature: Examination
 		And I have an examination for that guest
 		When I visit that examinations page
 		Then I should see the examination details.
+		
+	Scenario: Delete examination
+	
+		Given I have a guest
+		And I have an examination for that guest
+		When I visit that examinations page
+		And I click on the delete examination link
+		Then the examination should be deleted.
+		And I should see the guests page

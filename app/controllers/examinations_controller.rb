@@ -27,5 +27,11 @@ class ExaminationsController < ApplicationController
 		redirect_to guest_path(:id => params[:guest_id])
 	end
 	
+	def destroy
+	  examination = Examination.find(params[:id])
+	  examination.delete
+	  redirect_to guest_path(:id => examination.guest.id)
+	end
+	
 
 end

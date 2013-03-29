@@ -34,4 +34,19 @@
 <div>
 	<%= link_to 'Edit', edit_guest_path(:id => @guest.id) %> <%= link_to 'Add examination', newexamination_path(:guest_id => @guest.id) %>
 </div>
+<hr />
+<table>
+	<thead>
+		<th>Date</th><th>Anamnezis</th><th>Status</th><th>Treatment</th><th>Charge</th>
+	</thead>
+	<% @guest.examinations.each do |examination| %>
+	<tr>
+		<td><%= link_to examination.updated_at, examination_path(:id => examination.id) %></td>
+		<td><%= examination.anamnezis %></td>
+		<td><%= examination.status %></td>
+		<td><%= examination.treatment %></td>
+		<td><%= examination.charge %></td>
+	</tr>
+	<% end %>
+</table>
 

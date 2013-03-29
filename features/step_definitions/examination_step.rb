@@ -64,3 +64,15 @@ Then(/^I should see all the examinations for all guests$/) do
   page.should have_content 'Nyavaja'
   page.should have_content 'Korsag'
 end
+
+When(/^I click on the delete examination link$/) do
+  click_link 'Delete examination'
+end
+
+Then(/^the examination should be deleted\.$/) do
+ Examination.count.should == 0
+end
+
+Then(/^I should see the guests page$/) do
+  current_path.should == guest_path(:id => @guest.id)
+end

@@ -37,6 +37,7 @@ Panka::Application.routes.draw do
     post 'newexamination' => :create
     get 'examinations' => :index
     get 'examination' => :show
+    delete 'delete_examination' => :destroy
   end
 
   get "main/index"
