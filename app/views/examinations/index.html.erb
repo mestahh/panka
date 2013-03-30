@@ -18,7 +18,7 @@
 		<td><%= examination.treatment %></td>
 		<td><%= examination.charge %></td>
 		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id) %></td>
-		<td><%= link_to 'Delete', delete_examination_path(:id => examination.id) %></td>
+		<td><%= link_to 'Delete', delete_examination_path(:id => examination.id), :method => 'delete' %></td>
 	</tr>
 	<% end %>
 </table>
