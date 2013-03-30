@@ -1,17 +1,17 @@
 <%= form_tag do %>
   <fieldset>
     <h1>Please Login</h1>
-    <div>
-      <label for="username" >Name:</label>
+    <p>
       <%= text_field_tag :username, params[:username] %>
-    </div>
-	<div>
-      <label for="password" >Password:</label>
+      <label for="username" >Name:</label>
+    </p>
+	<p>
       <%= password_field_tag :password, params[:password] %>
-    </div>
-    <div>
-      <%= submit_tag "Login" %>
-    </div>
+      <label for="password" >Password:</label>
+    </p>
+    <p>
+      <%= submit_tag "Login", :class => 'submit' %>
+    </p>
   </fieldset>
 <% end %>
 <% if flash[:alert] %>

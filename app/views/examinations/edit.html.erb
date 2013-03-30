@@ -2,24 +2,24 @@
   <fieldset>
     <h1>Edit examination</h1>
     <%= hidden_field_tag :id, params[:id], :value => @examination.id %>
-    <div>
-      <label for="anamnezis">Anamnezis:</label>
+    <p>
       <%= text_field_tag :anamnezis, params[:anamnezis], :value => @examination.anamnezis %>
-    </div>
-	<div>
-      <label for="status" >Status:</label>
+      <label for="anamnezis">Anamnezis:</label>
+    </p>
+	<p>
       <%= text_field_tag :status, params[:status], :value => @examination.status %>
-    </div>
-    <div>
-      <label for="treatment" >Treatment:</label>
+      <label for="status" >Status:</label>
+    </p>
+    <p>
       <%= text_field_tag :treatment, params[:treatment], :value => @examination.treatment %>
-    </div>
-     <div>
-      <label for="charge" >Charge:</label>
+      <label for="treatment" >Treatment:</label>
+    </p>
+     <p>
       <%= text_field_tag :charge, params[:charge], :value => @examination.charge %>
-    </div>
-    <div>
-      <%= submit_tag "Edit examination" %>
-    </div>
+      <label for="charge" >Charge:</label>
+    </p>
+    <p>
+      <%= submit_tag "Edit examination", :class => 'submit' %>
+    </p>
   </fieldset>
 <% end %>

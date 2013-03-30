@@ -1,41 +1,40 @@
 <%= form_tag do %>
   <fieldset>
     <h1>Add new guest</h1>
-    <div>
-      <label for="name" >Name:</label>
+    <p>
       <%= text_field_tag :name, params[:name] %>
-    </div>
-	<div>
-      <label for="birth" >Birth:</label>
+      <label for="name" >Name</label>
+    </p>
+	<p>
       <%= text_field_tag :birth, params[:birth] %>
-    </div>
-    <div>
-      <label for="mother" >Mother:</label>
+      <label for="birth" >Birth</label>
+    </p>
+    <p>
       <%= text_field_tag :mother, params[:mother] %>
-    </div>
-     <div>
-      <label for="address" >Address:</label>
+      <label for="mother" >Mother</label>
+    </p>
+     <p>
       <%= text_field_tag :address, params[:address] %>
-    </div>
-    <div>
-      <label for="city" >City:</label>
+      <label for="address" >Address</label>
+    </p>
+    <p>
       <%= text_field_tag :city, params[:city] %>
-    </div>
-    <div>
-      <label for="postal_code" >Postal code:</label>
+      <label for="city" >City</label>
+    </p>
+    <p>
       <%= text_field_tag :postal_code, params[:postal_code] %>
-    </div>
-    <div>
-      <label for="phone" >Phone:</label>
+      <label for="postal_code" >Postal code</label>
+    </p>
+    <p>
       <%= text_field_tag :phone, params[:phone] %>
-    </div>
-    <div>
-      <label for="email" >E-mail:</label>
+      <label for="phone" >Phone</label>
+    </p>
+    <p>
       <%= text_field_tag :email, params[:email] %>
-    </div>
-   
-    <div>
-      <%= submit_tag "Add guest" %>
-    </div>
+      <label for="email" >E-mail</label>
+    </p>
+    <p>
+      <%= submit_tag "Add guest", :class => 'submit' %>
+    </p>
   </fieldset>
 <% end %>

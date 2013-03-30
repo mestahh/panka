@@ -20,7 +20,7 @@ When(/^I click the login button$/) do
 end
 
 Then(/^I should see the main page$/) do
-  page.should have_content 'welcome'
+  page.should have_content 'Welcome'
 end
 
 Given(/^enter the correct username$/) do
@@ -56,7 +56,7 @@ Given(/^I am logged in$/) do
 end
 
 When(/^I click on the logout link$/) do
-  click_link 'log out'
+  click_link 'Log out'
 end
 
 

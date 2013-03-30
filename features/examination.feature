@@ -33,7 +33,7 @@ Feature: Examination
 		And I have an examination for that guest
 		When I visit that examinations page
 		Then I should see the examination details.
-		
+	
 	Scenario: Edit examination
 	
 		Given I have a guest

@@ -4,9 +4,7 @@
     <div>
       <label for="search_field" >Search:</label>
       <%= text_field_tag :search_field, params[:search_field] %>
-    </div>
-    <div>
-      <%= submit_tag "Search" %>
+      <%= submit_tag "Search", :class => 'submit' %>
     </div>
   </fieldset>
 <% end %>
