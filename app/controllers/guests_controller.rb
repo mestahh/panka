@@ -28,24 +28,16 @@ class GuestsController < ApplicationController
   end
 
   def new
-
+    @guest = Guest.new
   end
 
   def create
-    guest = Guest.new
-    guest.name = params[:name]
-    guest.birth = params[:birth]
-    guest.mother = params[:mother]
-    guest.address = params[:address]
-    guest.city = params[:city]
-    guest.postal_code = params[:postal_code]
-    guest.phone = params[:phone]
-    guest.email = params[:email]
+    guest = Guest.new(params[:guest])
 
     if guest.save
       redirect_to main_index_path
     else
-      redirect_to addguest_path
+      redirect_to new_guest_path
     end
   end
 
@@ -59,16 +51,8 @@ class GuestsController < ApplicationController
 
   def update
     guest = Guest.find(params[:id])
-    guest.name = params[:name]
-    guest.birth = params[:birth]
-    guest.mother = params[:mother]
-    guest.address = params[:address]
-    guest.city = params[:city]
-    guest.postal_code = params[:postal_code]
-    guest.phone = params[:phone]
-    guest.email = params[:email]
 
-    if guest.save
+    if guest.update_attributes(params[:guest])
       redirect_to guest_path(:id => guest.id)
     else
       redirect_to edit_guest_path(:id => guest.id)

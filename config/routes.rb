@@ -13,9 +13,7 @@ Panka::Application.routes.draw do
 # Sample resource route (maps HTTP verbs to controller actions automatically):
 #   resources :products
 
-  resources :guests, :only => :show
-
-  resources :guests, :only => :index
+  resources :guests, :examinations
 
   controller :sessions do
     get 'login' => :new
@@ -24,23 +22,11 @@ Panka::Application.routes.draw do
   end
 
   controller :guests do
-    get 'addguest' => :new
-    post 'addguest' => :create
-    get 'edit_guest' => :edit
-    post 'edit_guest' => :update
-    post 'guests' => :search
-    delete 'delete_guest' => :destroy
+    post 'search_guest' => :search
   end
 
   controller :examinations do
-    get 'newexamination' => :new
-    post 'newexamination' => :create
-    get 'examinations' => :index
-    post 'examinations' => :index
-    get 'examination' => :show
-    delete 'delete_examination' => :destroy
-    get 'edit_examination' => :edit
-    post 'edit_examination' => :update
+    post 'search_examination' => :index
   end
 
   get "main/index"

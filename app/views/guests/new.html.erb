@@ -1,40 +1,60 @@
-<%= form_tag do %>
-  <fieldset>
-    <h1>Add new guest</h1>
-    <p>
-      <%= text_field_tag :name, params[:name] %>
-      <label for="name" >Name</label>
-    </p>
-	<p>
-      <%= text_field_tag :birth, params[:birth] %>
-      <label for="birth" >Birth</label>
-    </p>
-    <p>
-      <%= text_field_tag :mother, params[:mother] %>
-      <label for="mother" >Mother</label>
-    </p>
-     <p>
-      <%= text_field_tag :address, params[:address] %>
-      <label for="address" >Address</label>
-    </p>
-    <p>
-      <%= text_field_tag :city, params[:city] %>
-      <label for="city" >City</label>
-    </p>
-    <p>
-      <%= text_field_tag :postal_code, params[:postal_code] %>
-      <label for="postal_code" >Postal code</label>
-    </p>
-    <p>
-      <%= text_field_tag :phone, params[:phone] %>
-      <label for="phone" >Phone</label>
-    </p>
-    <p>
-      <%= text_field_tag :email, params[:email] %>
-      <label for="email" >E-mail</label>
-    </p>
-    <p>
-      <%= submit_tag "Add guest", :class => 'submit' %>
-    </p>
-  </fieldset>
+<%= form_for(@guest) do |f| %>
+<% if @guest.errors.any? %>
+<div id="errorExplanation">
+	<h2><%= pluralize(@guest.errors.count, "error") %> prohibited
+	this post from being saved:</h2>
+	<ul>
+		<% @guest.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :name %>
+	<br />
+	<%= f.text_field :name %>
+</div>
+<div class="field">
+	<%= f.label :birth %>
+	<br />
+	<%= f.text_field :birth %>
+</div>
+<div class="field">
+	<%= f.label :mother %>
+	<br />
+	<%= f.text_area :mother %>
+</div>
+<div class="field">
+	<%= f.label :address %>
+	<br />
+	<%= f.text_area :address %>
+</div>
+<div class="field">
+	<%= f.label :city %>
+	<br />
+	<%= f.text_area :city %>
+</div>
+<div class="field">
+	<%= f.label :postal_code %>
+	<br />
+	<%= f.text_area :postal_code %>
+</div>
+<div class="field">
+	<%= f.label :phone %>
+	<br />
+	<%= f.text_area :phone %>
+</div>
+<div class="field">
+	<%= f.label :email %>
+	<br />
+	<%= f.text_area :email %>
+</div>
+
+<div class="actions">
+	<%= f.submit :value => 'Add guest', :class => 'submit' %>
+</div>
 <% end %>

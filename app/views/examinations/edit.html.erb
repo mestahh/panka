@@ -1,25 +1,43 @@
-<%= form_tag do %>
-  <fieldset>
-    <h1>Edit examination</h1>
-    <%= hidden_field_tag :id, params[:id], :value => @examination.id %>
-    <p>
-      <%= text_field_tag :anamnezis, params[:anamnezis], :value => @examination.anamnezis %>
-      <label for="anamnezis">Anamnezis:</label>
-    </p>
-	<p>
-      <%= text_field_tag :status, params[:status], :value => @examination.status %>
-      <label for="status" >Status:</label>
-    </p>
-    <p>
-      <%= text_field_tag :treatment, params[:treatment], :value => @examination.treatment %>
-      <label for="treatment" >Treatment:</label>
-    </p>
-     <p>
-      <%= text_field_tag :charge, params[:charge], :value => @examination.charge %>
-      <label for="charge" >Charge:</label>
-    </p>
-    <p>
-      <%= submit_tag "Edit examination", :class => 'submit' %>
-    </p>
-  </fieldset>
+<%= form_for(@examination) do |f| %>
+<% if @examination.errors.any? %>
+<div id="errorExplanation">
+	<h2><%= pluralize(@examination.errors.count, "error") %> prohibited
+	this post from being saved:</h2>
+	<ul>
+		<% @examination.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
+
+<h1>Edit examination</h1>
+<%= f.hidden_field :guest_id, :value => @examination.guest_id %>
+<p>
+	<div class="field">
+		<%= f.label :anamnezis %>
+		<br />
+		<%= f.text_field :anamnezis %>
+	</div>
+	<div class="field">
+		<%= f.label :status %>
+		<br />
+		<%= f.text_field :status %>
+	</div>
+	<div class="field">
+		<%= f.label :treatment %>
+		<br />
+		<%= f.text_field :treatment %>
+	</div>
+	<div class="field">
+		<%= f.label :charge %>
+		<br />
+		<%= f.text_field :charge %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit :value => 'Edit examinations', :class => 'submit' %>
+	</div>
+	<% end %>

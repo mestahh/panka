@@ -1,17 +1,18 @@
 When(/^I am adding a new guest to the database$/) do
-  visit addguest_path
-  fill_in 'name', :with => 'Kovacs Janos'
-  fill_in 'birth', :with => '1956.03.25'
-  fill_in 'mother', :with => 'Szabo Anna'
-  fill_in 'address', :with => 'Hallo utca 20.'
-  fill_in 'city', :with => 'Tata'
-  fill_in 'postal_code', :with => '2890'
-  fill_in 'phone', :with => '06305554534'
-  fill_in 'email', :with => 'k.j@email.com'
+  visit new_guest_path
+  fill_in 'guest_name', :with => 'Kovacs Janos'
+  fill_in 'guest_birth', :with => '1956.03.25'
+  fill_in 'guest_mother', :with => 'Szabo Anna'
+  fill_in 'guest_address', :with => 'Hallo utca 20.'
+  fill_in 'guest_city', :with => 'Tata'
+  fill_in 'guest_postal_code', :with => '2890'
+  fill_in 'guest_phone', :with => '06305554534'
+  fill_in 'guest_email', :with => 'k.j@email.com'
   click_button 'Add guest'
 end
 
 Then(/^the new guest should be stored$/) do
+  current_path.should == main_index_path
   Guest.count.should == 1
   guest = Guest.find_by_name 'Kovacs Janos'
   guest.name.should == 'Kovacs Janos'
@@ -41,14 +42,14 @@ When(/^I visit the guests edit page$/) do
 end
 
 When(/^change the values$/) do
-  fill_in 'name', :with => 'Kovacs Bela'
-  fill_in 'birth', :with => '1956.05.25'
-  fill_in 'mother', :with => 'Szabo Eva'
-  fill_in 'address', :with => 'Hallo utca 22.'
-  fill_in 'city', :with => 'Tatabanya'
-  fill_in 'postal_code', :with => '2900'
-  fill_in 'phone', :with => '06205554535'
-  fill_in 'email', :with => 'k.j@gmail.com'
+  fill_in 'guest_name', :with => 'Kovacs Bela'
+  fill_in 'guest_birth', :with => '1956.05.25'
+  fill_in 'guest_mother', :with => 'Szabo Eva'
+  fill_in 'guest_address', :with => 'Hallo utca 22.'
+  fill_in 'guest_city', :with => 'Tatabanya'
+  fill_in 'guest_postal_code', :with => '2900'
+  fill_in 'guest_phone', :with => '06205554535'
+  fill_in 'guest_email', :with => 'k.j@gmail.com'
   click_button 'Edit'
 end
 
@@ -113,7 +114,7 @@ Then(/^I should see an error message about the unsuccessful search$/) do
 end
 
 When(/^I visit the guests page in select mode$/) do
-  visit guests_path(:mode => 'select', :from => newexamination_path)
+  visit guests_path(:mode => 'select', :from => new_examination_path)
 end
 
 When(/^click on a guests name$/) do
@@ -121,5 +122,5 @@ When(/^click on a guests name$/) do
 end
 
 Then(/^I should see the new examination page with the guest id$/) do
-  current_path.should == newexamination_path
+  current_path.should == new_examination_path
 end

@@ -20,10 +20,10 @@ When(/^I click on the add examination link on the guests page$/) do
 end
 
 When(/^fill in all the fields on the examination$/) do
-  fill_in 'anamnezis', :with => 'testanamnezis'
-  fill_in 'status', :with => 'status'
-  fill_in 'treatment', :with => 'treatment'
-  fill_in 'charge', :with => 15000
+  fill_in 'examination_anamnezis', :with => 'testanamnezis'
+  fill_in 'examination_status', :with => 'status'
+  fill_in 'examination_treatment', :with => 'treatment'
+  fill_in 'examination_charge', :with => 15000
 end
 
 When(/^press the add examination button$/) do
@@ -84,10 +84,10 @@ When(/^I visit that examinations edit page$/) do
 end
 
 When(/^change its values$/) do
-  fill_in 'anamnezis', :with => 'changedanamnezis'
-  fill_in 'status', :with => 'changedstatus'
-  fill_in 'treatment', :with => 'changedtreatment'
-  fill_in 'charge', :with => 12000
+  fill_in 'examination_anamnezis', :with => 'changedanamnezis'
+  fill_in 'examination_status', :with => 'changedstatus'
+  fill_in 'examination_treatment', :with => 'changedtreatment'
+  fill_in 'examination_charge', :with => 12000
 end
 
 When(/^press the edit button$/) do
@@ -121,13 +121,13 @@ When(/^I click on the search button$/) do
 end
 
 Then(/^I should see the first examination listed$/) do
-  current_path.should == examinations_path
+  current_path.should == search_examination_path
   page.should have_content 'Nyavaja'
   page.should_not have_content 'Korsag'
 end
 
 Then(/^I should see both examinations listed$/) do
-  current_path.should == examinations_path
+  current_path.should == search_examination_path
   page.should have_content 'Nyavaja'
   page.should have_content 'Korsag'
 end
@@ -142,7 +142,7 @@ When(/^I enter the dates for both examinations in the date filters$/) do
 end
 
 When(/^I click on the add examination menu item$/) do
-  visit newexamination_path
+  visit new_examination_path
 end
 
 When(/^click on the select guest button$/) do
@@ -154,7 +154,7 @@ Then(/^I should see the select guest page\.$/) do
 end
 
 Given(/^I visit the new examination page with a guest parameter$/) do
- visit newexamination_path(:guest_id => 1)
+ visit new_examination_path(:guest_id => 1)
 end
 
 Then(/^I should not see the select guest link$/) do

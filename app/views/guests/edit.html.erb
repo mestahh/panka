@@ -1,43 +1,61 @@
-<%= form_tag do %>
-<fieldset>
-	<h1>Edit guest</h1>
-	<%= hidden_field_tag :id, params[:id], :value => @guest.id %>
-	<div>
-		<%= text_field_tag :name, params[:name], :value => @guest.name %>
-		<label for="name" >Name:</label>
-	</div>
-	<div>
-		<%= text_field_tag :birth, params[:birth], :value => @guest.birth %>
-		<label for="birth" >Birth:</label>
-	</div>
-	<div>
-		<%= text_field_tag :mother, params[:mother], :value => @guest.mother %>
-		<label for="mother" >Mother:</label>
-	</div>
-	<div>
-		<%= text_field_tag :address, params[:address], :value => @guest.address %>
-		<label for="address" >Address:</label>
-	</div>
-	<div>
-		<%= text_field_tag :city, params[:city], :value => @guest.city %>
-		<label for="city" >City:</label>
-	</div>
-	<div>
-		<%= text_field_tag :postal_code, params[:postal_code], :value => @guest.postal_code %>
-		<label for="postal_code" >Postal code:</label>
-	</div>
-	<div>
-		<%= text_field_tag :phone, params[:phone], :value => @guest.phone %>
-		<label for="phone" >Phone:</label>
-	</div>
-	<div>
-		<%= text_field_tag :email, params[:email], :value => @guest.email %>
-		<label for="email" >E-mail:</label>
-	</div>
-
-	<div>
-		<%= submit_tag "Edit", :class => 'submit' %>
-	</div>
-</fieldset>
+<%= form_for(@guest) do |f| %>
+<% if @guest.errors.any? %>
+<div id="errorExplanation">
+	<h2><%= pluralize(@guest.errors.count, "error") %> prohibited
+	this post from being saved:</h2>
+	<ul>
+		<% @guest.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
-<%= link_to 'Delete guest', delete_guest_path(:id => @guest.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %>
+
+<div class="field">
+	<%= f.label :name %>
+	<br />
+	<%= f.text_field :name %>
+</div>
+<div class="field">
+	<%= f.label :birth %>
+	<br />
+	<%= f.text_field :birth %>
+</div>
+<div class="field">
+	<%= f.label :mother %>
+	<br />
+	<%= f.text_area :mother %>
+</div>
+<div class="field">
+	<%= f.label :address %>
+	<br />
+	<%= f.text_area :address %>
+</div>
+<div class="field">
+	<%= f.label :city %>
+	<br />
+	<%= f.text_area :city %>
+</div>
+<div class="field">
+	<%= f.label :postal_code %>
+	<br />
+	<%= f.text_area :postal_code %>
+</div>
+<div class="field">
+	<%= f.label :phone %>
+	<br />
+	<%= f.text_area :phone %>
+</div>
+<div class="field">
+	<%= f.label :email %>
+	<br />
+	<%= f.text_area :email %>
+</div>
+
+<div class="actions">
+	<%= f.submit :value => 'Edit guest', :class => 'submit' %>
+</div>
+<% end %>
+<%= link_to 'Delete guest', guest_path(:id => @guest.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %>

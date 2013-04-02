@@ -1,29 +1,49 @@
 <% unless (params[:guest_id]) %>
 
-<%= link_to 'Select guest', guests_path(:mode => 'select', :from => newexamination_path) %>
+<%= link_to 'Select guest', guests_path(:mode => 'select', :from => new_examination_path) %>
 <% end %>
-<%= form_tag do %>
-  <fieldset>
-    <h1>Add new examination</h1>
-    <%= hidden_field_tag :guest_id, @guest_id %>
-    <p>
-      <%= text_field_tag :anamnezis, params[:anamnezis] %>
-      <label for="anamnezis" >Anamnezis:</label>
-    </p>
-	<p>
-      <%= text_field_tag :status, params[:status] %>
-      <label for="status" >Status:</label>
-    </p>
-    <p>
-      <%= text_field_tag :treatment, params[:treatment] %>
-      <label for="treatment" >Treatment:</label>
-    </p>
-     <p>
-      <%= text_field_tag :charge, params[:charge] %>
-      <label for="charge" >Charge:</label>
-    </p>
-    <p>
-      <%= submit_tag "Add examination", :class => 'submit' %>
-    </p>
-  </fieldset>
+
+<%= form_for(@examination) do |f| %>
+<% if @examination.errors.any? %>
+<div id="errorExplanation">
+	<h2><%= pluralize(@examination.errors.count, "error") %> prohibited
+	this post from being saved:</h2>
+	<ul>
+		<% @examination.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>
+
+<h1>Add new examination</h1>
+<%= f.hidden_field :guest_id, :value => @guest_id %>
+<p>
+<div class="field">
+	<%= f.label :anamnezis %>
+	<br />
+	<%= f.text_field :anamnezis %>
+</div>
+<div class="field">
+	<%= f.label :status %>
+	<br />
+	<%= f.text_field :status %>
+</div>
+<div class="field">
+	<%= f.label :treatment %>
+	<br />
+	<%= f.text_field :treatment %>
+</div>
+<div class="field">
+	<%= f.label :charge %>
+	<br />
+	<%= f.text_field :charge %>
+</div>
+
+<div class="actions">
+	<%= f.submit :value => 'Add examinations', :class => 'submit' %>
+</div>
+<% end %>
+

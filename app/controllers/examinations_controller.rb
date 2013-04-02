@@ -17,6 +17,7 @@ class ExaminationsController < ApplicationController
 
   def new
     @guest_id = params[:guest_id]
+    @examination = Examination.new
   end
 
   def show
@@ -24,16 +25,12 @@ class ExaminationsController < ApplicationController
   end
 
   def create
-    examination = Examination.new
-    examination.anamnezis = params[:anamnezis]
-    examination.status = params[:status]
-    examination.treatment = params[:treatment]
-    examination.charge = params[:charge]
-    examination.guest_id = params[:guest_id]
+    examination = Examination.new(params[:examination])
+
     if examination.save
-      redirect_to guest_path(:id => params[:guest_id])
+      redirect_to guest_path(:id => examination.id)
     else
-      redirect_to newexamination_path()
+      redirect_to new_examination_path
     end
 
   end
@@ -50,11 +47,8 @@ class ExaminationsController < ApplicationController
 
   def update
     exam = Examination.find(params[:id])
-    exam.status = params[:status]
-    exam.treatment = params[:treatment]
-    exam.charge = params[:charge]
-    exam.anamnezis = params[:anamnezis]
-    if exam.save
+
+    if exam.update_attributes(params[:examination])
       redirect_to guest_path(:id => exam.guest.id)
     else
       redirect_to edit_examination_path(:id => params[:id])
