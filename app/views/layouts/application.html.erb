@@ -8,7 +8,7 @@
 		<script language="javascript">
 			$(function() {
 				$(".submit").button();
-				$(".datepicker").datepicker();
+				$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
 			});
 		</script>
 	</head>
@@ -23,13 +23,13 @@
 						<%= link_to 'Add guest', addguest_path %>
 					</li>
 					<li>
+						<%= link_to 'Guests', guests_path %>
+					</li>
+					<li>
 						<%= link_to 'Examinations', examinations_path %>
 					</li>
 					<li>
 						<%= link_to 'Log out', logout_path, :method => 'delete' %>
-					</li>
-					<li>
-						<%= link_to 'Guests', guests_path %>
 					</li>
 				</ul>
 			</div>

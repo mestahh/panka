@@ -27,8 +27,8 @@
 	<td><%= guest.mother %></td>
 	<td><%= guest.birth %></td>
 	<td><%= guest.city %></td>
-	<td><%= link_to 'Edit', edit_guest_path(:id => guest.id) %></td>
-	<td><%= link_to 'Delete guest', delete_guest_path(:id => guest.id), :method => 'delete' %></td>
+	<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
+	<td><%= link_to 'Delete guest', delete_guest_path(:id => guest.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %></td>
 </tr>
   
  

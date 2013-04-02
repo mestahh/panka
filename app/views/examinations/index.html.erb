@@ -4,11 +4,10 @@
    
     <p>
       <%= text_field_tag :from_date, params[:from_date], :class => 'datepicker' %>
-      <label for="anamnezis" >from:</label>
-    </p>
-	<p>
+      <label for="anamnezis" >from</label>
+    
       <%= text_field_tag :to_date, params[:to_date], :class => 'datepicker' %>
-      <label for="status" >to:</label>
+      <label for="status" >to</label>
     </p>
     <p>
       <%= submit_tag "Search", :class => 'submit' %>
@@ -34,8 +33,8 @@
 		<td><%= examination.status %></td>
 		<td><%= examination.treatment %></td>
 		<td><%= examination.charge %></td>
-		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id) %></td>
-		<td><%= link_to 'Delete', delete_examination_path(:id => examination.id), :method => 'delete' %></td>
+		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
+		<td><%= link_to 'Delete', delete_examination_path(:id => examination.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %></td>
 	</tr>
 	<% end %>
 </table>
