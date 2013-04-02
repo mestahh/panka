@@ -1,5 +1,6 @@
 Given(/^I have an examination for that guest$/) do
-  @exam = FactoryGirl.create(:examination)
+  @exam = FactoryGirl.create(:examination, guest_id: @guest.id)
+  
 end
 
 When(/^I visit that examinations page$/) do
@@ -44,7 +45,7 @@ Given(/^I have two guests$/) do
 end
 
 Given(/^I have an examination for both guests$/) do
-  @exam1 = FactoryGirl.create(:examination)
+  @exam1 = FactoryGirl.create(:examination, guest_id: @guest.id)
   @exam2 = FactoryGirl.create(:examination, guest_id: @another_guest.id, anamnezis: 'Korsag')
 end
 
