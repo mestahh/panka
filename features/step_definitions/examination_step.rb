@@ -151,3 +151,11 @@ end
 Then(/^I should see the select guest page\.$/) do
   current_path.should == guests_path
 end
+
+Given(/^I visit the new examination page with a guest parameter$/) do
+ visit newexamination_path(:guest_id => 1)
+end
+
+Then(/^I should not see the select guest link$/) do
+  page.should_not have_content 'Select guest'
+end

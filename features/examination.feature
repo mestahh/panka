@@ -3,7 +3,7 @@ Feature: Examination
 	A guest can have 0...n examination. An examination
 	belongs to the guest. The user should be able to add/remove/delete the examinations.
 	
-	Scenario: Adding Examination
+	Scenario: Creating a new examination for a guest
 	
 		Given I am logged in
 		And I have a guest
@@ -13,7 +13,7 @@ Feature: Examination
 		Then I should have a new examination in the database
 		And I should see the guests page.
 		
-	Scenario: Add examination without a selected guest.
+	Scenario: Add examination without a pre-selected guest
 	
 		Given I am logged in
 		And I have a guest
@@ -69,6 +69,11 @@ Feature: Examination
 		And press the edit button
 		Then the changes should be saved
 		And I should see the changed examination
+		
+	Scenario: Visit the new examination page with a guest parameter	
+	
+		Given I visit the new examination page with a guest parameter
+		Then I should not see the select guest link
 		
 	Scenario: Delete examination
 	
