@@ -53,4 +53,11 @@ Feature: Guest handling
 		And search for a non-existing name
 		Then I should see the all guests page 
 		And I should see an error message about the unsuccessful search
+		
+	Scenario: Opening the guest page in select mode
+	
+		Given I have a guest
+		When I visit the guests page in select mode
+		And click on a guests name
+		Then I should see the new examination page with the guest id
 	

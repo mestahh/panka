@@ -1,36 +1,40 @@
 <%= form_tag do %>
-  <fieldset>
-    <h1>Guests</h1>
-    <div>
-      <label for="search_field" >Search:</label>
-      <%= text_field_tag :search_field, params[:search_field] %>
-      <%= submit_tag "Search", :class => 'submit' %>
-    </div>
-  </fieldset>
+<fieldset>
+	<h1>Guests</h1>
+	<div>
+		<%= text_field_tag :search_field, params[:search_field] %>
+		<%= submit_tag "Search", :class => 'submit' %>
+	</div>
+</fieldset>
 <% end %>
 <% if flash[:alert] %>
-  <p id="notice" ><%= flash[:alert] %></p>
+<p id="notice" >
+	<%= flash[:alert] %>
+</p>
 <% end %>
 <table id="guests">
 	<thead>
 		<th>Name</th>
 		<th>Mother's name</th>
-		<td>Birth</th>
-		<th>City</th>
-		<th></th>
-		<th></th>
+		<th>Birth</th><th>City</th><th></th><th></th>
 	</thead>
 
-<% @guests.each do |guest| %>
-<tr>
-	<td><%= link_to guest.name, guest_path(guest.id) %></td>
-	<td><%= guest.mother %></td>
-	<td><%= guest.birth %></td>
-	<td><%= guest.city %></td>
-	<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
-	<td><%= link_to 'Delete guest', delete_guest_path(:id => guest.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %></td>
-</tr>
-  
- 
-<% end %>
-<table>
+	<% @guests.each do |guest| %>
+	<tr>
+
+		<%
+		unless (params[:mode]) %>
+		<td><%= link_to guest.name, guest_path(:id => guest.id) %></td>
+		<%	else %>
+		<td><%= link_to guest.name, newexamination_path(:guest_id => guest.id) %></td>
+		<% end %>
+
+		<td><%= guest.mother %></td>
+		<td><%= guest.birth %></td>
+		<td><%= guest.city %></td>
+		<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
+		<td><%= link_to 'Delete guest', delete_guest_path(:id => guest.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %></td>
+	</tr>
+
+	<% end %>
+</table>

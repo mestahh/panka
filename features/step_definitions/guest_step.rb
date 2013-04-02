@@ -111,3 +111,15 @@ end
 Then(/^I should see an error message about the unsuccessful search$/) do
   page.should have_content 'There is no guest with this name.'
 end
+
+When(/^I visit the guests page in select mode$/) do
+  visit guests_path(:mode => 'select', :from => newexamination_path)
+end
+
+When(/^click on a guests name$/) do
+  click_link 'Bob'
+end
+
+Then(/^I should see the new examination page with the guest id$/) do
+  current_path.should == newexamination_path
+end

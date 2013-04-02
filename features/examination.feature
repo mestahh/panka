@@ -13,6 +13,14 @@ Feature: Examination
 		Then I should have a new examination in the database
 		And I should see the guests page.
 		
+	Scenario: Add examination without a selected guest.
+	
+		Given I am logged in
+		And I have a guest
+		When I click on the add examination menu item
+		And click on the select guest button
+		Then I should see the select guest page.
+		
 	Scenario: List all examinations for a guest
 	
 		Given I have two guests

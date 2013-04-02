@@ -1,3 +1,7 @@
+<% unless (params[:guest_id]) %>
+
+<%= link_to 'Select guest', guests_path(:mode => 'select', :from => newexamination_path) %>
+<% end %>
 <%= form_tag do %>
   <fieldset>
     <h1>Add new examination</h1>

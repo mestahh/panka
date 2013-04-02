@@ -139,3 +139,15 @@ When(/^I enter the dates for both examinations in the date filters$/) do
   fill_in 'from_date', :with => '2012-11-11'
   fill_in 'to_date', :with => '2012-12-13'
 end
+
+When(/^I click on the add examination menu item$/) do
+  visit newexamination_path
+end
+
+When(/^click on the select guest button$/) do
+  click_link 'Select guest'
+end
+
+Then(/^I should see the select guest page\.$/) do
+  current_path.should == guests_path
+end
