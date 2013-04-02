@@ -8,6 +8,9 @@
     </div>
   </fieldset>
 <% end %>
+<% if flash[:alert] %>
+  <p id="notice" ><%= flash[:alert] %></p>
+<% end %>
 <table id="guests">
 	<thead>
 		<th>Name</th>

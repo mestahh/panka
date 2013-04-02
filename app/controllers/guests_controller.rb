@@ -9,8 +9,20 @@ class GuestsController < ApplicationController
   end
 
   def search
-    puts params[:search_field]
+    if params[:search_field] == '' 
+      redirect_to guests_path
+      return
+    end
+    
     @guest = Guest.search(params[:search_field])
+    
+    if @guest.size == 0
+      redirect_to guests_path, :alert => 'There is no guest with this name.'
+      return 
+    end
+    
+  
+    
     if (@guest.size > 1)
       redirect_to guests_path(:query => params[:search_field])
     else

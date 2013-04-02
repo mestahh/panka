@@ -1,3 +1,20 @@
+<%= form_tag do %>
+  <fieldset>
+    <h1>Search</h1>
+   
+    <p>
+      <%= text_field_tag :from_date, params[:from_date], :class => 'datepicker' %>
+      <label for="anamnezis" >from:</label>
+    </p>
+	<p>
+      <%= text_field_tag :to_date, params[:to_date], :class => 'datepicker' %>
+      <label for="status" >to:</label>
+    </p>
+    <p>
+      <%= submit_tag "Search", :class => 'submit' %>
+    </p>
+  </fieldset>
+<% end %>
 <table>
 	<thead>
 		<tr>

@@ -26,6 +26,24 @@ Feature: Examination
 		And I have an examination for both guests
 		When I visit the examinations page without guest parameter
 		Then I should see all the examinations for all guests
+	
+	Scenario: Search for an examination
+	
+		Given I have two guests
+		And I have an examination for both guests
+		When I visit the examinations page without guest parameter
+		And I enter the dates for the the first examination in the date filters
+		And I click on the search button
+		Then I should see the first examination listed
+		
+	Scenario: Search for examinations in a range
+	
+		Given I have two guests
+		And I have an examination for both guests
+		When I visit the examinations page without guest parameter
+		And I enter the dates for both examinations in the date filters
+		And I click on the search button
+		Then I should see both examinations listed
 		
 	Scenario: Examination page can be visited
 	

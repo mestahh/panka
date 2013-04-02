@@ -105,3 +105,37 @@ end
 Then(/^I should see the changed examination$/) do
   current_path.should == guest_path(:id => @guest.id)
 end
+
+When(/^I enter the dates for the the first examination in the date filters$/) do
+  @exam1.created_at = '2012-12-12 12:12:12'
+  @exam2.created_at = '2012-11-12 12:12:12'
+  @exam1.save
+  @exam2.save
+  fill_in 'from_date', :with => '2012-12-11'
+  fill_in 'to_date', :with => '2012-12-13'
+end
+
+When(/^I click on the search button$/) do
+  click_button 'Search'
+end
+
+Then(/^I should see the first examination listed$/) do
+  current_path.should == examinations_path
+  page.should have_content 'Nyavaja'
+  page.should_not have_content 'Korsag'
+end
+
+Then(/^I should see both examinations listed$/) do
+  current_path.should == examinations_path
+  page.should have_content 'Nyavaja'
+  page.should have_content 'Korsag'
+end
+
+When(/^I enter the dates for both examinations in the date filters$/) do
+  @exam1.created_at = '2012-12-12 12:12:12'
+  @exam2.created_at = '2012-11-12 12:12:12'
+  @exam1.save
+  @exam2.save
+  fill_in 'from_date', :with => '2012-11-11'
+  fill_in 'to_date', :with => '2012-12-13'
+end

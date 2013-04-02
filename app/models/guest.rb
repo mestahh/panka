@@ -4,6 +4,6 @@ class Guest < ActiveRecord::Base
   has_many :examinations
   
   def self.search(query)
-  	name.nil? ? [] : where(['name like ?', "%#{query}%"])  
+  	query.nil? ? [] : where(['name like ?', "%#{query}%"])  
   end
 end

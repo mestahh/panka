@@ -1,6 +1,14 @@
 class ExaminationsController < ApplicationController
 
 	def index
+	  if (params[:from_date])
+	    from = params[:from_date]    
+	    to = params[:to_date]
+	
+	    @examinations = Examination.where(["created_at < ? and created_at > ?", to, from])
+	    return 
+	  end
+	  
 		if (params[:guest_id])
 			@examinations = Examination.find_all_by_guest_id(params[:guest_id])
 		else
@@ -46,5 +54,7 @@ class ExaminationsController < ApplicationController
     exam.save
     redirect_to guest_path(:id => exam.guest.id)
 	end
+	
+
 
 end

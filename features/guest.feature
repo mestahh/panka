@@ -41,4 +41,16 @@ Feature: Guest handling
 		And search for his name
 		Then I should see the all guests page with the matching guests.
 		
+	Scenario: Search for an empty string does nothing
+	
+		When I try to search for an empty guestname
+		Then I should see the all guests page
+		
+	Scenario: Search for a non-existing guest displays message
+	
+		Given I have a guest
+		When I visit the page for displaying all guests
+		And search for a non-existing name
+		Then I should see the all guests page 
+		And I should see an error message about the unsuccessful search
 	

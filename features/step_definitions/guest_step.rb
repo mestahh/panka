@@ -97,3 +97,17 @@ end
 Then(/^I should see the all guests page$/) do
   current_path.should == guests_path
 end
+
+When(/^I try to search for an empty guestname$/) do
+  visit guests_path
+  click_button 'Search'
+end
+
+When(/^search for a non\-existing name$/) do
+  fill_in 'search_field', :with => 'Mo'
+  click_button 'Search'
+end
+
+Then(/^I should see an error message about the unsuccessful search$/) do
+  page.should have_content 'There is no guest with this name.'
+end
