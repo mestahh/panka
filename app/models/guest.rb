@@ -3,6 +3,8 @@ class Guest < ActiveRecord::Base
   
   has_many :examinations
   
+  validates :address, :birth, :city, :email, :mother, :name, :phone, :postal_code, :presence => true
+  
   def self.search(query)
   	query.nil? ? [] : where(['name like ?', "%#{query}%"])  
   end

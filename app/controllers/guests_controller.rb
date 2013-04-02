@@ -1,5 +1,4 @@
 class GuestsController < ApplicationController
-  
   def index
     if (params[:query])
       @guests = Guest.search(params[:query])
@@ -9,20 +8,18 @@ class GuestsController < ApplicationController
   end
 
   def search
-    if params[:search_field] == '' 
+    if params[:search_field] == ''
       redirect_to guests_path
-      return
+    return
     end
-    
+
     @guest = Guest.search(params[:search_field])
-    
+
     if @guest.size == 0
       redirect_to guests_path, :alert => 'There is no guest with this name.'
-      return 
+    return
     end
-    
-  
-    
+
     if (@guest.size > 1)
       redirect_to guests_path(:query => params[:search_field])
     else
@@ -45,8 +42,11 @@ class GuestsController < ApplicationController
     guest.phone = params[:phone]
     guest.email = params[:email]
 
-    guest.save
-    redirect_to main_index_path
+    if guest.save
+      redirect_to main_index_path
+    else
+      redirect_to addguest_path
+    end
   end
 
   def show
@@ -68,8 +68,11 @@ class GuestsController < ApplicationController
     guest.phone = params[:phone]
     guest.email = params[:email]
 
-    guest.save
-    redirect_to guest_path(:id => guest.id)
+    if guest.save
+      redirect_to guest_path(:id => guest.id)
+    else
+      redirect_to edit_guest_path(:id => guest.id)
+    end
   end
 
   def destroy
