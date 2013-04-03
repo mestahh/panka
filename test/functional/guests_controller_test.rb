@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class GuestsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
+  
+  # test "should get index" do
+    # get :index
+    # assert_response :success
+    # assert_select 'tr', :minimum => 2
   # end
 end

@@ -2,4 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      add_guest: Add guest
+      guests: Guests
+      examinations: Examinations
+      log_out: Log out

@@ -13,23 +13,24 @@ Panka::Application.routes.draw do
 # Sample resource route (maps HTTP verbs to controller actions automatically):
 #   resources :products
 
-  resources :guests, :examinations
+  scope '(:locale)' do
+    resources :guests, :examinations
+    get "main/index"
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
+    controller :sessions do
+      get 'login' => :new
+      post 'login' => :create
+      delete 'logout' => :destroy
+    end
+
+    controller :guests do
+      post 'search_guest' => :search
+    end
+
+    controller :examinations do
+      post 'search_examination' => :index
+    end
   end
-
-  controller :guests do
-    post 'search_guest' => :search
-  end
-
-  controller :examinations do
-    post 'search_examination' => :index
-  end
-
-  get "main/index"
 
   # Sample resource route with options:
   #   resources :products do

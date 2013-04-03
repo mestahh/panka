@@ -1,0 +1,8 @@
+hu: 
+  
+  layouts:
+    application:
+      add_guest: Vendeg hozzaadasa
+      guests: Vendegek
+      examinations: Vizsgalatok
+      log_out: kilepes

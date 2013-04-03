@@ -7,7 +7,7 @@
 <% if @examination.errors.any? %>
 <div id="errorExplanation">
 	<h2><%= pluralize(@examination.errors.count, "error") %> prohibited
-	this post from being saved:</h2>
+	this examination from being saved:</h2>
 	<ul>
 		<% @examination.errors.full_messages.each do |msg| %>
 		<li>
@@ -21,29 +21,25 @@
 <h1>Add new examination</h1>
 <%= f.hidden_field :guest_id, :value => @guest_id %>
 <p>
-<div class="field">
-	<%= f.label :anamnezis %>
-	<br />
-	<%= f.text_field :anamnezis %>
-</div>
-<div class="field">
-	<%= f.label :status %>
-	<br />
-	<%= f.text_field :status %>
-</div>
-<div class="field">
-	<%= f.label :treatment %>
-	<br />
-	<%= f.text_field :treatment %>
-</div>
-<div class="field">
-	<%= f.label :charge %>
-	<br />
-	<%= f.text_field :charge %>
-</div>
+	<div class="field">
+		<%= f.text_field :anamnezis %>
+		<%= f.label :anamnezis %>
+	</div>
+	<div class="field">
+		<%= f.text_field :status %>
+		<%= f.label :status %>
+	</div>
+	<div class="field">
+		<%= f.text_field :treatment %>
+		<%= f.label :treatment %>
+	</div>
+	<div class="field">
+		<%= f.text_field :charge %>
+		<%= f.label :charge %>
+	</div>
+	<div class="actions">
+		<%= f.submit :value => 'Add examinations', :class => 'submit' %>
+	</div>
+	<% end %>
 
-<div class="actions">
-	<%= f.submit :value => 'Add examinations', :class => 'submit' %>
-</div>
-<% end %>
 

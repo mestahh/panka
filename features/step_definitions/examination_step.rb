@@ -36,7 +36,7 @@ Then(/^I should have a new examination in the database$/) do
 end
 
 Then(/^I should see the guests page\.$/) do
-  current_path.should == guest_path(:id => @guest.id)
+  current_path.should == guest_path(I18n.locale, :id => @guest.id)
 end
 
 Given(/^I have two guests$/) do
@@ -76,7 +76,7 @@ Then(/^the examination should be deleted\.$/) do
 end
 
 Then(/^I should see the guests page$/) do
-  current_path.should == guest_path(:id => @guest.id)
+  current_path.should == guest_path(I18n.locale, :id => @guest.id)
 end
 
 When(/^I visit that examinations edit page$/) do
@@ -104,7 +104,7 @@ Then(/^the changes should be saved$/) do
 end
 
 Then(/^I should see the changed examination$/) do
-  current_path.should == guest_path(:id => @guest.id)
+  current_path.should == guest_path(I18n.locale, :id => @guest.id)
 end
 
 When(/^I enter the dates for the the first examination in the date filters$/) do
@@ -121,13 +121,13 @@ When(/^I click on the search button$/) do
 end
 
 Then(/^I should see the first examination listed$/) do
-  current_path.should == search_examination_path
+  current_path.should == search_examination_path(I18n.locale)
   page.should have_content 'Nyavaja'
   page.should_not have_content 'Korsag'
 end
 
 Then(/^I should see both examinations listed$/) do
-  current_path.should == search_examination_path
+  current_path.should == search_examination_path(I18n.locale)
   page.should have_content 'Nyavaja'
   page.should have_content 'Korsag'
 end
@@ -150,7 +150,7 @@ When(/^click on the select guest button$/) do
 end
 
 Then(/^I should see the select guest page\.$/) do
-  current_path.should == guests_path
+  current_path.should == guests_path(I18n.locale)
 end
 
 Given(/^I visit the new examination page with a guest parameter$/) do

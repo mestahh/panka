@@ -34,7 +34,7 @@
 		<td><%= examination.treatment %></td>
 		<td><%= examination.charge %></td>
 		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
-		<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %></td>
+		<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => 'Are you sure?', :class => 'ui-icon ui-icon-trash' %></td>
 	</tr>
 	<% end %>
 </table>

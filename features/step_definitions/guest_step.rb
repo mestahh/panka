@@ -12,7 +12,7 @@ When(/^I am adding a new guest to the database$/) do
 end
 
 Then(/^the new guest should be stored$/) do
-  current_path.should == main_index_path
+  current_path.should == main_index_path(I18n.locale)
   Guest.count.should == 1
   guest = Guest.find_by_name 'Kovacs Janos'
   guest.name.should == 'Kovacs Janos'
@@ -81,7 +81,7 @@ Given(/^I have two guests with the same name and another different one$/) do
 end
 
 Then(/^I should see the all guests page with the matching guests\.$/) do
-  current_path.should == guests_path
+  current_path.should == guests_path(I18n.locale)
   page.should have_content 'Szabo Klari'
   page.should have_content 'Kovacs Klari'
   page.should_not have_content 'Tim'
@@ -96,7 +96,7 @@ Then(/^the guest should be removed from the database$/) do
 end
 
 Then(/^I should see the all guests page$/) do
-  current_path.should == guests_path
+  current_path.should == guests_path(I18n.locale)
 end
 
 When(/^I try to search for an empty guestname$/) do
@@ -114,7 +114,7 @@ Then(/^I should see an error message about the unsuccessful search$/) do
 end
 
 When(/^I visit the guests page in select mode$/) do
-  visit guests_path(:mode => 'select', :from => new_examination_path)
+  visit guests_path(I18n.locale, :mode => 'select', :from => new_examination_path)
 end
 
 When(/^click on a guests name$/) do
@@ -122,5 +122,5 @@ When(/^click on a guests name$/) do
 end
 
 Then(/^I should see the new examination page with the guest id$/) do
-  current_path.should == new_examination_path
+  current_path.should == new_examination_path(I18n.locale)
 end
