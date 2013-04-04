@@ -11,6 +11,7 @@ FactoryGirl.define do
     guest.postal_code '1890'
     guest.phone '06301234567'
     guest.email 'bob@gmail.com'
+    guest.user_id 1
   end
 
   factory :user do |user|

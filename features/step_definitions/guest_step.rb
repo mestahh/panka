@@ -23,6 +23,7 @@ Then(/^the new guest should be stored$/) do
   guest.postal_code.should == 2890
   guest.phone.should == '06305554534'
   guest.email.should == 'k.j@email.com'
+  guest.user.id.should == @user.id
 end
 
 Given(/^I have a guest$/) do
@@ -123,4 +124,27 @@ end
 
 Then(/^I should see the new examination page with the guest id$/) do
   current_path.should == new_examination_path(I18n.locale)
+end
+
+Given(/^I have two users$/) do
+ @user1 = FactoryGirl.create(:user, username: 'Bob')
+ @user2 = FactoryGirl.create(:user, username: 'Tim')
+end
+
+Given(/^I have one guest for each user$/) do
+  @guest1 = FactoryGirl.create(:guest, user_id: @user1.id, name: 'guest1')
+  @guest2 = FactoryGirl.create(:guest, user_id: @user2.id, name: 'guest2')
+end
+
+When(/^I log in with the first user$/) do
+  visit "/"
+  fill_in 'username', :with => @user1.username
+  fill_in 'password', :with => @user1.password
+  click_button 'Login'
+end
+
+Then(/^I should see only the first users guest$/) do
+  visit guests_path
+  page.should have_content('guest1')
+  page.should_not have_content('guest2')
 end

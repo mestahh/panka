@@ -1,9 +1,12 @@
 class GuestsController < ApplicationController
   def index
+
+    @user = User.find(session[:user])
+
     if (params[:query])
       @guests = Guest.search(params[:query])
     else
-      @guests = Guest.find(:all)
+      @guests = @user.guests
     end
   end
 
@@ -33,7 +36,7 @@ class GuestsController < ApplicationController
 
   def create
     guest = Guest.new(params[:guest])
-
+    guest.user = User.find(session[:user])
     if guest.save
       redirect_to main_index_path
     else
