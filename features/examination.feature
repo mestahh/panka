@@ -62,7 +62,8 @@ Feature: Examination
 	
 	Scenario: Edit examination
 	
-		Given I have a guest
+		Given I am logged in 
+		And I have a guest
 		And I have an examination for that guest
 		When I visit that examinations edit page
 		And change its values
@@ -77,7 +78,8 @@ Feature: Examination
 		
 	Scenario: Delete examination
 	
-		Given I have a guest
+		Given I am logged in
+		And I have a guest
 		And I have an examination for that guest
 		When I visit that examinations page
 		And I click on the delete examination link

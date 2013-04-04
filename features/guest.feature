@@ -100,4 +100,13 @@ Feature: Guest handling
 		And I am logged in
 		When I visit the other users guest delete link
 		Then I should see an error page
+		
+	Scenario: Search displays only the users guests
+	
+		Given I have two users
+		And I have a guest for both
+		And I log in with the first user
+		When I visit the page for displaying all guests
+		And search for the first guests name
+		Then I should see the first users guest and not the second
 	

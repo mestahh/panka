@@ -150,8 +150,8 @@ Then(/^I should see only the first users guest$/) do
 end
 
 Given(/^I have a guest for both$/) do
-  @guest1 = FactoryGirl.create(:guest, user_id: @user1.id)
-  @guest2 = FactoryGirl.create(:guest, user_id: @user2.id)
+  @guest1 = FactoryGirl.create(:guest, user_id: @user1.id, birth: '1990-12-12')
+  @guest2 = FactoryGirl.create(:guest, user_id: @user2.id, birth: '1980-12-12')
 end
 
 When(/^I visit the other users guest$/) do
@@ -168,4 +168,14 @@ end
 
 When(/^I visit the other users guest delete link$/) do
   visit guest_path(:id => @guest2.id, :method => 'delete')
+end
+
+When(/^search for the first guests name$/) do
+  fill_in 'search_field', :with => @guest1.name
+  click_button 'Search'
+end
+
+Then(/^I should see the first users guest and not the second$/) do
+  page.should have_content '1990-12-12'
+  page.should_not have_content '1980-12-12'
 end

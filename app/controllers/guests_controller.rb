@@ -4,7 +4,7 @@ class GuestsController < ApplicationController
     @user = User.find(session[:user])
 
     if (params[:query])
-      @guests = Guest.search(params[:query])
+      @guests = Guest.search(params[:query], session[:user])
     else
       @guests = @user.guests
     end
@@ -16,7 +16,7 @@ class GuestsController < ApplicationController
     return
     end
 
-    @guest = Guest.search(params[:search_field])
+    @guest = Guest.search(params[:search_field], session[:user])
 
     if @guest.size == 0
       redirect_to guests_path, :alert => 'There is no guest with this name.'
