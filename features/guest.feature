@@ -81,7 +81,7 @@ Feature: Guest handling
 	
 		Given I have two users 
 		And I have a guest for both
-		And I am logged in
+		And I log in with the first user
 		When I visit the other users guest
 		Then I should see an error page
 		

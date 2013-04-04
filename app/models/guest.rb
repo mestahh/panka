@@ -1,5 +1,5 @@
 class Guest < ActiveRecord::Base
-  attr_accessible :address, :birth, :city, :email, :mother, :name, :phone, :postal_code, :user
+  attr_accessible :address, :birth, :city, :email, :mother, :name, :phone, :postal_code, :user_id
   
   has_many :examinations
   belongs_to :user

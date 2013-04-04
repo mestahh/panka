@@ -160,3 +160,20 @@ end
 Then(/^I should not see the select guest link$/) do
   page.should_not have_content 'Select guest'
 end
+
+Given(/^I have an examination for both guest$/) do
+  @exam1 = FactoryGirl.create(:examination, guest_id: @guest1.id, anamnezis: 'Nyavaja')
+  @exam2 = FactoryGirl.create(:examination, guest_id: @guest2.id, anamnezis: 'Korsag')
+end
+
+When(/^I visit the other examinations page$/) do
+  visit examination_path(:id => @exam2.id)
+end
+
+When(/^I visit the other examinations delete link$/) do
+    visit examination_path(:id => @exam2.id, :method => 'delete')
+end
+
+When(/^I visit the other examinations edit link$/) do
+    visit edit_examination_path(:id => @exam2.id)
+end

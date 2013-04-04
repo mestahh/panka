@@ -22,6 +22,9 @@ class ExaminationsController < ApplicationController
 
   def show
     @examination = Examination.find(params[:id]);
+    if (@examination.guest.user_id != session[:user])
+      redirect_to main_index_path
+    end
   end
 
   def create
@@ -43,6 +46,9 @@ class ExaminationsController < ApplicationController
 
   def edit
     @examination = Examination.find(params[:id])
+    if (@examination.guest.user_id != session[:user])
+      redirect_to main_index_path
+    end
   end
 
   def update

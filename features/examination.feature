@@ -54,8 +54,9 @@ Feature: Examination
 		Then I should see both examinations listed
 		
 	Scenario: Examination page can be visited
-	
-		Given I have a guest
+		
+		Given I am logged in
+		And I have a guest
 		And I have an examination for that guest
 		When I visit that examinations page
 		Then I should see the examination details.
@@ -85,3 +86,30 @@ Feature: Examination
 		And I click on the delete examination link
 		Then the examination should be deleted.
 		And I should see the guests page
+		
+	Scenario: Visiting other users examinations is disabled
+		
+		Given I have two users 
+		And I have a guest for both
+		And I have an examination for both guest
+		And I log in with the first user
+		When I visit the other examinations page
+		Then I should see an error page
+		
+	Scenario: Deleting other users examinations is disabled
+		
+		Given I have two users 
+		And I have a guest for both
+		And I have an examination for both guest
+		And I log in with the first user
+		When I visit the other examinations delete link
+		Then I should see an error page
+		
+	Scenario: Editing other users examinations is disabled
+		
+		Given I have two users 
+		And I have a guest for both
+		And I have an examination for both guest
+		And I log in with the first user
+		When I visit the other examinations edit link
+		Then I should see an error page
