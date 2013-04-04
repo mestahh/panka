@@ -8,13 +8,15 @@ Feature: Guest handling
 		
 	Scenario: View a guest
 		
-		Given I have a guest
+		Given I am logged in
+		And I have a guest
 		When I visit the guests page
 		Then I should see the details about the guest.
 		
 	Scenario: Edit a guest
 	
-		Given I have a guest
+		Given I am logged in
+		And I have a guest
 		When I visit the guests edit page
 		And change the values
 		Then the new values should be stored
@@ -74,4 +76,28 @@ Feature: Guest handling
 		When I log in with the first user
 		And I visit the page for displaying all guests
 		Then I should see only the first users guest 
+		
+	Scenario: Visiting other users guest is disabled
+	
+		Given I have two users 
+		And I have a guest for both
+		And I am logged in
+		When I visit the other users guest
+		Then I should see an error page
+		
+	Scenario: Editing other users guest is disabled
+	
+		Given I have two users 
+		And I have a guest for both
+		And I am logged in
+		When I visit the other users guest edit page
+		Then I should see an error page
+		
+	Scenario: Deleting other users guest is disabled
+	
+		Given I have two users 
+		And I have a guest for both
+		And I am logged in
+		When I visit the other users guest delete link
+		Then I should see an error page
 	

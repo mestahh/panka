@@ -148,3 +148,24 @@ Then(/^I should see only the first users guest$/) do
   page.should have_content('guest1')
   page.should_not have_content('guest2')
 end
+
+Given(/^I have a guest for both$/) do
+  @guest1 = FactoryGirl.create(:guest, user_id: @user1.id)
+  @guest2 = FactoryGirl.create(:guest, user_id: @user2.id)
+end
+
+When(/^I visit the other users guest$/) do
+  visit guest_path(:id => @guest2.id)
+end
+
+Then(/^I should see an error page$/) do
+  current_path.should == main_index_path(I18n.locale)
+end
+
+When(/^I visit the other users guest edit page$/) do
+  visit edit_guest_path(:id => @guest2.id)
+end
+
+When(/^I visit the other users guest delete link$/) do
+  visit guest_path(:id => @guest2.id, :method => 'delete')
+end
