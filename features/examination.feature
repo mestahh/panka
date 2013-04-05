@@ -23,6 +23,7 @@ Feature: Examination
 		
 	Scenario: List all examinations for a guest
 	
+		Given I am logged in
 		Given I have two guests
 		And I have an examination for both guests
 	 	When I visit the examinations page for the first guest
@@ -30,6 +31,7 @@ Feature: Examination
 		
 	Scenario: List all examinations if the guest is not specified
 		
+		Given I am logged in
 		Given I have two guests
 		And I have an examination for both guests
 		When I visit the examinations page without guest parameter
@@ -37,6 +39,7 @@ Feature: Examination
 	
 	Scenario: Search for an examination
 	
+		Given I am logged in
 		Given I have two guests
 		And I have an examination for both guests
 		When I visit the examinations page without guest parameter
@@ -46,6 +49,7 @@ Feature: Examination
 		
 	Scenario: Search for examinations in a range
 	
+		Given I am logged in
 		Given I have two guests
 		And I have an examination for both guests
 		When I visit the examinations page without guest parameter
