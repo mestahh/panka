@@ -6,3 +6,10 @@ hu:
       guests: Vendegek
       examinations: Vizsgalatok
       log_out: kilepes
+  
+  sessions:
+    new:
+      password: jelszo
+      username: felhasznalonev
+      please_login: Kerem, jelentkezzen be
+      login: Bejelentkezes

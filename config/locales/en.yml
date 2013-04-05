@@ -8,3 +8,10 @@ en:
       guests: Guests
       examinations: Examinations
       log_out: Log out
+      
+sessions:
+    new:
+      password: password  
+      username: username
+      please_login: Please, log in
+      login: Login

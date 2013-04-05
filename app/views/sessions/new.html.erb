@@ -1,13 +1,13 @@
 <%= form_tag do %>
   <fieldset>
-    <h1>Please Login</h1>
+    <h1><%= t('.please_login') %></h1>
     <p>
       <%= text_field_tag :username, params[:username] %>
-      <label for="username" >Name:</label>
+      <label for="username" ><%= t('.username') %></label>
     </p>
 	<p>
       <%= password_field_tag :password, params[:password] %>
-      <label for="password" >Password:</label>
+      <label for="password"><%= t('.password') %></label>
     </p>
     <p>
       <%= submit_tag "Login", :class => 'submit' %>
