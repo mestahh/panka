@@ -2,8 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_i18n_locale_from_params
+
   # ...
   protected
+  def check_login
+    unless session[:user]
+      redirect_to login_path
+    end
+  end
 
   def set_i18n_locale_from_params
     if params[:locale]

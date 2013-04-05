@@ -1,4 +1,7 @@
 class GuestsController < ApplicationController
+  
+  before_filter :check_login
+  
   def index
 
     @user = User.find(session[:user])

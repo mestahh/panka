@@ -1,4 +1,7 @@
 class ExaminationsController < ApplicationController
+  before_filter :check_login
+  
+  
   def index
     if (params[:from_date])
       from = params[:from_date]
