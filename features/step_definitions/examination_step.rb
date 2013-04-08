@@ -1,21 +1,16 @@
-Given(/^I have an examination for that guest$/) do
-  @exam = FactoryGirl.create(:examination, guest_id: @guest.id)
-  
-end
-
 When(/^I visit that examinations page$/) do
-  visit examination_path(:id => @exam.id)
+  visit examination_path(:id => @exam1_1_1.id)
 end
 
 Then(/^I should see the examination details\.$/) do
-  page.should have_content 'Nyavaja'
-  page.should have_content 'treatment'
-  page.should have_content 'brutal'
-  page.should have_content '15000'
+  page.should have_content @exam1_1_1.anamnezis
+  page.should have_content @exam1_1_1.treatment
+  page.should have_content @exam1_1_1.status
+  page.should have_content @exam1_1_1.charge
 end
 
 When(/^I click on the add examination link on the guests page$/) do
-  visit guest_path(:id => @guest.id)
+  visit guest_path(:id => @guest1_1.id)
   click_link 'Add examination'
 end
 
@@ -31,31 +26,41 @@ When(/^press the add examination button$/) do
 end
 
 Then(/^I should have a new examination in the database$/) do
-  Examination.count.should == 1
-  Examination.find(:all)[0].guest.should == @guest
+  Examination.count.should == 19
 end
 
 Then(/^I should see the guests page\.$/) do
-  current_path.should == guest_path(I18n.locale, :id => @guest.id)
-end
-
-Given(/^I have two guests$/) do
-  @guest = FactoryGirl.create(:guest)
-  @another_guest = FactoryGirl.create(:guest, name: 'Tim')
-end
-
-Given(/^I have an examination for both guests$/) do
-  @exam1 = FactoryGirl.create(:examination, guest_id: @guest.id)
-  @exam2 = FactoryGirl.create(:examination, guest_id: @another_guest.id, anamnezis: 'Korsag')
+  current_path.should == guest_path(I18n.locale, :id => @guest1_1.id)
 end
 
 When(/^I visit the examinations page for the first guest$/) do
-  visit examinations_path(:guest_id => @guest.id)
+  visit examinations_path(:guest_id => @guest1_1.id)
 end
 
 Then(/^I should see the examinations for the first guest\.$/) do
-  page.should have_content 'Nyavaja'
-  page.should_not have_content 'Korsag'
+  page.should have_content @exam1_1_1.anamnezis
+  page.should have_content @exam1_1_2.anamnezis
+  page.should have_content @exam1_1_3.anamnezis
+
+  page.should_not have_content @exam1_2_1.anamnezis
+  page.should_not have_content @exam1_2_2.anamnezis
+  page.should_not have_content @exam1_2_3.anamnezis
+
+  page.should_not have_content @exam1_3_1.anamnezis
+  page.should_not have_content @exam1_3_2.anamnezis
+  page.should_not have_content @exam1_3_3.anamnezis
+
+  page.should_not have_content @exam2_1_1.anamnezis
+  page.should_not have_content @exam2_1_2.anamnezis
+  page.should_not have_content @exam2_1_3.anamnezis
+
+  page.should_not have_content @exam2_2_1.anamnezis
+  page.should_not have_content @exam2_2_2.anamnezis
+  page.should_not have_content @exam2_2_3.anamnezis
+
+  page.should_not have_content @exam2_3_1.anamnezis
+  page.should_not have_content @exam2_3_2.anamnezis
+  page.should_not have_content @exam2_3_3.anamnezis
 end
 
 When(/^I visit the examinations page without guest parameter$/) do
@@ -63,8 +68,29 @@ When(/^I visit the examinations page without guest parameter$/) do
 end
 
 Then(/^I should see all the examinations for all guests$/) do
-  page.should have_content 'Nyavaja'
-  page.should have_content 'Korsag'
+  page.should have_content @exam1_1_1.anamnezis
+  page.should have_content @exam1_1_1.anamnezis
+  page.should have_content @exam1_1_1.anamnezis
+
+  page.should have_content @exam1_2_1.anamnezis
+  page.should have_content @exam1_2_2.anamnezis
+  page.should have_content @exam1_2_3.anamnezis
+
+  page.should have_content @exam1_3_1.anamnezis
+  page.should have_content @exam1_3_2.anamnezis
+  page.should have_content @exam1_3_3.anamnezis
+
+  page.should have_content @exam2_1_1.anamnezis
+  page.should have_content @exam2_1_2.anamnezis
+  page.should have_content @exam2_1_3.anamnezis
+
+  page.should have_content @exam2_2_1.anamnezis
+  page.should have_content @exam2_2_2.anamnezis
+  page.should have_content @exam2_2_3.anamnezis
+
+  page.should have_content @exam2_3_1.anamnezis
+  page.should have_content @exam2_3_2.anamnezis
+  page.should have_content @exam2_3_3.anamnezis
 end
 
 When(/^I click on the delete examination link$/) do
@@ -72,15 +98,15 @@ When(/^I click on the delete examination link$/) do
 end
 
 Then(/^the examination should be deleted\.$/) do
- Examination.count.should == 0
+  Examination.count.should == 17
 end
 
 Then(/^I should see the guests page$/) do
-  current_path.should == guest_path(I18n.locale, :id => @guest.id)
+  current_path.should == guest_path(I18n.locale, :id => @guest1_1.id)
 end
 
 When(/^I visit that examinations edit page$/) do
-  visit edit_examination_path(:id => @exam.id)
+  visit edit_examination_path(:id => @exam1_1_1.id)
 end
 
 When(/^change its values$/) do
@@ -95,23 +121,21 @@ When(/^press the edit button$/) do
 end
 
 Then(/^the changes should be saved$/) do
-  changed_exam = Examination.find(@exam.id)
+  changed_exam = Examination.find(@exam1_1_1.id)
   changed_exam.anamnezis.should == 'changedanamnezis'
   changed_exam.status.should == 'changedstatus'
   changed_exam.treatment.should == 'changedtreatment'
   changed_exam.charge.should == 12000
-  changed_exam.guest.should == @guest 
+  changed_exam.guest.should == @guest1_1
 end
 
 Then(/^I should see the changed examination$/) do
-  current_path.should == guest_path(I18n.locale, :id => @guest.id)
+  current_path.should == guest_path(I18n.locale, :id => @guest1_1.id)
 end
 
 When(/^I enter the dates for the the first examination in the date filters$/) do
-  @exam1.created_at = '2012-12-12 12:12:12'
-  @exam2.created_at = '2012-11-12 12:12:12'
-  @exam1.save
-  @exam2.save
+  @exam1_1_1.created_at = '2012-12-12 12:12:12'
+  @exam1_1_1.save
   fill_in 'from_date', :with => '2012-12-11'
   fill_in 'to_date', :with => '2012-12-13'
 end
@@ -133,10 +157,10 @@ Then(/^I should see both examinations listed$/) do
 end
 
 When(/^I enter the dates for both examinations in the date filters$/) do
-  @exam1.created_at = '2012-12-12 12:12:12'
-  @exam2.created_at = '2012-11-12 12:12:12'
-  @exam1.save
-  @exam2.save
+  @exam1_1_1.created_at = '2012-12-12 12:12:12'
+  @exam1_1_2.created_at = '2012-11-12 12:12:12'
+  @exam1_1_1.save
+  @exam1_1_2.save
   fill_in 'from_date', :with => '2012-11-11'
   fill_in 'to_date', :with => '2012-12-13'
 end
@@ -154,26 +178,35 @@ Then(/^I should see the select guest page\.$/) do
 end
 
 Given(/^I visit the new examination page with a guest parameter$/) do
- visit new_examination_path(:guest_id => 1)
+  visit new_examination_path(:guest_id => @guest1_1.id)
 end
 
 Then(/^I should not see the select guest link$/) do
   page.should_not have_content 'Select guest'
 end
 
-Given(/^I have an examination for both guest$/) do
-  @exam1 = FactoryGirl.create(:examination, guest_id: @guest1.id, anamnezis: 'Nyavaja')
-  @exam2 = FactoryGirl.create(:examination, guest_id: @guest2.id, anamnezis: 'Korsag')
-end
-
 When(/^I visit the other examinations page$/) do
-  visit examination_path(:id => @exam2.id)
+  visit examination_path(:id => @exam2_1_1.id)
 end
 
 When(/^I visit the other examinations delete link$/) do
-    visit examination_path(:id => @exam2.id, :method => 'delete')
+  visit examination_path(:id => @exam2_1_1.id, :method => 'delete')
 end
 
 When(/^I visit the other examinations edit link$/) do
-    visit edit_examination_path(:id => @exam2.id)
+  visit edit_examination_path(:id => @exam2_1_1.id)
 end
+#
+# When(/^filter for the first examination$/) do
+# @exam1_1_1.created_at = '2012-12-12 12:12:12'
+# @exam1_1_1.save
+# fill_in 'from_date', :with => '2012-12-11'
+# fill_in 'to_date', :with => '2012-12-13'
+# click_button 'Search'
+# end
+#
+# Then(/^I should see the guests page with filtered examinations$/) do
+# current_path.should == guest_path(I18n.locale, :id => @guest1_1.id)
+# page.should have_content '2012-12-12'
+# page.should_not have_content '2011-12-12'
+# end

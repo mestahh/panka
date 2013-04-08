@@ -34,7 +34,7 @@ class ExaminationsController < ApplicationController
     examination = Examination.new(params[:examination])
 
     if examination.save
-      redirect_to guest_path(:id => examination.id)
+      redirect_to guest_path(:id => examination.guest.id)
     else
       redirect_to new_examination_path
     end

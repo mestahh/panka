@@ -9,9 +9,10 @@ en:
       examinations: Examinations
       log_out: Log out
       
-sessions:
+  sessions:
     new:
       password: password  
       username: username
       please_login: Please, log in
       login: Login
+      

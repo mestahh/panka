@@ -46,5 +46,5 @@ Feature: Login
 	Scenario: The init page should be the login page
 	
 		Given I visit the page
-		Then I should see the login page
+		Then I should be redirected to the login page
 		

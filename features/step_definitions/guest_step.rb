@@ -13,7 +13,7 @@ end
 
 Then(/^the new guest should be stored$/) do
   current_path.should == main_index_path(I18n.locale)
-  Guest.count.should == 1
+  Guest.count.should == 7
   guest = Guest.find_by_name 'Kovacs Janos'
   guest.name.should == 'Kovacs Janos'
   guest.birth.should == '1956.03.25.'.to_date
@@ -23,23 +23,19 @@ Then(/^the new guest should be stored$/) do
   guest.postal_code.should == 2890
   guest.phone.should == '06305554534'
   guest.email.should == 'k.j@email.com'
-  guest.user.id.should == @user.id
-end
-
-Given(/^I have a guest$/) do
-  @guest = FactoryGirl.create(:guest)
+  guest.user.id.should == @user1.id
 end
 
 When(/^I visit the guests page$/) do
-  visit guest_path(:id => @guest.id)
+  visit guest_path(:id => @guest1_1.id)
 end
 
 Then(/^I should see the details about the guest\.$/) do
-  page.should have_content 'Bob'
+  page.should have_content 'Marika'
 end
 
 When(/^I visit the guests edit page$/) do
-  visit edit_guest_path(:id => @guest.id)
+  visit edit_guest_path(:id => @guest1_1.id)
 end
 
 When(/^change the values$/) do
@@ -55,7 +51,7 @@ When(/^change the values$/) do
 end
 
 Then(/^the new values should be stored$/) do
-  guest = Guest.find(@guest.id)
+  guest = Guest.find(@guest1_1.id)
   guest.name.should == 'Kovacs Bela'
   guest.birth.should == '1956.05.25.'.to_date
   guest.mother.should == 'Szabo Eva'
@@ -66,8 +62,8 @@ Then(/^the new values should be stored$/) do
   guest.email.should == 'k.j@gmail.com'
 end
 
-When(/^search for his name$/) do
-  fill_in 'search_field', :with => 'Bo'
+When(/^search for the first guest name$/) do
+  fill_in 'search_field', :with => 'Mar'
   click_button 'Search'
 end
 
@@ -75,17 +71,11 @@ When(/^I visit the page for displaying all guests$/) do
   visit guests_path
 end
 
-Given(/^I have two guests with the same name and another different one$/) do
-  @guest1 = FactoryGirl.create(:guest)
-  @guest2 = FactoryGirl.create(:guest, mother: 'Kovacs Klari')
-  @guest3 = FactoryGirl.create(:guest, name: 'Tim')
-end
-
 Then(/^I should see the all guests page with the matching guests\.$/) do
   current_path.should == guests_path(I18n.locale)
-  page.should have_content 'Szabo Klari'
-  page.should have_content 'Kovacs Klari'
-  page.should_not have_content 'Tim'
+  page.should have_content 'Pista K'
+  page.should have_content 'Pista A'
+  page.should_not have_content 'Marika'
 end
 
 When(/^click on the delete guest link$/) do
@@ -93,7 +83,7 @@ When(/^click on the delete guest link$/) do
 end
 
 Then(/^the guest should be removed from the database$/) do
-  Guest.count.should == 0
+  Guest.count.should == 5
 end
 
 Then(/^I should see the all guests page$/) do
@@ -119,21 +109,11 @@ When(/^I visit the guests page in select mode$/) do
 end
 
 When(/^click on a guests name$/) do
-  click_link 'Bob'
+  click_link 'Marika'
 end
 
 Then(/^I should see the new examination page with the guest id$/) do
   current_path.should == new_examination_path(I18n.locale)
-end
-
-Given(/^I have two users$/) do
- @user1 = FactoryGirl.create(:user, username: 'Bob')
- @user2 = FactoryGirl.create(:user, username: 'Tim')
-end
-
-Given(/^I have one guest for each user$/) do
-  @guest1 = FactoryGirl.create(:guest, user_id: @user1.id, name: 'guest1')
-  @guest2 = FactoryGirl.create(:guest, user_id: @user2.id, name: 'guest2')
 end
 
 When(/^I log in with the first user$/) do
@@ -145,33 +125,37 @@ end
 
 Then(/^I should see only the first users guest$/) do
   visit guests_path
-  page.should have_content('guest1')
-  page.should_not have_content('guest2')
+  page.should have_content(@guest1_1.name)
+  page.should have_content(@guest1_2.name)
+  page.should have_content(@guest1_3.name)
+  page.should_not have_content(@guest2_1.name)
+  page.should_not have_content(@guest2_2.name)
+  page.should_not have_content(@guest2_3.name)
 end
 
-Given(/^I have a guest for both$/) do
-  @guest1 = FactoryGirl.create(:guest, user_id: @user1.id, birth: '1990-12-12')
-  @guest2 = FactoryGirl.create(:guest, user_id: @user2.id, birth: '1980-12-12')
-end
-
-When(/^I visit the other users guest$/) do
-  visit guest_path(:id => @guest2.id)
+When(/^I visit the second users guest$/) do
+  visit guest_path(:id => @guest2_1.id)
 end
 
 Then(/^I should see an error page$/) do
   current_path.should == main_index_path(I18n.locale)
 end
 
-When(/^I visit the other users guest edit page$/) do
-  visit edit_guest_path(:id => @guest2.id)
+When(/^I visit the second users guest edit page$/) do
+  visit edit_guest_path(:id => @guest2_1.id)
 end
 
-When(/^I visit the other users guest delete link$/) do
-  visit guest_path(:id => @guest2.id, :method => 'delete')
+When(/^I visit the second users guest delete link$/) do
+  visit guest_path(:id => @guest2_1.id, :method => 'delete')
 end
 
 When(/^search for the first guests name$/) do
-  fill_in 'search_field', :with => @guest1.name
+  fill_in 'search_field', :with => @guest1_1.name
+  click_button 'Search'
+end
+
+When(/^search for the second guest name$/) do
+  fill_in 'search_field', :with => 'Pista'
   click_button 'Search'
 end
 
@@ -179,3 +163,4 @@ Then(/^I should see the first users guest and not the second$/) do
   page.should have_content '1990-12-12'
   page.should_not have_content '1980-12-12'
 end
+

@@ -13,3 +13,7 @@ hu:
       username: felhasznalonev
       please_login: Kerem, jelentkezzen be
       login: Bejelentkezes
+      
+  main:
+    index:
+      welcome: Udvozollek dicso lovag!

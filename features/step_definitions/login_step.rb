@@ -32,7 +32,7 @@ Given(/^enter the wrong password$/) do
 end
 
 Then(/^I should see the login page$/) do
-  page.should have_content 'Login'
+  current_path.should == login_path(I18n.locale)
 end
 
 Then(/^I should see an error message$/) do
@@ -57,6 +57,12 @@ end
 
 When(/^I click on the logout link$/) do
   click_link 'Log out'
+end
+
+Then(/^I should be redirected to the login page$/) do
+  page.should have_content 'username'
+  page.should have_content 'Please, log in'
+  page.should have_content 'password'
 end
 
 

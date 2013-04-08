@@ -12,6 +12,11 @@ class GuestsController < ApplicationController
       @guests = @user.guests
     end
   end
+  
+  def search_examination
+    @examinations = Examination.where(["created_at < ? and created_at > ? and guest_id = ?", params[:from_date], params[:to_date], params[:guest_id]])
+    redirect_to guest_path(:id => params[:guest_id])
+  end
 
   def search
     if params[:search_field] == ''
