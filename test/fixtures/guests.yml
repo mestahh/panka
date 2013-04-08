@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: Bob
-  birth: 2013-03-27
-  mother: MyText
-  address: MyText
-  city: MyText
-  postal_code: 1
-  phone: MyText
-  email: MyText
-
-two:
-  name: Tim
-  birth: 2013-03-27
-  mother: MyText
-  address: MyText
-  city: MyText
-  postal_code: 1
-  phone: MyText
-  email: MyText
+# one:
+  # name: Bob
+  # birth: 2013-03-27
+  # mother: MyText
+  # address: MyText
+  # city: MyText
+  # postal_code: 1
+  # phone: MyText
+  # email: MyText
+# 
+# two:
+  # name: Tim
+  # birth: 2013-03-27
+  # mother: MyText
+  # address: MyText
+  # city: MyText
+  # postal_code: 1
+  # phone: MyText
+  # email: MyText

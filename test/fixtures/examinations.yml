@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  anamnezis: MyString
-  status: MyString
-  treatment: MyString
-  charge: 1
-  guest_id: 1
-
-two:
-  anamnezis: MyString
-  status: MyString
-  treatment: MyString
-  charge: 1
-  guest_id: 1
+# one:
+  # anamnezis: MyString
+  # status: MyString
+  # treatment: MyString
+  # charge: 1
+  # guest_id: 1
+# 
+# two:
+  # anamnezis: MyString
+  # status: MyString
+  # treatment: MyString
+  # charge: 1
+  # guest_id: 1
