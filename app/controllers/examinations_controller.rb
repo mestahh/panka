@@ -16,6 +16,7 @@ class ExaminationsController < ApplicationController
     else
       @examinations = Examination.find(:all)
     end
+    params[:page] = 1
   end
 
   def new

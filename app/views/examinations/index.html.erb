@@ -14,13 +14,13 @@
 </fieldset>
 <% end %>
 
-<%
+<!-- <%
  @pager = pager = Pager.new
-  @pager.elements_per_page = 2
+  @pager.elements_per_page = 10
   @examinations_on_page = pager.get_page(@examinations, params[:page])
-%>
+%> -->
 
-<table>
+<table width="100%">
 	<thead>
 		<tr>
 			<th>Date</th>
@@ -32,7 +32,7 @@
 			<th></th>
 		</tr>
 	</thead>
-	<% @examinations_on_page.each do |examination| %>
+	<% @examinations.each do |examination| %>
 	<tr>
 		<td><%= link_to examination.updated_at, examination_path(:id => examination.id) %></td>
 		<td><%= examination.anamnezis %></td>
@@ -44,9 +44,11 @@
 	</tr>
 	<% end %>
 
-	<% 
-  i = 0
-  pages = @pager.number_of_pages @examinations 
+</table>
+<!-- <div class="pager">
+	<%
+	i = 0
+	pages = @pager.number_of_pages @examinations
 
 	while i < pages do
 	%>
@@ -55,5 +57,4 @@
 	i = i + 1
 	end
 	%>
-
-</table>
+</div> -->

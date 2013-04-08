@@ -26,4 +26,10 @@ class PagerTest < ActionView::TestCase
     number_of_pages = @pager.number_of_pages(@elements)
     assert_equal 2, number_of_pages
   end
+
+  test "number of pages returns 1 if elements per pages is higher than the number of elements" do
+    @pager.elements_per_page = 8
+    number_of_pages = @pager.number_of_pages @elements
+    assert_equal 1, number_of_pages
+  end
 end

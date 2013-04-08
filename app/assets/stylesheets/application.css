@@ -11,6 +11,19 @@
  *= require_self
  *= require_tree .
  */
+.pager {
+	text-align: center;
+}
+
+a {
+	color: #d19405;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
 input, textarea {
 	padding: 9px;
 	border: solid 1px #E5E5E5;

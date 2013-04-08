@@ -13,13 +13,13 @@ class Pager
   end
   
   def number_of_pages elements
-   elements_per_page = (elements.size % @elements_per_page).to_i
+   number_of_pages = (elements.size / @elements_per_page).to_i + 1
    
-   if elements_per_page < 1
+   if @elements_per_page > elements.size
      return 1
    end
    
-   return elements_per_page
+   return number_of_pages
   end
   
 end
