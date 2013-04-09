@@ -34,3 +34,21 @@ en:
       add_new_button: Add examination
       treatment: Treatment
       
+    index:
+      charge: Charge
+      status: Status
+      anamnezis: Anamnezis
+      treatment: Treatment
+      search: Search
+      are_you_sure: Are you sure?
+      from_date: from
+      to_date: to
+      
+    edit:
+      charge: Charge
+      status: Status
+      anamnezis: Anamnezis
+      treatment: Treatment
+      edit_examination: Edit examination
+      edit_button: Edit examination
+      

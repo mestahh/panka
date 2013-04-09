@@ -35,3 +35,21 @@ hu:
       add_new: Uj vizsgalat
       add_new_button: Felvetel
       treatment: Kezeles
+      
+    index:
+      charge: Dij
+      status: Statusz
+      anamnezis: Anamnezis
+      treatment: Kezeles
+      search: Kereses
+      are_you_sure: Biztos benne?
+      from_date: datumtol
+      to_date: datumig
+      
+    edit:
+      charge: Dij
+      status: Statusz
+      anamnezis: Anamnezis
+      treatment: Kezeles
+      edit_examination: Kezeles modositasa
+      edit_button: Modositas

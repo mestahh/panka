@@ -12,26 +12,26 @@
 	</ul>
 </div>
 <% end %>
-<h1>Edit examination</h1>
+<h1><%= t('.edit_examination')%></h1>
 <%= f.hidden_field :guest_id, :value => @examination.guest_id %>
 <p>
 	<div class="field">
 		<%= f.text_field :anamnezis %>
-		<%= f.label :anamnezis %>
+		<%= f.label t('.anamnezis') %>
 	</div>
 	<div class="field">
 		<%= f.text_field :status %>
-		<%= f.label :status %>
+		<%= f.label t('.status') %>
 	</div>
 	<div class="field">
 		<%= f.text_field :treatment %>
-		<%= f.label :treatment %>
+		<%= f.label t('.treatment') %>
 	</div>
 	<div class="field">
 		<%= f.text_field :charge %>
-		<%= f.label :charge %>
+		<%= f.label t('.charge') %>
 	</div>
 	<div class="actions">
-		<%= f.submit :value => 'Edit examinations', :class => 'submit' %>
+		<%= f.submit :value => t('.edit_button'), :class => 'submit' %>
 	</div>
 <% end %>

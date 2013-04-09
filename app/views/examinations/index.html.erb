@@ -1,12 +1,12 @@
 <%= form_tag search_examination_path do %>
 <fieldset>
-	<h1>Search</h1>
+	<h1><%= t('.search') %></h1>
 	<p>
 		<%= text_field_tag :from_date, params[:from_date], :class => 'datepicker' %>
-		<label for="from_date" >from</label>
+		<label for="from_date" ><%= t('.from_date') %></label>
 
 		<%= text_field_tag :to_date, params[:to_date], :class => 'datepicker' %>
-		<label for="to_date" >to</label>
+		<label for="to_date" ><%= t('.to_date') %></label>
 	</p>
 	<p>
 		<%= submit_tag "Search", :class => 'submit' %>
@@ -14,20 +14,14 @@
 </fieldset>
 <% end %>
 
-<!-- <%
- @pager = pager = Pager.new
-  @pager.elements_per_page = 10
-  @examinations_on_page = pager.get_page(@examinations, params[:page])
-%> -->
-
 <table width="100%">
 	<thead>
 		<tr>
-			<th>Date</th>
-			<th>Anamnezis</th>
-			<th>Status</th>
-			<th>Treatment</th>
-			<th>Charge</th>
+			<th><%= t('.datum') %></th>
+			<th><%= t('.anamnezis') %></th>
+			<th><%= t('.status') %></th>
+			<th><%= t('.treatment') %></th>
+			<th><%= t('.charge') %></th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -40,21 +34,8 @@
 		<td><%= examination.treatment %></td>
 		<td><%= examination.charge %></td>
 		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
-		<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => 'Are you sure?', :class => 'ui-icon ui-icon-trash' %></td>
+		<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
 	</tr>
 	<% end %>
 
 </table>
-<!-- <div class="pager">
-	<%
-	i = 0
-	pages = @pager.number_of_pages @examinations
-
-	while i < pages do
-	%>
-	<%= link_to "#{i+1} ", examinations_path(:page => i + 1)%>
-	<%
-	i = i + 1
-	end
-	%>
-</div> -->
