@@ -16,38 +16,38 @@
 
 <div class="field">
 	<%= f.text_field :name %>
-	<%= f.label :name %>
+	<%= f.label t('.name') %>
 </div>
 <div class="field">
 	<%= f.text_field :birth %>
-	<%= f.label :birth %>
+	<%= f.label t('.birth'), :class => 'datepicker' %>
 </div>
 <div class="field">
 	<%= f.text_field :mother %>
-	<%= f.label :mother %>
+	<%= f.label t('.mother') %>
 </div>
 <div class="field">
 	<%= f.text_field :address %>
-	<%= f.label :address %>
+	<%= f.label t('.address') %>
 </div>
 <div class="field">
 	<%= f.text_field :city %>
-	<%= f.label :city %>
+	<%= f.label t('.city') %>
 </div>
 <div class="field">
 	<%= f.text_field :postal_code %>
-	<%= f.label :postal_code %>
+	<%= f.label t('.postal_code') %>
 </div>
 <div class="field">
 	<%= f.text_field :phone %>
-	<%= f.label :phone %>
+	<%= f.label t('.phone') %>
 </div>
 <div class="field">
 	<%= f.text_field :email %>
-	<%= f.label :email %>
+	<%= f.label t('.email') %>
 </div>
 <div class="actions">
-	<%= f.submit :value => 'Edit guest', :class => 'submit' %>
+	<%= f.submit :value => t('.edit_guest'), :class => 'submit' %>
 </div>
 <% end %>
-<%= link_to 'Delete guest', guest_path(:id => @guest.id), :method => 'delete', :confirm => 'Are you sure?' ,:class => 'ui-icon ui-icon-trash' %>
+<%= link_to 'Delete guest', guest_path(:id => @guest.id), :method => 'delete', :confirm => t('.are_you_sure') ,:class => 'ui-icon ui-icon-trash' %>

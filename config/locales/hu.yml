@@ -17,7 +17,32 @@ hu:
   main:
     index:
       welcome: Udvozollek dicso lovag!
+    
+  guests:
+    edit:
+      name: nev
+      birth: szuletes ideje
+      mother: anyja neve
+      city: varos
+      address: cim
+      postal_code: iranyitoszam
+      phone: telefon
+      email: e-mail
+      are_you_sure: Biztos benne?
+      edit_guest: Modositas
       
+    new:
+      name: nev
+      birth: szuletes ideje
+      mother: anyja neve
+      city: varos
+      address: cim
+      postal_code: iranyitoszam
+      phone: telefon
+      email: e-mail
+      are_you_sure: Biztos benne?
+      add_guest: Felvetel
+        
   examinations:
     show:
       last_modified: utolso modositas
