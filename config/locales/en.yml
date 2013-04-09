@@ -15,4 +15,22 @@ en:
       username: username
       please_login: Please, log in
       login: Login
+  
+  examinations:
+    show:
+      last_modified: last modified
+      created_at: Created at
+      anamnezis: Anamnezis
+      treatment: Treatment
+      status: Status
+      charge: charged
+      are_you_sure: Are you sure?
+      
+    new:
+      charge: Charge
+      status: Status
+      anamnezis: Anamnezis
+      add_new: New examination
+      add_new_button: Add examination
+      treatment: Treatment
       

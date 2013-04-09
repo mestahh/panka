@@ -18,27 +18,27 @@
 </div>
 <% end %>
 
-<h1>Add new examination</h1>
+<h1><%= t(".add_new")%></h1>
 <%= f.hidden_field :guest_id, :value => @guest_id %>
 <p>
 	<div class="field">
 		<%= f.text_field :anamnezis %>
-		<%= f.label :anamnezis %>
+		<%= f.label t(".anamnezis") %>
 	</div>
 	<div class="field">
 		<%= f.text_field :status %>
-		<%= f.label :status %>
+		<%= f.label t(".status") %>
 	</div>
 	<div class="field">
 		<%= f.text_field :treatment %>
-		<%= f.label :treatment %>
+		<%= f.label t(".treatment") %>
 	</div>
 	<div class="field">
 		<%= f.text_field :charge %>
-		<%= f.label :charge %>
+		<%= f.label t(".charge") %>
 	</div>
 	<div class="actions">
-		<%= f.submit :value => 'Add examinations', :class => 'submit' %>
+		<%= f.submit :value => t(".add_new_button"), :class => 'submit' %>
 	</div>
 	<% end %>
 

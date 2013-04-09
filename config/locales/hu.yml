@@ -17,3 +17,21 @@ hu:
   main:
     index:
       welcome: Udvozollek dicso lovag!
+      
+  examinations:
+    show:
+      last_modified: utolso modositas
+      created_at: letrehova
+      anamnezis: Anamnezis
+      treatment: Kezeles
+      status: Statusz
+      charge: Dij
+      are_you_sure: Biztos benne?
+      
+    new:
+      charge: Dij
+      status: Statusz
+      anamnezis: Anamnezis
+      add_new: Uj vizsgalat
+      add_new_button: Felvetel
+      treatment: Kezeles
