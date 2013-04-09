@@ -19,6 +19,31 @@ hu:
       welcome: Udvozollek dicso lovag!
     
   guests:
+    
+    show:
+      name: nev
+      birth: szuletesi ido
+      mother: anyja neve
+      city: varos
+      address: cim
+      postal_code: iranyitoszam
+      phone: telefon
+      email: e-mail
+      treatment: kezeles
+      anamnezis: anamnezis
+      date: datum
+      status: statusz
+      charge: dij
+    
+    index:
+      search_button: Kereses
+      are_you_sure: Biztos benne?
+      name: nev
+      birth: szuletes ideje
+      mother: anyja neve
+      guests: Vendegek
+      city: varos
+      
     edit:
       name: nev
       birth: szuletes ideje

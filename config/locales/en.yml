@@ -29,6 +29,30 @@ en:
       are_you_sure: Are you sure?
       edit_guest: Edit guest
       
+    show:
+      name: name
+      birth: birth
+      mother: mother
+      city: city
+      address: address
+      postal_code: postal code
+      phone: phone
+      email: email
+      treatment: treatment
+      anamnezis: anamnezis
+      date: date
+      status: status
+      charge: charge
+      
+    index:
+      search_button: Search
+      are_you_sure: Are you sure?
+      name: name
+      birth: birth
+      mother: mother's name
+      guests: Guests
+      city: city
+         
     new:
       name: name
       birth: birth

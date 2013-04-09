@@ -1,9 +1,9 @@
 <%= form_tag search_guest_path do %>
 <fieldset>
-	<h1>Guests</h1>
+	<h1><%= t('.guests') %></h1>
 	<div>
 		<%= text_field_tag :search_field, params[:search_field] %>
-		<%= submit_tag "Search", :class => 'submit' %>
+		<%= submit_tag t('.search_button'), :class => 'submit' %>
 	</div>
 </fieldset>
 <% end %>
@@ -14,9 +14,12 @@
 <% end %>
 <table id="guests">
 	<thead>
-		<th>Name</th>
-		<th>Mother's name</th>
-		<th>Birth</th><th>City</th><th></th><th></th>
+		<th><Name><%= t('.name') %></th>
+		<th><%= t('.mother') %></th>
+		<th><%= t('.birth') %></th>
+		<th><%= t('.city') %></th>
+		<th></th>
+		<th></th>
 	</thead>
 
 	<% @guests.each do |guest| %>
@@ -33,7 +36,7 @@
 		<td><%= guest.birth %></td>
 		<td><%= guest.city %></td>
 		<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
-		<td><%= link_to 'Delete guest', guest_path(:id => guest.id), :method => 'delete', :confirm => 'Are you sure?', :class => 'ui-icon ui-icon-trash' %></td>
+		<td><%= link_to 'Delete guest', guest_path(:id => guest.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
 	</tr>
 
 	<% end %>

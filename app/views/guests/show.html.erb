@@ -1,34 +1,34 @@
 <h1><%= @guest.name %></h1>
 <div>
-	<span for="name" >Name:</span>
+	<span for="name" ><%= t('.name') %></span>
 	<span><%= @guest.name %></span>
 </div>
 <div>
-	<span for="birth" >Birth:</span>
+	<span for="birth" ><%= t('.birth') %></span>
 	<span><%= @guest.birth %></span>
 </div>
 <div>
-	<span for="mother" >Mother:</span>
+	<span for="mother"><%= t('.mother') %></span>
 	<span><%= @guest.mother %></span>
 </div>
 <div>
-	<span for="address" >Address:</span>
+	<span for="address" ><%= t('.address') %></span>
 	<span><%= @guest.address %></span>
 </div>
 <div>
-	<span for="city" >City:</span>
+	<span for="city" ><%= t('.city') %></span>
 	<span><%= @guest.city %></span>
 </div>
 <div>
-	<span for="postal_code" >Postal code:</span>
+	<span for="postal_code" ><%= t('.postal_code') %></span>
 	<span><%= @guest.postal_code %></span>
 </div>
 <div>
-	<span for="phone" >Phone:</span>
+	<span for="phone" ><%= t('.phone') %></span>
 	<span><%= @guest.phone %></span>
 </div>
 <div>
-	<span for="email" >E-mail:</span>
+	<span for="email" ><%= t('.email') %></span>
 	<span><%= @guest.email %></span>
 </div>
 <div>
@@ -37,7 +37,7 @@
 <hr />
 <table>
 	<thead>
-		<th>Date</th><th>Anamnezis</th><th>Status</th><th>Treatment</th><th>Charge</th>
+		<th><%= t('.date') %></th><th><%= t('.anamnezis') %></th><th><%= t('.status') %></th><th><%= t('.treatment') %></th><th><%= t('.charge') %></th>
 	</thead>
 	<% @guest.examinations.each do |examination| %>
 	<tr>
