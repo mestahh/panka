@@ -48,7 +48,7 @@ Given(/^enter a password$/) do
 end
 
 Given(/^I am logged in$/) do
-  @user = FactoryGirl.create(:user)
+
   visit '/login'
   fill_in 'username', :with => @user.username
   fill_in 'password', :with => '1'

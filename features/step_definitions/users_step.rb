@@ -16,3 +16,17 @@ Then(/^the new user should be created$/) do
   current_path.should == login_path(I18n.locale)
   User.count.should == 1
 end
+
+Given(/^enter new user data with an existing username$/) do
+  fill_in 'user_username', :with => 'bob'
+  fill_in 'user_email', :with => 'todd@gmail.com'
+  fill_in 'user_password', :with => '1'
+end
+
+Then(/^I should see the register page$/) do
+  current_path.should == new_user_path(I18n.locale)
+end
+
+Then(/^no user should be created$/) do
+  User.count.should == 1
+end
