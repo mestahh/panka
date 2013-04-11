@@ -23,3 +23,17 @@ Feature: users can be CRUD
 		When I press the register button
 		Then I should see the register page
 		And no user should be created
+		
+	Scenario: Registration link visible if not logged in
+	
+		Given I visit the login page
+		When I click on the registration link
+		Then I should see the register page
+		
+	Scenario: Registration page is not available when logged in
+	
+		Given I have a user
+		And I am logged in
+		When I visit the register page
+		Then I should see an error page
+		

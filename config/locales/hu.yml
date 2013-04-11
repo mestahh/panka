@@ -5,7 +5,8 @@ hu:
       add_guest: Vendeg hozzaadasa
       guests: Vendegek
       examinations: Vizsgalatok
-      log_out: kilepes
+      log_out: Kilepes
+      registration: Regisztracio
   
   sessions:
     new:

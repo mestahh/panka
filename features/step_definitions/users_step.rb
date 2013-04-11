@@ -19,7 +19,7 @@ Then(/^the new user should be created$/) do
 end
 
 Given(/^enter new user data with not matching passwords$/) do
- fill_in 'user_username', :with => 'bali'
+  fill_in 'user_username', :with => 'bali'
   fill_in 'user_email', :with => 'todd@gmail.com'
   fill_in 'user_password', :with => '1'
   fill_in 'user_password_confirmation', :with => '2'
@@ -41,4 +41,12 @@ end
 
 Then(/^no new user should be created$/) do
   User.count.should == 1
+end
+
+When(/^I click on the registration link$/) do
+  click_link 'Registration'
+end
+
+When(/^I visit the registration page$/) do
+  visit new_user_path
 end
