@@ -85,4 +85,9 @@ Feature: Examination
 		When I visit the other examinations edit link
 		Then I should see an error page
 		
+	Scenario: Listing other users examinations is disabled
+		
+		When I visit the examinations page
+		Then I should see only my user's examinations
+		
 	

@@ -1,5 +1,5 @@
 class Examination < ActiveRecord::Base
-  attr_accessible :anamnezis, :charge, :status, :treatment, :guest_id
+  attr_accessible :anamnezis, :charge, :status, :treatment, :guest_id, :user_id
   
   belongs_to :guest
   

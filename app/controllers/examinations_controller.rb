@@ -12,9 +12,9 @@ class ExaminationsController < ApplicationController
     end
 
     if (params[:guest_id])
-      @examinations = Examination.find_all_by_guest_id(params[:guest_id])
+      @examinations = Examination.find_all_by_guest_id_and_user_id(params[:guest_id], session[:user])
     else
-      @examinations = Examination.find(:all)
+      @examinations = Examination.find_all_by_user_id(session[:user])
     end
     params[:page] = 1
   end
@@ -33,7 +33,7 @@ class ExaminationsController < ApplicationController
 
   def create
     examination = Examination.new(params[:examination])
-
+    examination.user_id = session[:user]
     if examination.save
       redirect_to guest_path(:id => examination.guest.id)
     else

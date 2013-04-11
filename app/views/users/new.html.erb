@@ -13,24 +13,22 @@
 </div>
 <% end %>
 <fieldset>
-	<legend>
-		Enter User Details <%= @user.username %>
-	</legend>
+	<h3>Register new user</h3>
 	<div>
-		<%= f.label :username %>
 		<%= f.text_field :username %>
+		<%= f.label :username %>
 	</div>
 	<div>
-		<%= f.label :password, 'Password' %>
 		<%= f.password_field :password %>
+		<%= f.label :password, 'Password' %>
 	</div>
 	<div>
-		<%= f.label :password_confirmation, 'Password confirmation' %>
 		<%= f.password_field :password_confirmation %>
+		<%= f.label :password_confirmation, 'Password confirmation' %>
 	</div>
 	<div>
-		<%= f.label :email, 'E-mail' %>
 		<%= f.password_field :email %>
+		<%= f.label :email, 'E-mail' %>
 	</div>
 	<div>
 		<%= f.submit :value => t('.register_user'), :class => 'submit' %>

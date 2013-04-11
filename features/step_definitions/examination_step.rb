@@ -27,6 +27,8 @@ end
 
 Then(/^I should have a new examination in the database$/) do
   Examination.count.should == 19
+  exam = Examination.find_by_anamnezis('testanamnezis')
+  exam.user_id.should == @user1.id
 end
 
 Then(/^I should see the guests page\.$/) do
@@ -80,17 +82,6 @@ Then(/^I should see all the examinations for all guests$/) do
   page.should have_content @exam1_3_2.anamnezis
   page.should have_content @exam1_3_3.anamnezis
 
-  page.should have_content @exam2_1_1.anamnezis
-  page.should have_content @exam2_1_2.anamnezis
-  page.should have_content @exam2_1_3.anamnezis
-
-  page.should have_content @exam2_2_1.anamnezis
-  page.should have_content @exam2_2_2.anamnezis
-  page.should have_content @exam2_2_3.anamnezis
-
-  page.should have_content @exam2_3_1.anamnezis
-  page.should have_content @exam2_3_2.anamnezis
-  page.should have_content @exam2_3_3.anamnezis
 end
 
 When(/^I click on the delete examination link$/) do
@@ -196,17 +187,32 @@ end
 When(/^I visit the other examinations edit link$/) do
   visit edit_examination_path(:id => @exam2_1_1.id)
 end
-#
-# When(/^filter for the first examination$/) do
-# @exam1_1_1.created_at = '2012-12-12 12:12:12'
-# @exam1_1_1.save
-# fill_in 'from_date', :with => '2012-12-11'
-# fill_in 'to_date', :with => '2012-12-13'
-# click_button 'Search'
-# end
-#
-# Then(/^I should see the guests page with filtered examinations$/) do
-# current_path.should == guest_path(I18n.locale, :id => @guest1_1.id)
-# page.should have_content '2012-12-12'
-# page.should_not have_content '2011-12-12'
-# end
+When(/^I visit the examinations page$/) do
+  visit examinations_path
+end
+
+Then(/^I should see only my user's examinations$/) do
+  page.should have_content 'Nyavaja'
+  page.should have_content 'Korsag'
+  page.should have_content 'Fene'
+
+  page.should have_content 'Ludborzes'
+  page.should have_content 'Bibircsok'
+  page.should have_content 'Hidegrazas'
+
+  page.should have_content 'Pestis'
+  page.should have_content 'Himlo'
+  page.should have_content 'Szemmelveres'
+
+  page.should_not have_content 'Franc'
+  page.should_not have_content 'Sargasag'
+  page.should_not have_content 'Sapkor'
+
+  page.should_not have_content 'Agybaj'
+  page.should_not have_content 'Reuma'
+  page.should_not have_content 'Gumokor'
+
+  page.should_not have_content 'Agylagyulas'
+  page.should_not have_content 'Szifilisz'
+  page.should_not have_content 'Atok'
+end
