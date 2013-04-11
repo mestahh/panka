@@ -101,3 +101,10 @@ en:
       edit_examination: Edit examination
       edit_button: Edit examination
       
+  users:
+    new:
+      username: username
+      password: password
+      email: e-mail
+      register_user: Register
+      

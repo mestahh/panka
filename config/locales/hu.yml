@@ -103,3 +103,10 @@ hu:
       treatment: Kezeles
       edit_examination: Kezeles modositasa
       edit_button: Modositas
+
+  users:
+    new:
+      username: felhasznalonev
+      password: jelszo
+      email: e-mail
+      register_user: Regisztral

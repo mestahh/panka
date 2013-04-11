@@ -16,8 +16,9 @@ FactoryGirl.define do
 
   factory :user do |user|
     user.username 'bob'
-    user.password 'secret'
+    user.salt 'secret'
     user.email 'bob@gmail.com'
+    user.password '1'
   end
 
   factory :examination do |exam|

@@ -12,7 +12,7 @@ end
 
 Given(/^enter the correct credentials$/) do
   fill_in 'username', :with => @user.username
-  fill_in 'password', :with => @user.password
+  fill_in 'password', :with => '1'
 end
 
 When(/^I click the login button$/) do
@@ -44,14 +44,14 @@ Given(/^enter a non\-existing username$/) do
 end
 
 Given(/^enter a password$/) do
-  fill_in 'password', :with => @user.password
+  fill_in 'password', :with => '1'
 end
 
 Given(/^I am logged in$/) do
   @user = FactoryGirl.create(:user)
   visit '/login'
   fill_in 'username', :with => @user.username
-  fill_in 'password', :with => @user.password
+  fill_in 'password', :with => '1'
   click_button 'Login'
 end
 

@@ -14,7 +14,7 @@ Panka::Application.routes.draw do
 #   resources :products
 
   scope '(:locale)' do
-    resources :guests, :examinations
+    resources :guests, :examinations, :users
     get "main/index"
 
     controller :sessions do
