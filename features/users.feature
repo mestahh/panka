@@ -37,3 +37,11 @@ Feature: users can be CRUD
 		When I visit the register page
 		Then I should see an error page
 		
+	Scenario: A user can edit its own data
+	
+		Given I have a user
+		And I am logged in
+		When I visit the edit user page
+		And change the user data
+		Then the changed user data should be saved
+		

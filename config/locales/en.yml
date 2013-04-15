@@ -109,3 +109,9 @@ en:
       email: e-mail
       register_user: Register
       
+    edit:
+      username: username
+      password: password
+      email: e-mail
+      edit_user: Edit
+      

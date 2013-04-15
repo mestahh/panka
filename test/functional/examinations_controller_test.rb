@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class ExaminationsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
+  
+  # test "index action returns index page with all examinations" do
+    # get :index
+    # assert_response :success
   # end
+
 end

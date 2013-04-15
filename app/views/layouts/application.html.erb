@@ -11,6 +11,9 @@
 				$(".datepicker").datepicker({
 					dateFormat : 'yy-mm-dd'
 				});
+				$("a".onclick(function() {
+					alert("clicked")
+				}));
 			});
 		</script>
 	</head>
@@ -21,6 +24,19 @@
 			</div>
 			<div id="leftmenu" class="grid_2">
 				<ul id="menu">
+
+					
+					<% unless session[:user] %>
+					<li>
+						<%= link_to t('.registration'), new_user_path %>
+					</li>
+					<li>
+						<%= link_to t('.login'), login_path %>
+					</li>
+					<% else %>
+					<li>
+						<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
+					</li>
 					<li>
 						<%= link_to t('.add_guest'), new_guest_path %>
 					</li>
@@ -30,12 +46,7 @@
 					<li>
 						<%= link_to t('.examinations'), examinations_path %>
 					</li>
-					<li>
-						<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
-					</li>
-					<li>
-						<%= link_to t('.registration'), new_user_path %>
-					</li>
+					<% end %>
 				</ul>
 			</div>
 			<div id="main" class="grid_10">

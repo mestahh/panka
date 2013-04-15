@@ -13,7 +13,7 @@
 </div>
 <% end %>
 <fieldset>
-	<h3>Register new user</h3>
+	<h3>Edit user</h3>
 	<div>
 		<%= f.text_field :username %>
 		<%= f.label :username %>
@@ -31,7 +31,7 @@
 		<%= f.label :email, 'E-mail' %>
 	</div>
 	<div>
-		<%= f.submit :value => t('.register_user'), :class => 'submit' %>
+		<%= f.submit :value => t('.edit_user'), :class => 'submit' %>
 	</div>
 </fieldset>
 <% end %>

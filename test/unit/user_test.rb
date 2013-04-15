@@ -13,6 +13,5 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     
     assert_equal User.count, 1
-    puts @user.hashed_password
   end
 end

@@ -50,3 +50,31 @@ end
 When(/^I visit the registration page$/) do
   visit new_user_path
 end
+
+When(/^I visit the edit user page$/) do
+  visit edit_user_path(:id => @user.id)
+end
+
+When(/^change the user data$/) do
+ fill_in 'user_username', :with => 'changedusername'
+ fill_in 'user_password', :with => 'hallo'
+ fill_in 'user_password_confirmation', :with => 'hallo'
+ fill_in 'user_email', :with => 'changedemail@email.hu'
+ click_button 'Edit'
+end
+
+Then(/^the changed user data should be saved$/) do
+  @changed_user = User.find(@user.id)
+  @changed_user.username.should == 'changedusername'
+  @changed_user.email.should == 'changedemail@email.hu'
+  click_link 'Log out'
+  login_with('changedusername', 'hallo')
+  current_path.should == main_index_path(I18n.locale)
+end
+
+def login_with(username, password) 
+  visit login_path
+  fill_in 'username', :with => username
+  fill_in 'password', :with => password
+  click_button 'Login'
+end

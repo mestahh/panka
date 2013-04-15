@@ -1,7 +1,6 @@
 class GuestsController < ApplicationController
-  
+
   before_filter :check_login
-  
   def index
 
     @user = User.find(session[:user])
@@ -10,9 +9,10 @@ class GuestsController < ApplicationController
       @guests = Guest.search(params[:query], session[:user])
     else
       @guests = @user.guests
+                                
     end
   end
-  
+
   def search_examination
     @examinations = Examination.where(["created_at < ? and created_at > ? and guest_id = ?", params[:from_date], params[:to_date], params[:guest_id]])
     redirect_to guest_path(:id => params[:guest_id])
@@ -43,13 +43,15 @@ class GuestsController < ApplicationController
   end
 
   def create
-    guest = Guest.new(params[:guest])
-    guest.user = User.find(session[:user])
-    if guest.save
+    @guest = Guest.new(params[:guest])
+    @guest.user = User.find(session[:user])
+    if @guest.save
       redirect_to main_index_path
     else
+      @guest.errors.add(:name, "Missing password")
       redirect_to new_guest_path
     end
+
   end
 
   def show
@@ -82,7 +84,7 @@ class GuestsController < ApplicationController
     @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
     if (@guest.nil?)
       redirect_to main_index_path
-      return
+    return
     end
     @guest.delete
     redirect_to guests_path

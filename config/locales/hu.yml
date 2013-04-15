@@ -111,3 +111,9 @@ hu:
       password: jelszo
       email: e-mail
       register_user: Regisztral
+
+    edit:
+      username: felhasznalonev
+      password: jelszo
+      email: e-mail
+      edit_user: Modosit
