@@ -227,3 +227,7 @@ Then(/^I should see only my user's examinations$/) do
   page.should_not have_content 'Szifilisz'
   page.should_not have_content 'Atok'
 end
+
+When(/^I visit the new examination page with non\-existing guest id$/) do
+  visit new_examination_path(:guest_id => '123')
+end

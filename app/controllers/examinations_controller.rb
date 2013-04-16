@@ -1,8 +1,6 @@
 class ExaminationsController < ApplicationController
   before_filter :check_login
-  
   def index
-    
 
     if (params[:guest_id])
       @examinations = Examination.paginate :page => params[:page], :per_page => 20, :conditions => [ 'user_id = ? and guest_id = ?', session[:user], params[:guest_id]]
@@ -12,8 +10,17 @@ class ExaminationsController < ApplicationController
   end
 
   def new
-    @guest_id = params[:guest_id]
-    @examination = Examination.new
+
+    begin
+      if (params[:guest_id])
+        Guest.find(params[:guest_id])
+      end
+      @examination = Examination.new
+      @guest_id = params[:guest_id]
+    rescue
+      redirect_to main_index_path
+    end
+
   end
 
   def show

@@ -90,4 +90,7 @@ Feature: Examination
 		When I visit the examinations page
 		Then I should see only my user's examinations
 		
+	Scenario: New examination creation is disabled if there is no guest with the given id
 	
+		When I visit the new examination page with non-existing guest id
+		Then I should see an error page
