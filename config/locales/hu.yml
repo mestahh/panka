@@ -117,3 +117,13 @@ hu:
       password: jelszo
       email: e-mail
       edit_user: Modosit
+      
+  guest_finder:
+    search:
+      search_button: Kereses
+      are_you_sure: Biztos benne?
+      name: Nev
+      birth: Szuletesi ido
+      mother: Anyja neve
+      guests: Vendegek
+      city: Varos

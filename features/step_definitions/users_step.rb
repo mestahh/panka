@@ -78,3 +78,11 @@ def login_with(username, password)
   fill_in 'password', :with => password
   click_button 'Login'
 end
+
+When(/^I visit the other users edit page$/) do
+  visit edit_user_path(:id => @user2.id)
+end
+
+Then(/^I should be redirected to the main page$/) do
+ current_path.should == main_index_path(I18n.locale)
+end

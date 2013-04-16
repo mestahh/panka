@@ -114,4 +114,14 @@ en:
       password: password
       email: e-mail
       edit_user: Edit
+  
+  guest_finder:
+    search:
+      search_button: Search
+      are_you_sure: Are you sure?
+      name: name
+      birth: birth
+      mother: mother's name
+      guests: Guests
+      city: city
       

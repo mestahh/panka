@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    unless (params[:id].to_s == session[:user].to_s)
+      redirect_to main_index_path
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   def update

@@ -45,3 +45,9 @@ Feature: users can be CRUD
 		And change the user data
 		Then the changed user data should be saved
 		
+	Scenario: A user can not edit other users data
+		
+		Given I have the background
+		When I visit the other users edit page
+		Then I should be redirected to the main page
+		
