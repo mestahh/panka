@@ -2,15 +2,8 @@ class GuestsController < ApplicationController
 
   before_filter :check_login
   def index
-
     @user = User.find(session[:user])
-
-    if (params[:query])
-      @guests = Guest.search(params[:query], session[:user])
-    else
-      @guests = @user.guests
-
-    end
+    @guests = Guest.paginate :page => params[:page], :per_page => 20, :conditions => [ 'user_id = ?', session[:user]]
   end
 
   def new
