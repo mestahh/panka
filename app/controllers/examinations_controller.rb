@@ -1,22 +1,14 @@
 class ExaminationsController < ApplicationController
   before_filter :check_login
   
-  
   def index
-    if (params[:from_date])
-      from = params[:from_date]
-      to = params[:to_date]
-
-      @examinations = Examination.where(["created_at < ? and created_at > ?", to, from])
-    return
-    end
+    
 
     if (params[:guest_id])
-      @examinations = Examination.find_all_by_guest_id_and_user_id(params[:guest_id], session[:user])
+      @examinations = Examination.paginate :page => params[:page], :per_page => 20, :conditions => [ 'user_id = ? and guest_id = ?', session[:user], params[:guest_id]]
     else
-      @examinations = Examination.find_all_by_user_id(session[:user])
+      @examinations = Examination.paginate :page => params[:page], :per_page => 20, :conditions => [ 'user_id = ?', session[:user]]
     end
-    params[:page] = 1
   end
 
   def new

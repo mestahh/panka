@@ -28,9 +28,10 @@ Panka::Application.routes.draw do
       post 'search_guest_examination' => :search_examination
     end
 
-    controller :examinations do
-      post 'search_examination' => :index
+    controller :exam_search do
+      post 'search_exam' => :search
     end
+
   end
 
   # Sample resource route with options:

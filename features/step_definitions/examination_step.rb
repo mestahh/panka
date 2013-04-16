@@ -82,6 +82,17 @@ Then(/^I should see all the examinations for all guests$/) do
   page.should have_content @exam1_3_2.anamnezis
   page.should have_content @exam1_3_3.anamnezis
 
+  page.should_not have_content @exam2_1_1.anamnezis
+  page.should_not have_content @exam2_1_2.anamnezis
+  page.should_not have_content @exam2_1_3.anamnezis
+
+  page.should_not have_content @exam2_2_1.anamnezis
+  page.should_not have_content @exam2_2_2.anamnezis
+  page.should_not have_content @exam2_2_3.anamnezis
+
+  page.should_not have_content @exam2_3_1.anamnezis
+  page.should_not have_content @exam2_3_2.anamnezis
+  page.should_not have_content @exam2_3_3.anamnezis
 end
 
 When(/^I click on the delete examination link$/) do
@@ -136,13 +147,13 @@ When(/^I click on the search button$/) do
 end
 
 Then(/^I should see the first examination listed$/) do
-  current_path.should == search_examination_path(I18n.locale)
+  current_path.should == search_exam_path(I18n.locale)
   page.should have_content 'Nyavaja'
   page.should_not have_content 'Korsag'
 end
 
 Then(/^I should see both examinations listed$/) do
-  current_path.should == search_examination_path(I18n.locale)
+  current_path.should == search_exam_path(I18n.locale)
   page.should have_content 'Nyavaja'
   page.should have_content 'Korsag'
 end
