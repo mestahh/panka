@@ -72,7 +72,7 @@ When(/^I visit the page for displaying all guests$/) do
 end
 
 Then(/^I should see the all guests page with the matching guests\.$/) do
-  current_path.should == guests_path(I18n.locale)
+  current_path.should == find_guest_path(I18n.locale)
   page.should have_content 'Pista K'
   page.should have_content 'Pista A'
   page.should_not have_content 'Marika'
@@ -95,12 +95,23 @@ When(/^I try to search for an empty guestname$/) do
   click_button 'Search'
 end
 
+Then(/^I should see no guests on the finder page$/) do
+  current_path.should == find_guest_path(I18n.locale)
+  page.should_not have_content(@guest1_1.name)
+  page.should_not have_content(@guest1_2.name)
+  page.should_not have_content(@guest1_3.name)
+  page.should_not have_content(@guest2_1.name)
+  page.should_not have_content(@guest2_2.name)
+  page.should_not have_content(@guest2_3.name)
+end
+
 When(/^search for a non\-existing name$/) do
   fill_in 'search_field', :with => 'Mo'
   click_button 'Search'
 end
 
 Then(/^I should see an error message about the unsuccessful search$/) do
+  current_path.should == find_guest_path(I18n.locale)
   page.should have_content 'There is no guest with this name.'
 end
 
@@ -160,6 +171,7 @@ When(/^search for the second guest name$/) do
 end
 
 Then(/^I should see the first users guest and not the second$/) do
+  current_path.should == find_guest_path(I18n.locale)
   page.should have_content '1990-12-12'
   page.should_not have_content '1980-12-12'
 end

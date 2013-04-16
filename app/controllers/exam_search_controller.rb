@@ -1,4 +1,5 @@
 class ExamSearchController < ApplicationController
+  
   def search
     from = params[:from_date]
     to = params[:to_date]

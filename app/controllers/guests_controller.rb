@@ -9,32 +9,7 @@ class GuestsController < ApplicationController
       @guests = Guest.search(params[:query], session[:user])
     else
       @guests = @user.guests
-                                
-    end
-  end
 
-  def search_examination
-    @examinations = Examination.where(["created_at < ? and created_at > ? and guest_id = ?", params[:from_date], params[:to_date], params[:guest_id]])
-    redirect_to guest_path(:id => params[:guest_id])
-  end
-
-  def search
-    if params[:search_field] == ''
-      redirect_to guests_path
-    return
-    end
-
-    @guest = Guest.search(params[:search_field], session[:user])
-
-    if @guest.size == 0
-      redirect_to guests_path, :alert => 'There is no guest with this name.'
-    return
-    end
-
-    if (@guest.size > 1)
-      redirect_to guests_path(:query => params[:search_field])
-    else
-      redirect_to guest_path(:id => @guest[0].id)
     end
   end
 

@@ -42,13 +42,13 @@ Feature: Guest handling
 	Scenario: Search for an empty string does nothing
 	
 		When I try to search for an empty guestname
-		Then I should see the all guests page
+		Then I should see no guests on the finder page
 		
 	Scenario: Search for a non-existing guest displays message
 	
 		When I visit the page for displaying all guests
 		And search for a non-existing name
-		Then I should see the all guests page 
+		Then I should see no guests on the finder page
 		And I should see an error message about the unsuccessful search
 		
 	Scenario: Opening the guest page in select mode
