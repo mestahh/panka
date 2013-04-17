@@ -40,3 +40,7 @@ Given(/^I have the background$/) do
   click_button 'Login'
 
 end
+
+Then(/^I should see the error message (.*)$/) do |message|
+ page.should have_content message
+end

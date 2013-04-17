@@ -11,8 +11,20 @@
  *= require_self
  *= require_tree .
  */
-.pager {
-	text-align: center;
+.bold {
+	font-weight: bold;
+}
+
+#errorline {
+	border: 1px dotted red;
+	color: red;
+	padding: 10px;
+}
+
+#messageline {
+	border: 1px dotted #d19405;
+	color: #d19405;
+	padding: 10px;
 }
 
 a {
@@ -68,6 +80,7 @@ thead tr {
 	border: 1px solid #aaaaaa;
 	background-color: #dedede;
 	margin-top: 20px;
+	padding: 10px;
 }
 
 #header {

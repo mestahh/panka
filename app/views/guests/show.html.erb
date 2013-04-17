@@ -1,36 +1,19 @@
 <h1><%= @guest.name %></h1>
-<div>
-	<span for="name" ><%= t('.name') %></span>
-	<span><%= @guest.name %></span>
-</div>
-<div>
-	<span for="birth" ><%= t('.birth') %></span>
-	<span><%= @guest.birth %></span>
-</div>
-<div>
-	<span for="mother"><%= t('.mother') %></span>
-	<span><%= @guest.mother %></span>
-</div>
-<div>
-	<span for="address" ><%= t('.address') %></span>
-	<span><%= @guest.address %></span>
-</div>
-<div>
-	<span for="city" ><%= t('.city') %></span>
-	<span><%= @guest.city %></span>
-</div>
-<div>
-	<span for="postal_code" ><%= t('.postal_code') %></span>
-	<span><%= @guest.postal_code %></span>
-</div>
-<div>
-	<span for="phone" ><%= t('.phone') %></span>
-	<span><%= @guest.phone %></span>
-</div>
-<div>
-	<span for="email" ><%= t('.email') %></span>
-	<span><%= @guest.email %></span>
-</div>
+
+<table width="100%">
+	<tr>
+		<td class="bold"><%= t('.name') %></td><td><%= @guest.name %></td><td class="bold"><%= t('.birth') %></td><td><%= @guest.birth %></td>
+	</tr>
+	<tr>
+		<td class="bold"><%= t('.mother') %></td><td><%= @guest.mother %></td><td class="bold"><%= t('.address') %></td><td><%= @guest.address %></td>
+	</tr>
+	<tr>
+		<td class="bold"><%= t('.city') %></td><td><%= @guest.city %></td><td class="bold"><%= t('.postal_code') %></td><td><%= @guest.postal_code %></td>
+	</tr>
+	<tr>
+		<td class="bold"><%= t('.phone') %></td><td><%= @guest.phone %></td><td class="bold"><%= t('.email') %></td><td><%= @guest.email %></td>
+	</tr>
+</table>
 <div>
 	<%= link_to 'Edit', edit_guest_path(:id => @guest.id), :class => 'ui-icon ui-icon-pencil' %> <%= link_to 'Add examination', new_examination_path(:guest_id => @guest.id), :class => 'ui-icon ui-icon-plus' %>
 </div>

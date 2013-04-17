@@ -35,7 +35,8 @@ Feature: users can be CRUD
 		Given I have a user
 		And I am logged in
 		When I visit the register page
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message You are not allowed to register!
 		
 	Scenario: A user can edit its own data
 	
@@ -50,4 +51,11 @@ Feature: users can be CRUD
 		Given I have the background
 		When I visit the other users edit page
 		Then I should be redirected to the main page
+		And I should see the error message You are not allowed to view this page
+		
+	Scenario: There should be a link to the edit user page
+	
+		Given I have the background
+		When I click on the account link
+		Then I should see the edit user page
 		

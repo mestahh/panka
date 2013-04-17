@@ -11,6 +11,7 @@ hu:
       examinations: Vizsgalatok
       log_out: Kilepes
       registration: Regisztracio
+      my_account: Saját fiók
   
   sessions:
     new:

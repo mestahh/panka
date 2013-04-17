@@ -15,6 +15,7 @@ en:
       examinations: Examinations
       log_out: Log out
       registration: Registration
+      my_account: My account
       
   sessions:
     new:

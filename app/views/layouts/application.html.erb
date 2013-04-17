@@ -32,9 +32,6 @@
 					</li>
 					<% else %>
 					<li>
-						<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
-					</li>
-					<li>
 						<%= link_to t('.add_guest'), new_guest_path %>
 					</li>
 					<li>
@@ -43,10 +40,17 @@
 					<li>
 						<%= link_to t('.examinations'), examinations_path %>
 					</li>
+					<li>
+						<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %>
+					</li>
+					<li>
+						<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
+					</li>
 					<% end %>
 				</ul>
 			</div>
 			<div id="main" class="grid_10">
+				<%= render 'message/message_line' %>
 				<%= yield %>
 			</div>
 			<div id="footer" class="grid_12">

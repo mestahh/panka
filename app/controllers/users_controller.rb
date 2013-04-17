@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :logged_in, :only => :create
   before_filter :logged_in, :only => :new
+  
   def new
     @user = User.new
   end
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
 
   def edit
     unless (params[:id].to_s == session[:user].to_s)
-      redirect_to main_index_path
+      redirect_to main_index_path, :alert => 'You are not allowed to view this page'
     else
       @user = User.find(params[:id])
     end
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
 
   def logged_in
     if (session[:user])
-      redirect_to main_index_path
+      redirect_to main_index_path, :alert => 'You are not allowed to register!'
     end
   end
 

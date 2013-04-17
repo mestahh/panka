@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 	
 	def destroy 
 		session[:user] = nil
-		redirect_to_login 'Successful log out.'
+		redirect_to login_path, :notice => 'Successful log out.'
 	end
 	
 	def redirect_to_login(message)

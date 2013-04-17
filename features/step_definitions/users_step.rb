@@ -86,3 +86,11 @@ end
 Then(/^I should be redirected to the main page$/) do
  current_path.should == main_index_path(I18n.locale)
 end
+
+When(/^I click on the account link$/) do
+  click_link 'My account'
+end
+
+Then(/^I should see the edit user page$/) do
+  current_path.should == edit_user_path(:id => @user1.id, :locale => I18n.locale)
+end
