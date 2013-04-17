@@ -1,4 +1,8 @@
 hu: 
+  helpers:
+    submit:
+      create: "Felvétele"
+      update: "Módosítás"
   
   layouts:
     application:
@@ -35,6 +39,7 @@ hu:
       date: datum
       status: statusz
       charge: dij
+      are_you_sure: Are you sure?
     
     index:
       search_button: Kereses
@@ -45,7 +50,7 @@ hu:
       guests: Vendegek
       city: varos
       
-    edit:
+    form:
       name: nev
       birth: szuletes ideje
       mother: anyja neve
@@ -54,20 +59,12 @@ hu:
       postal_code: iranyitoszam
       phone: telefon
       email: e-mail
-      are_you_sure: Biztos benne?
-      edit_guest: Modositas
       
-    new:
-      name: nev
-      birth: szuletes ideje
-      mother: anyja neve
-      city: varos
-      address: cim
-      postal_code: iranyitoszam
-      phone: telefon
-      email: e-mail
+    edit:
       are_you_sure: Biztos benne?
-      add_guest: Felvetel
+
+    new:
+      are_you_sure: Biztos benne?
         
   examinations:
     show:
@@ -79,12 +76,10 @@ hu:
       charge: Dij
       are_you_sure: Biztos benne?
       
-    new:
+    form:
       charge: Dij
       status: Statusz
       anamnezis: Anamnezis
-      add_new: Uj vizsgalat
-      add_new_button: Felvetel
       treatment: Kezeles
       
     index:
@@ -96,14 +91,6 @@ hu:
       are_you_sure: Biztos benne?
       from_date: datumtol
       to_date: datumig
-      
-    edit:
-      charge: Dij
-      status: Statusz
-      anamnezis: Anamnezis
-      treatment: Kezeles
-      edit_examination: Kezeles modositasa
-      edit_button: Modositas
 
   users:
     new:

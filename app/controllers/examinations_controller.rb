@@ -16,7 +16,7 @@ class ExaminationsController < ApplicationController
         Guest.find(params[:guest_id])
       end
       @examination = Examination.new
-      @guest_id = params[:guest_id]
+      @examination.guest_id = params[:guest_id]
     rescue
       redirect_to main_index_path
     end
@@ -49,6 +49,7 @@ class ExaminationsController < ApplicationController
 
   def edit
     @examination = Examination.find(params[:id])
+    
     if (@examination.guest.user_id != session[:user])
       redirect_to main_index_path
     end

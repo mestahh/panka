@@ -22,7 +22,7 @@ When(/^fill in all the fields on the examination$/) do
 end
 
 When(/^press the add examination button$/) do
-  click_button 'Add examination'
+  click_button 'Add Examination'
 end
 
 Then(/^I should have a new examination in the database$/) do
@@ -119,7 +119,7 @@ When(/^change its values$/) do
 end
 
 When(/^press the edit button$/) do
-  click_button 'Edit examination'
+  click_button 'Edit Examination'
 end
 
 Then(/^the changes should be saved$/) do

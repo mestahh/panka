@@ -11,9 +11,7 @@
 				$(".datepicker").datepicker({
 					dateFormat : 'yy-mm-dd'
 				});
-				$("a".onclick(function() {
-					alert("clicked")
-				}));
+			
 			});
 		</script>
 	</head>
@@ -25,7 +23,6 @@
 			<div id="leftmenu" class="grid_2">
 				<ul id="menu">
 
-					
 					<% unless session[:user] %>
 					<li>
 						<%= link_to t('.registration'), new_user_path %>

@@ -1,4 +1,5 @@
-<!-- <%= form_for(@guest) do |f| %>
+<%= form_for(@guest) do |f| %>
+
 <% if @guest.errors.any? %>
 <div id="errorExplanation">
 	<h2><%= pluralize(@guest.errors.count, "error") %> prohibited
@@ -45,9 +46,7 @@
 	<%= f.text_field :email %>
 	<%= f.label t('.email') %>
 </div>
-
 <div class="actions">
-	<%= f.submit :value => t('.add_guest'), :class => 'submit' %>
-</div> -->
-<%= render 'form', :locals => {:submit => t('.add_guest')} %>
+	<%= f.submit :class => 'submit' %>
+</div>
 <% end %>

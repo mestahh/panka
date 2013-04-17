@@ -1,7 +1,13 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+ 
 
 en:
+  helpers:
+    submit:
+      create: "Add %{model}"
+      update: "Edit %{model}"
+  
   layouts:
     application:
       add_guest: Add guest
@@ -18,7 +24,7 @@ en:
       login: Login
       
   guests:
-    edit:
+    form:
       name: name
       birth: birth
       mother: mother
@@ -27,8 +33,9 @@ en:
       postal_code: postal code
       phone: phone
       email: email
+    
+    edit:
       are_you_sure: Are you sure?
-      edit_guest: Edit guest
       
     show:
       name: name
@@ -44,6 +51,7 @@ en:
       date: date
       status: status
       charge: charge
+      are_you_sure: Are you sure?
       
     index:
       search_button: Search
@@ -55,16 +63,7 @@ en:
       city: city
          
     new:
-      name: name
-      birth: birth
-      mother: mother
-      city: city
-      address: address
-      postal_code: postal code
-      phone: phone
-      email: email
       are_you_sure: Are you sure?
-      add_guest: Add guest
   
   examinations:
     show:
@@ -76,12 +75,10 @@ en:
       charge: charged
       are_you_sure: Are you sure?
       
-    new:
+    form:
       charge: Charge
       status: Status
       anamnezis: Anamnezis
-      add_new: New examination
-      add_new_button: Add examination
       treatment: Treatment
       
     index:
@@ -93,14 +90,6 @@ en:
       are_you_sure: Are you sure?
       from_date: from
       to_date: to
-      
-    edit:
-      charge: Charge
-      status: Status
-      anamnezis: Anamnezis
-      treatment: Treatment
-      edit_examination: Edit examination
-      edit_button: Edit examination
       
   users:
     new:

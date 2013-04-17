@@ -35,9 +35,9 @@
 	<%= link_to 'Edit', edit_guest_path(:id => @guest.id), :class => 'ui-icon ui-icon-pencil' %> <%= link_to 'Add examination', new_examination_path(:guest_id => @guest.id), :class => 'ui-icon ui-icon-plus' %>
 </div>
 <hr />
-<table>
+<table width="100%">
 	<thead>
-		<th><%= t('.date') %></th><th><%= t('.anamnezis') %></th><th><%= t('.status') %></th><th><%= t('.treatment') %></th><th><%= t('.charge') %></th>
+		<th><%= t('.date') %></th><th><%= t('.anamnezis') %></th><th><%= t('.status') %></th><th><%= t('.treatment') %></th><th><%= t('.charge') %></th><th></th><th></th>
 	</thead>
 	<% @guest.examinations.each do |examination| %>
 	<tr>
@@ -46,6 +46,8 @@
 		<td><%= examination.status %></td>
 		<td><%= examination.treatment %></td>
 		<td><%= examination.charge %></td>
+		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
+		<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
 	</tr>
 	<% end %>
 </table>

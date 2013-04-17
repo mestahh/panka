@@ -8,7 +8,7 @@ When(/^I am adding a new guest to the database$/) do
   fill_in 'guest_postal_code', :with => '2890'
   fill_in 'guest_phone', :with => '06305554534'
   fill_in 'guest_email', :with => 'k.j@email.com'
-  click_button 'Add guest'
+  click_button 'Add Guest'
 end
 
 Then(/^the new guest should be stored$/) do

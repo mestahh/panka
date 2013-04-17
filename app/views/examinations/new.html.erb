@@ -3,43 +3,6 @@
 <%= link_to 'Select guest', guests_path(:mode => 'select', :from => new_examination_path) %>
 <% end %>
 
-<%= form_for(@examination) do |f| %>
-<% if @examination.errors.any? %>
-<div id="errorExplanation">
-	<h2><%= pluralize(@examination.errors.count, "error") %> prohibited
-	this examination from being saved:</h2>
-	<ul>
-		<% @examination.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
-
-<h1><%= t(".add_new")%></h1>
-<%= f.hidden_field :guest_id, :value => @guest_id %>
-<p>
-	<div class="field">
-		<%= f.text_field :anamnezis %>
-		<%= f.label t(".anamnezis") %>
-	</div>
-	<div class="field">
-		<%= f.text_field :status %>
-		<%= f.label t(".status") %>
-	</div>
-	<div class="field">
-		<%= f.text_field :treatment %>
-		<%= f.label t(".treatment") %>
-	</div>
-	<div class="field">
-		<%= f.text_field :charge %>
-		<%= f.label t(".charge") %>
-	</div>
-	<div class="actions">
-		<%= f.submit :value => t(".add_new_button"), :class => 'submit' %>
-	</div>
-	<% end %>
+<%= render 'form' %>
 
 
