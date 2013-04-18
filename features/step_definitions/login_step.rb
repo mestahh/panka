@@ -35,10 +35,6 @@ Then(/^I should see the login page$/) do
   current_path.should == login_path(I18n.locale)
 end
 
-Then(/^I should see an error message$/) do
-  page.should have_content 'Wrong'
-end
-
 Given(/^enter a non\-existing username$/) do
   fill_in 'username', :with => 'notbob'
 end

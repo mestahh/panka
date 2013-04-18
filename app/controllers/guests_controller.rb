@@ -14,7 +14,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(params[:guest])
     @guest.user = User.find(session[:user])
     if @guest.save
-      redirect_to main_index_path
+      redirect_to main_index_path, :notice => 'Guest stored.'
     else
       @guest.errors.add(:name, "Missing password")
       redirect_to new_guest_path
@@ -25,7 +25,7 @@ class GuestsController < ApplicationController
   def show
     @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
     if (@guest.nil?)
-      redirect_to main_index_path
+      redirect_to main_index_path, :alert => 'You are not allowed to view this page!'
     return
     end
   end
@@ -33,7 +33,7 @@ class GuestsController < ApplicationController
   def edit
     @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
     if (@guest.nil?)
-      redirect_to main_index_path
+      redirect_to main_index_path, :alert => 'You are not allowed to view this page!'
     return
     end
   end
@@ -42,7 +42,8 @@ class GuestsController < ApplicationController
     guest = Guest.find(params[:id])
 
     if guest.update_attributes(params[:guest])
-      redirect_to guest_path(:id => guest.id)
+      flash[:notice] = 'Guest data changed.'
+      redirect_to guest_path :id => guest.id
     else
       redirect_to edit_guest_path(:id => guest.id)
     end
@@ -55,7 +56,7 @@ class GuestsController < ApplicationController
     return
     end
     @guest.delete
-    redirect_to guests_path
+    redirect_to guests_path, :notice => 'Guest deleted.'
   end
 
 end

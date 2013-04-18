@@ -8,6 +8,7 @@ Feature: Guest handling
 		
 		When I am adding a new guest to the database
 		Then the new guest should be stored
+		And I should see the message Guest stored.
 		
 	Scenario: View a guest
 		
@@ -19,6 +20,7 @@ Feature: Guest handling
 		When I visit the guests edit page
 		And change the values
 		Then the new values should be stored
+		And I should see the message Guest data changed.
 		
 	Scenario: Delete a guest
 	
@@ -26,6 +28,7 @@ Feature: Guest handling
 		And click on the delete guest link
 		Then the guest should be removed from the database
 		And I should see the all guests page
+		And I should see the message Guest deleted.
 		
 	Scenario: Find guest with unique name
 	
@@ -49,7 +52,7 @@ Feature: Guest handling
 		When I visit the page for displaying all guests
 		And search for a non-existing name
 		Then I should see no guests on the finder page
-		And I should see an error message about the unsuccessful search
+		And I should see the error message There is no guest with this name.
 		
 	Scenario: Opening the guest page in select mode
 	
@@ -65,17 +68,20 @@ Feature: Guest handling
 	Scenario: Visiting other users guest is disabled
 	
 		When I visit the second users guest
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message You are not allowed to view this page!
 		
 	Scenario: Editing other users guest is disabled
 	
 		When I visit the second users guest edit page
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message You are not allowed to view this page!
 		
 	Scenario: Deleting other users guest is disabled
 	
 		When I visit the second users guest delete link
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message You are not allowed to view this page!
 		
 	
 	

@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
  			session[:user] = user.id
  			redirect_to main_index_path
  		else
- 			redirect_to_login 'Wrong login'	
+ 			redirect_to_login 'Login failed.'	
 		end
 	end
 	
