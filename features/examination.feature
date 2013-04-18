@@ -18,7 +18,7 @@ Feature: Examination
 	Scenario: Add examination without a pre-selected guest
 	
 		When I click on the add examination menu item
-		And click on the select guest button
+		And I click on the select guest button
 		Then I should see the select guest page.
 		
 	Scenario: List all examinations for a guest
@@ -94,3 +94,10 @@ Feature: Examination
 	
 		When I visit the new examination page with non-existing guest id
 		Then I should see an error page
+		
+	Scenario: Guest selection via search
+	
+		When I visit the new examination page without guest parameter
+		And I click on the select guest button
+		And search for a guest on the opened guests page and select the found guest
+		Then I should see the new examination page with the selected guests ID.

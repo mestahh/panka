@@ -2,6 +2,7 @@
 <fieldset>
 	<h1><%= t('.guests') %></h1>
 	<div>
+		<%= hidden_field_tag :mode, params[:mode], :value => params[:mode] %>
 		<%= text_field_tag :search_field, params[:search_field] %>
 		<%= submit_tag t('.search_button'), :class => 'submit' %>
 	</div>

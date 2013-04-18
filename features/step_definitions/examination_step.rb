@@ -171,7 +171,7 @@ When(/^I click on the add examination menu item$/) do
   visit new_examination_path
 end
 
-When(/^click on the select guest button$/) do
+When(/^I click on the select guest button$/) do
   click_link 'Select guest'
 end
 
@@ -230,4 +230,20 @@ end
 
 When(/^I visit the new examination page with non\-existing guest id$/) do
   visit new_examination_path(:guest_id => '123')
+end
+
+When(/^I visit the new examination page without guest parameter$/) do
+  visit new_examination_path
+end
+
+When(/^search for a guest on the opened guests page and select the found guest$/) do
+  page.should have_content @guest1_1.name
+  fill_in 'search_field', :with => @guest1_1.name
+  click_button 'Search'
+  click_link @guest1_1.name
+end
+
+Then(/^I should see the new examination page with the selected guests ID\.$/) do
+  current_path.should == new_examination_path(I18n.locale)
+  page.should have_content 'Add examination for ' + @guest1_1.name
 end

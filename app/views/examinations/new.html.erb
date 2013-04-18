@@ -1,6 +1,8 @@
 <% unless (params[:guest_id]) %>
 
 <%= link_to 'Select guest', guests_path(:mode => 'select', :from => new_examination_path) %>
+<% else %>
+Add examination for <%= @examination.guest.name %>
 <% end %>
 
 <%= render 'form' %>
