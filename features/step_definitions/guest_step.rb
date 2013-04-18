@@ -110,11 +110,6 @@ When(/^search for a non\-existing name$/) do
   click_button 'Search'
 end
 
-Then(/^I should see an error message about the unsuccessful search$/) do
-  current_path.should == find_guest_path(I18n.locale)
-  page.should have_content 'There is no guest with this name.'
-end
-
 When(/^I visit the guests page in select mode$/) do
   visit guests_path(I18n.locale, :mode => 'select', :from => new_examination_path)
 end

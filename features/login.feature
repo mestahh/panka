@@ -16,7 +16,7 @@ Feature: Login
 		And enter the wrong password
 		When I click the login button
 		Then I should see the login page
-		And I should see an error message
+		And I should see the error message Login failed.
 		
 	Scenario: Wrong username
 	
@@ -26,7 +26,7 @@ Feature: Login
 		And enter a password
 		When I click the login button
 		Then I should see the login page
-		And I should see an error message
+		And I should see the error message Login failed.
 		
 	Scenario: The user is stored in a session
 		
