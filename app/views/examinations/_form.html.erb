@@ -1,3 +1,9 @@
+<% unless (params[:guest_id])
+     @readonly = true	
+   else 
+     @readonly = false		
+   end
+%>
 <%= form_for(@examination) do |f| %>
 <% if @examination.errors.any? %>
 <div id="errorExplanation">
@@ -15,7 +21,7 @@
 <%= f.hidden_field :guest_id, :value => @examination.guest_id %>
 <p>
 	<div class="field">
-		<%= f.text_field :anamnezis %>
+		<%= f.text_field :anamnezis, :readonly => @enabled %>
 		<%= f.label t('.anamnezis') %>
 	</div>
 	<div class="field">

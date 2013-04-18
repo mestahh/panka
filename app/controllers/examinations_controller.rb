@@ -14,11 +14,14 @@ class ExaminationsController < ApplicationController
     begin
       if (params[:guest_id])
         Guest.find(params[:guest_id])
+      else 
+        flash[:alert] = 'Please select a guest first!'
       end
+      
       @examination = Examination.new
       @examination.guest_id = params[:guest_id]
     rescue
-      redirect_to main_index_path
+      redirect_to main_index_path, :alert => 'There is no guest with this id!'
     end
 
   end
@@ -26,7 +29,7 @@ class ExaminationsController < ApplicationController
   def show
     @examination = Examination.find(params[:id]);
     if (@examination.guest.user_id != session[:user])
-      redirect_to main_index_path
+      redirect_to main_index_path, :alert => 'You can not access this page!'
     end
   end
 
@@ -36,7 +39,7 @@ class ExaminationsController < ApplicationController
     if examination.save
       redirect_to guest_path(:id => examination.guest.id)
     else
-      redirect_to new_examination_path
+      redirect_to new_examination_path(:guest_id => examination.guest_id)
     end
 
   end
@@ -51,7 +54,7 @@ class ExaminationsController < ApplicationController
     @examination = Examination.find(params[:id])
     
     if (@examination.guest.user_id != session[:user])
-      redirect_to main_index_path
+      redirect_to main_index_path, :alert => 'You can not access this page!'
     end
   end
 

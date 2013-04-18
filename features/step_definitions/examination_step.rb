@@ -247,3 +247,4 @@ Then(/^I should see the new examination page with the selected guests ID\.$/) do
   current_path.should == new_examination_path(I18n.locale)
   page.should have_content 'Add examination for ' + @guest1_1.name
 end
+

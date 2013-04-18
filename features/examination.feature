@@ -73,17 +73,20 @@ Feature: Examination
 	Scenario: Visiting other users examinations is disabled
 		
 		When I visit the other examinations page
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message You can not access this page!
 		
 	Scenario: Deleting other users examinations is disabled
 		
 		When I visit the other examinations delete link
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message You can not access this page!
 		
 	Scenario: Editing other users examinations is disabled
 		
 		When I visit the other examinations edit link
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message You can not access this page!
 		
 	Scenario: Listing other users examinations is disabled
 		
@@ -93,11 +96,23 @@ Feature: Examination
 	Scenario: New examination creation is disabled if there is no guest with the given id
 	
 		When I visit the new examination page with non-existing guest id
-		Then I should see an error page
+		Then I should see the main page
+		And I should see the error message There is no guest with this id!
 		
 	Scenario: Guest selection via search
 	
 		When I visit the new examination page without guest parameter
 		And I click on the select guest button
 		And search for a guest on the opened guests page and select the found guest
+		Then I should see the new examination page with the selected guests ID.
+		
+	Scenario: A message tells the user to select guest if its not selected on new examination page
+		
+		When I visit the new examination page without guest parameter
+		Then I should see the error message Please select a guest first!
+		
+	Scenario: Submiting the new exam form with only the guest selected should keep the guest
+	
+		Given I visit the new examination page with a guest parameter
+		When press the add examination button
 		Then I should see the new examination page with the selected guests ID.
