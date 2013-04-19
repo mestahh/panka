@@ -1,8 +1,9 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
-  attr_accessible :password, :username, :email, :password_confirmation
+  attr_accessible :password, :username, :email, :password_confirmation, :language
   
+  LANGUAGES = ["en", "hu"]
   
   validates :username, :presence => true, :uniqueness => true
   validates :password, :confirmation => true

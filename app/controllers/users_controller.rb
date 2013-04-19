@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     @user.update_attributes(params[:user])
+    I18n.locale = @user.language
     redirect_to main_index_path
 
   end

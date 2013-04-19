@@ -1,7 +1,7 @@
 hu: 
   helpers:
     submit:
-      create: "Felvétele"
+      create: "Felvétel"
       update: "Módosítás"
   
   layouts:
@@ -12,7 +12,9 @@ hu:
       log_out: Kilepes
       registration: Regisztracio
       my_account: Saját fiók
-  
+      back: vissza
+      title: Online vendégnyilvántartó kozmetikusoknak és bőrgyógyászoknak
+      
   sessions:
     new:
       password: jelszo
@@ -93,6 +95,9 @@ hu:
       from_date: datumtol
       to_date: datumig
 
+    new: 
+      add_exam: "Vizsgálat felvétele, vendég: "  
+      
   users:
     new:
       username: felhasznalonev

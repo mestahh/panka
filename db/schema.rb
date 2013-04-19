@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411142438) do
+ActiveRecord::Schema.define(:version => 20130419052455) do
 
   create_table "examinations", :force => true do |t|
     t.string   "anamnezis"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130411142438) do
     t.datetime "updated_at",      :null => false
     t.string   "salt"
     t.string   "hashed_password"
+    t.string   "language"
   end
 
 end

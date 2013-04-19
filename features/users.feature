@@ -59,3 +59,11 @@ Feature: users can be CRUD
 		When I click on the account link
 		Then I should see the edit user page
 		
+	Scenario: Log in with a user with magyar as the selected language
+	
+		Given I have a user with magyar as the selected language
+		And I log in with that user
+		Then I should see the main page with hu locale
+	
+		
+		

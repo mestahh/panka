@@ -19,7 +19,7 @@
 		<div id="container" class="container_12">
 			<div id="header" class="grid_12">
 				<h1>Panka</h1>
-				<h4>Online Guest register for beauticians and dermatologists</h4>
+				<p><%= t('.title') %></p>
 				<div id="menu">
 					<% unless session[:user] %>
 						<%= link_to t('.registration'), new_user_path %>
@@ -51,10 +51,10 @@
 			<div id="main" class="grid_10">
 				<%= render 'message/message_line' %>
 				<%= yield %>
-			<div id="back"><%= link_to 'back', :back %></div>
+			<div id="back"><%= link_to t('.back'), :back %></div>
 			</div>
 			<div id="footer" class="grid_12">
-				<p>Panka, Online Guest register for beauticians and dermatologists
+				<p>Panka, <%= t('.title') %>
 				<br>2013, All rights reserved.</p>
 			</div>
 		</div>

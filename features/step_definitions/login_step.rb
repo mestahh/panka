@@ -45,7 +45,7 @@ end
 
 Given(/^I am logged in$/) do
 
-  visit '/login'
+  visit login_path(:en)
   fill_in 'username', :with => @user.username
   fill_in 'password', :with => '1'
   click_button 'Login'

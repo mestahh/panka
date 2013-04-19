@@ -1,6 +1,10 @@
+Before do
+  I18n.locale = :en
+end
+
 Given(/^I have the background$/) do
   @user1 = FactoryGirl.create(:user)
-  @user2 = FactoryGirl.create(:user, username: 'Tim')
+  @user2 = FactoryGirl.create(:user, username: 'Tim', language: 'hu')
 
   @guest1_1 = FactoryGirl.create(:guest, name: 'Marika', user_id: @user1.id)
   @guest1_2 = FactoryGirl.create(:guest, name: 'Pista A', birth: '1982-07-07', user_id: @user1.id)
@@ -34,7 +38,7 @@ Given(/^I have the background$/) do
   @exam2_3_2 = FactoryGirl.create(:examination, guest_id: @guest2_3.id, user_id: @user2.id, anamnezis: 'Szifilisz')
   @exam2_3_3 = FactoryGirl.create(:examination, guest_id: @guest2_3.id, user_id: @user2.id, anamnezis: 'Atok')
 
-  visit '/login'
+  visit login_path(:en)
   fill_in 'username', :with => @user1.username
   fill_in 'password', :with => @user1.password
   click_button 'Login'

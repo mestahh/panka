@@ -31,6 +31,11 @@
 		<%= f.label :email, 'E-mail' %>
 	</div>
 	<div>
+		<%= f.select :language, User::LANGUAGES, :prompt => "Select a language"
+		%>
+		<%= f.label :language, 'Language' %>
+	</div>
+	<div>
 		<%= f.submit :value => t('.register_user'), :class => 'submit' %>
 	</div>
 </fieldset>

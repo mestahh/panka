@@ -16,6 +16,8 @@ en:
       log_out: Log out
       registration: Registration
       my_account: My account
+      back: back
+      title: Online guest register for beauticians and dermatologists
       
   sessions:
     new:
@@ -91,6 +93,9 @@ en:
       are_you_sure: Are you sure?
       from_date: from
       to_date: to
+      
+    new: 
+      add_exam: Add examination for 
       
   users:
     new:

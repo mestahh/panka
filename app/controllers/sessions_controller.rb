@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
  		user = User.authenticate(params[:username], params[:password])
 		if (user)
  			session[:user] = user.id
+ 			I18n.locale = user.language
  			redirect_to main_index_path
  		else
  			redirect_to_login 'Login failed.'	
