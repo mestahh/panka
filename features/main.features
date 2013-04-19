@@ -1,0 +1,8 @@
+Feature: General features for the application
+
+	Scenario: Back button is working
+		
+		Given I have the background
+		And I click the guests link
+		When I click the back link
+		Then I should see the main page

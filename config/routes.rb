@@ -16,7 +16,7 @@ Panka::Application.routes.draw do
   scope '(:locale)' do
     resources :guests, :examinations, :users
     get "main/index"
-
+    
     controller :sessions do
       get 'login' => :new
       post 'login' => :create

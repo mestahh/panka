@@ -83,5 +83,9 @@ Feature: Guest handling
 		Then I should see the main page
 		And I should see the error message You are not allowed to view this page!
 		
+	Scenario: Not necessary-error message after two search
+	
+		
+		
 	
 	

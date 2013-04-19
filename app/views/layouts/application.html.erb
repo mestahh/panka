@@ -18,19 +18,23 @@
 	<body>
 		<div id="container" class="container_12">
 			<div id="header" class="grid_12">
-				header
+				<h1>Panka</h1>
+				<h4>Online Guest register for beauticians and dermatologists</h4>
+				<div id="menu">
+					<% unless session[:user] %>
+						<%= link_to t('.registration'), new_user_path %>
+						<%= link_to t('.login'), login_path %>
+					<% else %>
+						<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %>
+						<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
+					<% end %>
+				</div>
 			</div>
 			<div id="leftmenu" class="grid_2">
 				<ul id="menu">
 
-					<% unless session[:user] %>
-					<li>
-						<%= link_to t('.registration'), new_user_path %>
-					</li>
-					<li>
-						<%= link_to t('.login'), login_path %>
-					</li>
-					<% else %>
+					<% if session[:user] %>
+				
 					<li>
 						<%= link_to t('.add_guest'), new_guest_path %>
 					</li>
@@ -40,21 +44,18 @@
 					<li>
 						<%= link_to t('.examinations'), examinations_path %>
 					</li>
-					<li>
-						<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %>
-					</li>
-					<li>
-						<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
-					</li>
+			
 					<% end %>
 				</ul>
 			</div>
 			<div id="main" class="grid_10">
 				<%= render 'message/message_line' %>
 				<%= yield %>
+			<div id="back"><%= link_to 'back', :back %></div>
 			</div>
 			<div id="footer" class="grid_12">
-				akarmi
+				<p>Panka, Online Guest register for beauticians and dermatologists
+				<br>2013, All rights reserved.</p>
 			</div>
 		</div>
 	</body>

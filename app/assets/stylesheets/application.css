@@ -11,6 +11,16 @@
  *= require_self
  *= require_tree .
  */
+#footer p {
+	padding-top: 10px;
+	font-size: 0.8em;
+	text-align: center;
+}
+
+#header #menu {
+	float: right;
+}
+
 .bold {
 	font-weight: bold;
 }
