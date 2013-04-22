@@ -85,6 +85,11 @@ Feature: Guest handling
 		
 	Scenario: Not necessary-error message after two search
 	
+		When I visit the page for displaying all guests
+		And search for a non-existing name
+		And search for the first guest name
+		Then there should be no error message on the page
+	
 		
 		
 	

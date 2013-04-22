@@ -13,6 +13,8 @@ class GuestFinderController < ApplicationController
     if @guests.size == 0
       flash[:alert] = 'There is no guest with this name.'
       return
+    else
+      flash[:alert] = '' 
     end
   end
 end

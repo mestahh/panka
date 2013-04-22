@@ -171,3 +171,7 @@ Then(/^I should see the first users guest and not the second$/) do
   page.should_not have_content '1980-12-12'
 end
 
+Then(/^there should be no error message on the page$/) do
+  page.should_not have_content 'There is no guest with this name.'
+end
+
