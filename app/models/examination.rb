@@ -4,4 +4,6 @@ class Examination < ActiveRecord::Base
   belongs_to :guest
   
   validates :anamnezis, :charge, :guest_id , :status, :treatment, :presence => true
+  
+  has_many :exam_images
 end

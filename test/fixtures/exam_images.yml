@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  examination_id: 1
+  image: MyString
+
+two:
+  examination_id: 1
+  image: MyString

@@ -14,10 +14,10 @@ class ExaminationsController < ApplicationController
     begin
       if (params[:guest_id])
         Guest.find(params[:guest_id])
-      else 
+      else
         flash[:alert] = 'Please select a guest first!'
       end
-      
+
       @examination = Examination.new
       @examination.guest_id = params[:guest_id]
     rescue
@@ -50,9 +50,21 @@ class ExaminationsController < ApplicationController
     redirect_to guest_path(:id => examination.guest.id)
   end
 
+  def save_image
+    image = ExamImage.new
+    image.examination_id = params[:exam_image][:exam_id]
+    image.image = params[:exam_image][:exam_image]
+    begin
+      image.save!
+    rescue
+      flash[:alert] = 'You can upload only jpg files!'
+    end
+    redirect_to edit_examination_path(:id => params[:exam_image][:exam_id])
+  end
+
   def edit
     @examination = Examination.find(params[:id])
-    
+    @picture = ExamImage.new
     if (@examination.guest.user_id != session[:user])
       redirect_to main_index_path, :alert => 'You can not access this page!'
     end

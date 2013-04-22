@@ -35,6 +35,10 @@ Panka::Application.routes.draw do
     controller :guest_finder do
       post 'find_guest' => :search
     end
+    
+    controller :examinations do
+      post 'exam_images' => :save_image
+    end
 
   end
 
