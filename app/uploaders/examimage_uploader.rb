@@ -3,13 +3,14 @@ class ExamimageUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg)
   end
-  # include CarrierWave::RMagick
-  #
-  # process :resize_to_fit => [800, 800]
-  #
-  # version :thumb do
-  # process :resize_to_fill => [200,200]
-  # end
+  
+  include CarrierWave::RMagick
+  
+  process :resize_to_fit => [800, 800]
+  
+  version :thumb do
+  process :resize_to_fill => [200,200]
+  end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

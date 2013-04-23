@@ -13,3 +13,10 @@ Feature: I would like to be able to upload several images to the examinations.
 		And I visit an examinations edit page
 		When I try to upload a gif file
 		Then I should see the error message You can upload only jpg files!
+		
+	Scenario: Big files are resized during upload
+	
+		Given I have the background
+		And I visit an examinations edit page
+		When I try to upload a big picture
+		Then it will be resized and a thumbnail is created.

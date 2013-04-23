@@ -11,6 +11,6 @@
 <% end %>
 <div id="exam_pictures">
 	<% @examination.exam_images.each do |image| %>
-		<%= image_tag image.image.url %>
+		<%= image_tag image.image.thumb.url %>
 	<% end %>	
 </div>
