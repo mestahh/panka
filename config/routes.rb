@@ -15,6 +15,7 @@ Panka::Application.routes.draw do
 
   scope '(:locale)' do
     resources :guests, :examinations, :users
+    resources :images, :only => :show
     get "main/index"
     
     controller :sessions do
@@ -38,6 +39,10 @@ Panka::Application.routes.draw do
     
     controller :examinations do
       post 'exam_images' => :save_image
+    end
+    
+    controller :images do
+      delete 'delete_image' => :destroy
     end
 
   end

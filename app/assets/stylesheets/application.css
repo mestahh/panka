@@ -11,10 +11,25 @@
  *= require_self
  *= require_tree .
  */
+
+
 #footer p {
 	padding-top: 10px;
 	font-size: 0.8em;
 	text-align: center;
+}
+
+.exam_image {
+	margin: 10px;
+	
+}
+
+div .delete {
+	visibility: hidden;
+}
+
+div.exam_image:hover div.delete{
+    visibility: visible;
 }
 
 #header #menu {
@@ -91,6 +106,7 @@ thead tr {
 	background-color: #dedede;
 	margin-top: 20px;
 	padding: 10px;
+
 }
 
 #header {

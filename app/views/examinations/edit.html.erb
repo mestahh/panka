@@ -1,16 +1,24 @@
 <%= render 'form' %>
+<div>
 <%= form_for(@picture) do |f| %>
 <%= f.hidden_field :exam_id, :value => params[:id] %>
 <div class="field">
-		<%= f.file_field :exam_image %>
-		<%= f.label 'exam_image' %>
-	</div>
-	<div class="actions">
-		<%= f.submit :class => 'submit', :value => "Upload" %>
-	</div>
+	<%= f.file_field :exam_image %>
+	<%= f.label 'exam_image' %>
+</div>
+<div class="actions">
+	<%= f.submit :class => 'submit', :value => "Upload" %>
+</div>
 <% end %>
+</div>
 <div id="exam_pictures">
 	<% @examination.exam_images.each do |image| %>
-		<%= image_tag image.image.thumb.url %>
-	<% end %>	
+	<div class="exam_image">
+		<%= link_to (image_tag (image.image.thumb.url)), image_path(:id => image.id) %>
+		
+		<div class="delete">
+			<%= link_to 'Delete picture', delete_image_path(:id => image.id, :exam_id => params[:id]), :method => 'delete', :class => 'ui-icon ui-icon-trash' %>
+		</div>
+	</div>
+	<% end %>
 </div>
