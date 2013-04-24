@@ -3,7 +3,7 @@ Given(/^I visit the login page$/) do
 end
 
 Given(/^I have a user$/) do
-	@user = FactoryGirl.create(:user)
+	@user1 = FactoryGirl.create(:user)
 end
 
 Given(/^I visit the page$/) do
@@ -11,7 +11,7 @@ Given(/^I visit the page$/) do
 end
 
 Given(/^enter the correct credentials$/) do
-  fill_in 'username', :with => @user.username
+  fill_in 'username', :with => @user1.username
   fill_in 'password', :with => '1'
 end
 
@@ -24,7 +24,7 @@ Then(/^I should see the main page$/) do
 end
 
 Given(/^enter the correct username$/) do
-  fill_in 'username', :with => @user.username
+  fill_in 'username', :with => @user1.username
 end
 
 Given(/^enter the wrong password$/) do
@@ -46,7 +46,7 @@ end
 Given(/^I am logged in$/) do
 
   visit login_path(:en)
-  fill_in 'username', :with => @user.username
+  fill_in 'username', :with => @user1.username
   fill_in 'password', :with => '1'
   click_button 'Login'
 end

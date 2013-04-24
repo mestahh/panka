@@ -64,6 +64,14 @@ Feature: users can be CRUD
 		Given I have a user with magyar as the selected language
 		And I log in with that user
 		Then I should see the main page with hu locale
+		
+	Scenario: Edit user data and empty email field
+	
+		Given I have the background
+		And I visit the edit user page
+		When I change the user data and the email is empty
+		Then I should see the edit page and the error message: The email is required!
+		
 	
 		
 		

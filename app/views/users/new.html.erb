@@ -1,17 +1,4 @@
 <%= form_for @user do |f| %>
-<% if @user.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@user.errors.count, "error") %>
-	prohibited this user from being saved:</h2>
-	<ul>
-		<% @user.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
 <fieldset>
 	<h3>Register new user</h3>
 	<div>
@@ -20,20 +7,20 @@
 	</div>
 	<div>
 		<%= f.password_field :password %>
-		<%= f.label :password, 'Password' %>
+		<%= f.label :password, t('.password') %>
 	</div>
 	<div>
 		<%= f.password_field :password_confirmation %>
-		<%= f.label :password_confirmation, 'Password confirmation' %>
+		<%= f.label :password_confirmation, t('.password_confirm') %>
 	</div>
 	<div>
 		<%= f.text_field :email %>
-		<%= f.label :email, 'E-mail' %>
+		<%= f.label :email, t('.email') %>
 	</div>
 	<div>
-		<%= f.select :language, User::LANGUAGES, :prompt => "Select a language"
+		<%= f.select :language, User::LANGUAGES, :prompt => t('.select_language')
 		%>
-		<%= f.label :language, 'Language' %>
+		<%= f.label :language, t('.language') %>
 	</div>
 	<div>
 		<%= f.submit :value => t('.register_user'), :class => 'submit' %>

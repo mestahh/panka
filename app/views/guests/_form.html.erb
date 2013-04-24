@@ -1,19 +1,5 @@
 <%= form_for(@guest) do |f| %>
 
-<% if @guest.errors.any? %>
-<div id="errorExplanation">
-	<h2><%= pluralize(@guest.errors.count, "error") %> prohibited
-	this guest from being saved:</h2>
-	<ul>
-		<% @guest.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
-
 <div class="field">
 	<%= f.text_field :name %>
 	<%= f.label t('.name') %>

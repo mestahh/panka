@@ -101,8 +101,11 @@ en:
     new:
       username: username
       password: password
+      password_confirm: Password confirmation
       email: e-mail
       register_user: Register
+      select_language: Select a language!
+      language: Language
       
     edit:
       username: username

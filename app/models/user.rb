@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   LANGUAGES = ["en", "hu"]
   
   validates :username, :presence => true, :uniqueness => true
+  validates :email, :presence => true
   validates :password, :confirmation => true
   validate  :password_must_be_present
   

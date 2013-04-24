@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   before_filter :logged_in, :only => :create
   before_filter :logged_in, :only => :new
-  
   def new
     @user = User.new
   end
@@ -29,9 +28,13 @@ class UsersController < ApplicationController
   def update
 
     @user = User.find(params[:id])
-    @user.update_attributes(params[:user])
-    I18n.locale = @user.language
-    redirect_to main_index_path
+    if @user.update_attributes(params[:user])
+      I18n.locale = @user.language
+      redirect_to main_index_path
+    else
+      flash[:alert] = "The email is required!"
+      redirect_to edit_user_path(@user.id)
+    end
 
   end
 
