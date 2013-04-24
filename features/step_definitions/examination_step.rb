@@ -248,3 +248,7 @@ Then(/^I should see the new examination page with the selected guests ID\.$/) do
   page.should have_content 'Add examination for ' + @guest1_1.name
 end
 
+Then(/^there should not be a Select guest first message\.$/) do
+  page.should_not have_content('Please select a guest first!')
+end
+

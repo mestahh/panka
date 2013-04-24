@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
 
   before_filter :check_login
   def index
+    flash[:alert] = nil
     @user = User.find(session[:user])
     @guests = Guest.paginate :page => params[:page], :per_page => 20, :conditions => [ 'user_id = ?', session[:user]]
   end

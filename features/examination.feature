@@ -116,3 +116,9 @@ Feature: Examination
 		Given I visit the new examination page with a guest parameter
 		When press the add examination button
 		Then I should see the new examination page with the selected guests ID.
+		
+	Scenario: Remaining error message bug
+	
+		When I visit the new examination page without guest parameter
+		And I click on the select guest button
+		Then there should not be a Select guest first message.
