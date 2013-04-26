@@ -1,31 +1,3 @@
-<%= form_for @user do |f| %>
-
-<fieldset>
-	<h3>Edit user</h3>
-	<div>
-		<%= f.text_field :username %>
-		<%= f.label :username %>
-	</div>
-	<div>
-		<%= f.password_field :password %>
-		<%= f.label :password, 'Password' %>
-	</div>
-	<div>
-		<%= f.password_field :password_confirmation %>
-		<%= f.label :password_confirmation, 'Password confirmation' %>
-	</div>
-	<div>
-		<%= f.text_field :email %>
-		<%= f.label :email, 'E-mail' %>
-	</div>
-	<div>
-		<%= f.select :language, User::LANGUAGES, :prompt => "Select a language"
-		%>
-		<%= f.label :language, 'Language' %>
-	</div>
-	<div>
-		<%= f.submit :value => t('.edit_user'), :class => 'submit' %>
-	</div>
-</fieldset>
-<% end %>
+<h3>Edit user</h3>
+<%= render 'form' %>
 

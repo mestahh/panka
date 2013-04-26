@@ -71,7 +71,6 @@ Feature: users can be CRUD
 		And I visit the edit user page
 		When I change the user data and the email is empty
 		Then I should see the edit page and the error message: The email is required!
-		
 	
 		
 		

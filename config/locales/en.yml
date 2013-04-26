@@ -3,11 +3,18 @@
  
 
 en:
+  
+  are_you_sure: Are you sure?
+  
   helpers:
     submit:
       create: "Add %{model}"
       update: "Edit %{model}"
   
+      user:
+        create: "Register"
+        update: "Edit"
+      
   layouts:
     application:
       add_guest: Add guest
@@ -27,70 +34,38 @@ en:
       login: Login
       
   guests:
-    form:
-      name: name
-      birth: birth
-      mother: mother
-      city: city
-      address: address
-      postal_code: postal code
-      phone: phone
-      email: email
-    
-    edit:
-      are_you_sure: Are you sure?
-      
+    name: name
+    birth: birth
+    mother: Mother
+    city: city
+    address: address
+    postal_code: postal code
+    phone: phone
+    email: email    
+
     show:
-      name: name
-      birth: birth
-      mother: mother
-      city: city
-      address: address
-      postal_code: postal code
-      phone: phone
-      email: email
       treatment: treatment
       anamnezis: anamnezis
       date: date
       status: status
       charge: charge
-      are_you_sure: Are you sure?
-      
+          
     index:
       search_button: Search
-      are_you_sure: Are you sure?
-      name: name
-      birth: birth
-      mother: mother's name
       guests: Guests
-      city: city
-         
-    new:
-      are_you_sure: Are you sure?
   
   examinations:
+    anamnezis: Anamnezis
+    treatment: Treatment
+    status: Status
+    charge: charged
+    
     show:
       last_modified: last modified
       created_at: Created at
-      anamnezis: Anamnezis
-      treatment: Treatment
-      status: Status
-      charge: charged
-      are_you_sure: Are you sure?
-      
-    form:
-      charge: Charge
-      status: Status
-      anamnezis: Anamnezis
-      treatment: Treatment
-      
+   
     index:
-      charge: Charge
-      status: Status
-      anamnezis: Anamnezis
-      treatment: Treatment
       search: Search
-      are_you_sure: Are you sure?
       from_date: from
       to_date: to
       
@@ -98,25 +73,21 @@ en:
       add_exam: Add examination for 
       
   users:
+    username: username
+    password: password
+    email: e-mail
+    select_language: Select a language!
+    language: Language
+    
     new:
-      username: username
-      password: password
       password_confirm: Password confirmation
-      email: e-mail
-      register_user: Register
-      select_language: Select a language!
-      language: Language
-      
+
     edit:
-      username: username
-      password: password
-      email: e-mail
       edit_user: Edit
   
   guest_finder:
     search:
       search_button: Search
-      are_you_sure: Are you sure?
       name: name
       birth: birth
       mother: mother's name

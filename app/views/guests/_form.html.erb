@@ -1,36 +1,36 @@
 <%= form_for(@guest) do |f| %>
-
+<%= f.error_messages %>
 <div class="field">
 	<%= f.text_field :name %>
-	<%= f.label t('.name') %>
+	<%= f.label t('guests.name') %>
 </div>
 <div class="field">
 	<%= f.text_field :birth %>
-	<%= f.label t('.birth'), :class => 'datepicker' %>
+	<%= f.label t('guests.birth'), :class => 'datepicker' %>
 </div>
 <div class="field">
 	<%= f.text_field :mother %>
-	<%= f.label t('.mother') %>
+	<%= f.label t('guests.mother') %>
 </div>
 <div class="field">
 	<%= f.text_field :address %>
-	<%= f.label t('.address') %>
+	<%= f.label t('guests.address') %>
 </div>
 <div class="field">
 	<%= f.text_field :city %>
-	<%= f.label t('.city') %>
+	<%= f.label t('guests.city') %>
 </div>
 <div class="field">
 	<%= f.text_field :postal_code %>
-	<%= f.label t('.postal_code') %>
+	<%= f.label t('guests.postal_code') %>
 </div>
 <div class="field">
 	<%= f.text_field :phone %>
-	<%= f.label t('.phone') %>
+	<%= f.label t('guests.phone') %>
 </div>
 <div class="field">
 	<%= f.text_field :email %>
-	<%= f.label t('.email') %>
+	<%= f.label t('guests.email') %>
 </div>
 <div class="actions">
 	<%= f.submit :class => 'submit' %>

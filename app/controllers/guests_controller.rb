@@ -17,10 +17,8 @@ class GuestsController < ApplicationController
     if @guest.save
       redirect_to main_index_path, :notice => 'Guest stored.'
     else
-      @guest.errors.add(:name, "Missing password")
-      redirect_to new_guest_path
+      render :new
     end
-
   end
 
   def show

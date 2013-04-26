@@ -23,5 +23,5 @@
 	<span><%= @examination.charge %></span>
 </div>
 
-<%= link_to 'Delete examination', examination_path(:id => @examination.id), :method => 'delete', :confirm => t(".are_you_sure"), :class => 'ui-icon ui-icon-trash' %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'ui-icon ui-icon-pencil' %>
+<%= link_to 'Delete examination', examination_path(:id => @examination.id), :method => 'delete', :confirm => t("are_you_sure"), :class => 'ui-icon ui-icon-trash' %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'ui-icon ui-icon-pencil' %>
 

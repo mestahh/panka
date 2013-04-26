@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'will_paginate', '~> 3.0'
 gem 'carrierwave'
 gem 'rmagick', '2.13.2'
-
+gem 'dynamic_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
