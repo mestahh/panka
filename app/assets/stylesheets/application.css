@@ -11,17 +11,31 @@
  *= require_self
  *= require_tree .
  */
+.field_with_errors > input {
+	border: 1px solid red;
+	display: inline;
+}
 
+.exam_image img {
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Webkit Nightlies & Google Chrome Canary */
+   	margin: 10px;
+}
+ 
+.exam_image img:hover {
+    filter: none; /* Applies to FF + IE */
+    -webkit-filter: grayscale(0);
+}
+
+.field_with_error  {
+	display: inline;
+}
 
 #footer p {
 	padding-top: 10px;
 	font-size: 0.8em;
 	text-align: center;
-}
-
-.exam_image {
-	margin: 10px;
-	
 }
 
 div .delete {

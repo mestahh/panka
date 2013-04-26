@@ -53,12 +53,14 @@ en:
     index:
       search_button: Search
       guests: Guests
+
   
   examinations:
+    date: Date
     anamnezis: Anamnezis
     treatment: Treatment
     status: Status
-    charge: charged
+    charge: Charged
     
     show:
       last_modified: last modified

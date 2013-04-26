@@ -1,122 +1,123 @@
-hu: 
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+ 
+hu:
+  
+  are_you_sure: Biztos benne?
+  
   helpers:
     submit:
-      create: "Felvétel"
-      update: "Módosítás"
+      create: Felvétel
+      update: Módosítás
   
+      user:
+        create: Regisztráció
+        update: Módosítás
+      
   layouts:
     application:
-      add_guest: Vendeg hozzaadasa
-      guests: Vendegek
-      examinations: Vizsgalatok
-      log_out: Kilepes
-      registration: Regisztracio
-      my_account: Saját fiók
-      back: vissza
+      add_guest: Vendég felvétele
+      guests: Vendégek
+      examinations: Vizsgálatok
+      log_out: Kijelentkezes
+      registration: Regisztráció
+      my_account: Fiókom
+      back: Vissza
       title: Online vendégnyilvántartó kozmetikusoknak és bőrgyógyászoknak
       
   sessions:
     new:
-      password: jelszo
-      username: felhasznalonev
-      please_login: Kerem, jelentkezzen be
-      login: Bejelentkezes
+      password: jelszó  
+      username: felhasználónév
+      please_login: Jelentkezzen be!
+      login: Bejelentkezés
       
-  main:
-    index:
-      welcome: Udvozollek dicso lovag!
-    
   guests:
-    
-    show:
-      name: nev
-      birth: szuletesi ido
-      mother: anyja neve
-      city: varos
-      address: cim
-      postal_code: iranyitoszam
-      phone: telefon
-      email: e-mail
-      treatment: kezeles
-      anamnezis: anamnezis
-      date: datum
-      status: statusz
-      charge: dij
-      are_you_sure: Are you sure?
-    
-    index:
-      search_button: Kereses
-      are_you_sure: Biztos benne?
-      name: nev
-      birth: szuletes ideje
-      mother: anyja neve
-      guests: Vendegek
-      city: varos
-      
-    form:
-      name: nev
-      birth: szuletes ideje
-      mother: anyja neve
-      city: varos
-      address: cim
-      postal_code: iranyitoszam
-      phone: telefon
-      email: e-mail
-      
-    edit:
-      are_you_sure: Biztos benne?
+    name: Név
+    birth: Születési idő
+    mother: Anyja neve
+    city: Város
+    address: Cím
+    postal_code: Irányítószám
+    phone: Telefonszám
+    email: E-mail    
 
-    new:
-      are_you_sure: Biztos benne?
-        
+    show:
+      treatment: Kezelés
+      anamnezis: Anamnézis
+      date: Dátum
+      status: Státusz
+      charge: Díj
+          
+    index:
+      search_button: Keresés
+      guests: Vendégek
+  
   examinations:
+    date: Dátum
+    anamnezis: Anamnézis
+    treatment: Kezelés
+    status: Státusz
+    charge: Díj
+    
     show:
-      last_modified: utolso modositas
-      created_at: letrehova
-      anamnezis: Anamnezis
-      treatment: Kezeles
-      status: Statusz
-      charge: Dij
-      are_you_sure: Biztos benne?
-      
-    form:
-      charge: Dij
-      status: Statusz
-      anamnezis: Anamnezis
-      treatment: Kezeles
-      
+      last_modified: Utoljára módosítva
+      created_at: Létrehozva
+   
     index:
-      charge: Dij
-      status: Statusz
-      anamnezis: Anamnezis
-      treatment: Kezeles
-      search: Kereses
-      are_you_sure: Biztos benne?
-      from_date: datumtol
-      to_date: datumig
-
+      search: Keresés
+      from_date: -tól
+      to_date: -ig
+      
     new: 
-      add_exam: "Vizsgálat felvétele, vendég: "  
+      add_exam: Vizsgálat felvétele, 
       
   users:
+    username: Felhasználónév
+    password: Jelszó
+    email: E-mail
+    select_language: Válasszon nyelvet!
+    language: Nyelv
+    
     new:
-      username: felhasznalonev
-      password: jelszo
-      email: e-mail
-      register_user: Regisztral
+      password_confirm: Jelszó megerősítése
 
     edit:
-      username: felhasznalonev
-      password: jelszo
-      email: e-mail
-      edit_user: Modosit
-      
+      edit_user: Módosítás
+  
   guest_finder:
     search:
-      search_button: Kereses
-      are_you_sure: Biztos benne?
-      name: Nev
-      birth: Szuletesi ido
+      search_button: Keresés
+      name: Név
+      birth: Születési idő
       mother: Anyja neve
-      guests: Vendegek
-      city: Varos
+      guests: Vendégek
+      city: Város
+
+  activerecord:
+    errors: 
+      template:
+        header: Oppácska!
+        body: Valamit elfelejtettél!
+      models:
+        guest:
+          attributes:
+            address:
+              blank: A cím megadása kötelező!
+            name:
+              blank: A név megadása kötelező!
+            email:
+              blank: Az e-mail cím megadása kötelező!
+            city:
+              blank: A város megadása kötelező!
+            postal_code:
+              blank: Az irányítószám megadása kötelező!
+            birth:
+              blank: A születési idő megadása kötelező!
+            mother:
+              blank: Az édesanya nevének megadása kötelező!
+            phone:
+              blank: A telefonszám megadása kötelező  
+              
+            
+      

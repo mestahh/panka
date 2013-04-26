@@ -71,7 +71,7 @@ Then(/^the changed user data should be saved$/) do
   @changed_user.email.should == 'changedemail@email.hu'
   @changed_user.language.should == 'hu'
   I18n.locale.should == :hu
-  click_link 'Kilepes'
+  click_link "Kijelentkezes"
   login_with('changedusername', 'hallo')
   current_path.should == main_index_path(:hu)
 end
