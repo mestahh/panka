@@ -32,7 +32,11 @@ en:
       username: username
       please_login: Please, log in
       login: Login
-      
+  
+  search_exam:
+    search:
+      search_button: Keresés  
+    
   guests:
     name: name
     birth: birth
@@ -41,7 +45,8 @@ en:
     address: address
     postal_code: postal code
     phone: phone
-    email: email    
+    email: email
+    allergies: Allergies
 
     show:
       treatment: treatment

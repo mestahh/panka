@@ -8,8 +8,11 @@ When(/^I am adding a new guest to the database$/) do
   fill_in 'guest_postal_code', :with => '2890'
   fill_in 'guest_phone', :with => '06305554534'
   fill_in 'guest_email', :with => 'k.j@email.com'
+  fill_in 'guest_allergies', :with => 'mogyoroallergia'
   click_button 'Add Guest'
 end
+
+
 
 Then(/^the new guest should be stored$/) do
   current_path.should == main_index_path(I18n.locale)
@@ -24,6 +27,7 @@ Then(/^the new guest should be stored$/) do
   guest.phone.should == '06305554534'
   guest.email.should == 'k.j@email.com'
   guest.user.id.should == @user1.id
+  guest.allergies.should == 'mogyoroallergia'
 end
 
 When(/^I visit the guests page$/) do

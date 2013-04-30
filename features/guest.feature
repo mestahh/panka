@@ -89,8 +89,7 @@ Feature: Guest handling
 		And search for a non-existing name
 		And search for the first guest name
 		Then there should be no error message on the page
-	
-		
+
 		
 	
 	

@@ -41,7 +41,7 @@ hu:
     postal_code: Irányítószám
     phone: Telefonszám
     email: E-mail    
-
+    allergies: Allergiák
     show:
       treatment: Kezelés
       anamnezis: Anamnézis
@@ -84,6 +84,10 @@ hu:
 
     edit:
       edit_user: Módosítás
+  
+  search_exam:
+    search:
+      search_button: Keresés
   
   guest_finder:
     search:
