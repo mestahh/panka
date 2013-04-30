@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430043201) do
+ActiveRecord::Schema.define(:version => 20130430050640) do
 
   create_table "allergies", :force => true do |t|
     t.string   "name"
@@ -47,10 +47,22 @@ ActiveRecord::Schema.define(:version => 20130430043201) do
     t.integer  "postal_code"
     t.text     "phone"
     t.text     "email"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "user_id"
     t.string   "allergies"
+    t.string   "diseases"
+    t.string   "medicines"
+    t.boolean  "contraceptive"
+    t.string   "vitamins"
+    t.boolean  "hormon_treatment"
+    t.boolean  "smoking"
+    t.decimal  "litres_of_liquid_per_day"
+    t.boolean  "sun_protector"
+    t.string   "main_problem"
+    t.string   "problem_appeared"
+    t.string   "possible_reason_of_problem"
+    t.boolean  "visited_dermatologist"
   end
 
   create_table "pictures", :force => true do |t|

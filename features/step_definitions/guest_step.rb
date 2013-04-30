@@ -9,10 +9,20 @@ When(/^I am adding a new guest to the database$/) do
   fill_in 'guest_phone', :with => '06305554534'
   fill_in 'guest_email', :with => 'k.j@email.com'
   fill_in 'guest_allergies', :with => 'mogyoroallergia'
+  fill_in 'guest_diseases', :with => 'nincs'
+  fill_in 'guest_medicines', :with => 'algopyrin'
+  fill_in 'guest_vitamins', :with => 'C vitamin'
+  uncheck 'guest_hormon_treatment'
+  check 'guest_smoking'
+  fill_in 'guest_litres_of_liquid_per_day', :with => 2
+  check 'guest_sun_protector'
+  fill_in 'guest_main_problem', :with => 'Nagyon szaraz'
+  fill_in 'guest_problem_appeared', :with => 'fel eve'
+  fill_in 'guest_possible_reason_of_problem', :with => 'nem kenem'
+  check 'guest_visited_dermatologist'
+
   click_button 'Add Guest'
 end
-
-
 
 Then(/^the new guest should be stored$/) do
   current_path.should == main_index_path(I18n.locale)
@@ -28,6 +38,17 @@ Then(/^the new guest should be stored$/) do
   guest.email.should == 'k.j@email.com'
   guest.user.id.should == @user1.id
   guest.allergies.should == 'mogyoroallergia'
+  guest.diseases.should == 'nincs'
+  guest.medicines.should == 'algopyrin'
+  guest.vitamins.should == 'C vitamin'
+  guest.hormon_treatment.should == false
+  guest.smoking.should == true
+  guest.litres_of_liquid_per_day.should == 2
+  guest.sun_protector.should == true
+  guest.main_problem.should == 'Nagyon szaraz'
+  guest.problem_appeared.should == 'fel eve'
+  guest.possible_reason_of_problem.should == 'nem kenem'
+  guest.visited_dermatologist.should == true
 end
 
 When(/^I visit the guests page$/) do
@@ -51,6 +72,18 @@ When(/^change the values$/) do
   fill_in 'guest_postal_code', :with => '2900'
   fill_in 'guest_phone', :with => '06205554535'
   fill_in 'guest_email', :with => 'k.j@gmail.com'
+  fill_in 'guest_allergies', :with => 'mogyoroallergia'
+  fill_in 'guest_diseases', :with => 'nincs'
+  fill_in 'guest_medicines', :with => 'algopyrin'
+  fill_in 'guest_vitamins', :with => 'C vitamin'
+  uncheck 'guest_hormon_treatment'
+  check 'guest_smoking'
+  fill_in 'guest_litres_of_liquid_per_day', :with => 2
+  check 'guest_sun_protector'
+  fill_in 'guest_main_problem', :with => 'Nagyon szaraz'
+  fill_in 'guest_problem_appeared', :with => 'fel eve'
+  fill_in 'guest_possible_reason_of_problem', :with => 'nem kenem'
+  check 'guest_visited_dermatologist'
   click_button 'Edit'
 end
 
@@ -64,6 +97,18 @@ Then(/^the new values should be stored$/) do
   guest.postal_code.should == 2900
   guest.phone.should == '06205554535'
   guest.email.should == 'k.j@gmail.com'
+  guest.allergies.should == 'mogyoroallergia'
+  guest.diseases.should == 'nincs'
+  guest.medicines.should == 'algopyrin'
+  guest.vitamins.should == 'C vitamin'
+  guest.hormon_treatment.should == false
+  guest.smoking.should == true
+  guest.litres_of_liquid_per_day.should == 2
+  guest.sun_protector.should == true
+  guest.main_problem.should == 'Nagyon szaraz'
+  guest.problem_appeared.should == 'fel eve'
+  guest.possible_reason_of_problem.should == 'nem kenem'
+  guest.visited_dermatologist.should == true
 end
 
 When(/^search for the first guest name$/) do

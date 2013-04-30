@@ -42,6 +42,18 @@ hu:
     phone: Telefonszám
     email: E-mail    
     allergies: Allergiák
+    diseases: Diseases
+    medicines: Medicines
+    vitamins: Vitamins
+    hormon_treatment: Hormon treatment?
+    smoking: Smoking?
+    litres_of_liquid_per_day: Litres of liquid per day
+    sun_protector: Sun protector
+    main_problem: Main problem with the skin
+    problem_appeared: Problem appeared
+    possible_reason_of_problem: Possible reason of problem
+    visited_dermatologist: Visited dermatologist or beautician?
+    
     show:
       treatment: Kezelés
       anamnezis: Anamnézis
