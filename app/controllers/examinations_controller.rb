@@ -54,6 +54,7 @@ class ExaminationsController < ApplicationController
     image = ExamImage.new
     image.examination_id = params[:exam_image][:exam_id]
     image.image = params[:exam_image][:exam_image]
+    image.caption = params[:exam_image][:caption]
     begin
       image.save!
     rescue
