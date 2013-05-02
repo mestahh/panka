@@ -58,3 +58,18 @@ Then(/^it will be resized and a thumbnail is created\.$/) do
   File.delete("public/uploads/exam_image/image/1/test_big.jpg")
   File.delete("public/uploads/exam_image/image/1/thumb_test_big.jpg")
 end
+
+When(/^I open the picture from the edit examination view$/) do
+  visit edit_examination_path(:id => @exam1_1_1)
+  link = find(:xpath, "//*[@id=\"exam_pictures\"]/div[1]/a")
+  link.click
+end
+
+When(/^I click on the picture$/) do
+  picture = find(:xpath, "//*[@id=\"main\"]/a")
+  picture.click
+end
+
+Then(/^I should see the edit examination page$/) do
+  current_path.should == edit_examination_path(:id => @exam1_1_1)
+end

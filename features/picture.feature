@@ -34,3 +34,11 @@ Feature: I would like to be able to upload several images to the examinations.
 		And I have a picture
 		When I visit that pictures link
 		Then I should see the picture on a separate page
+		
+	Scenario: The click on the big picture should redirect to the previous page
+	
+		Given I have the background
+		And I have a picture
+		When I open the picture from the edit examination view
+		And I click on the picture
+		Then I should see the edit examination page
