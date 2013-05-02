@@ -19,9 +19,8 @@
 <hr />
 <div id="exam_pictures">
 	<% @examination.exam_images.each do |image| %>
-	<p>Caption: <%= image.caption %></p>
 	<div class="exam_image">
-		<%= link_to (image_tag (image.image.thumb.url)), image_path(:id => image.id) %>
+		<%= link_to (image_tag (image.image.thumb.url)), image_path(:id => image.id), :title => image.caption %>
 		<div class="edit">
 			<%= link_to 'edit', edit_image_path(:id => image.id), :class => 'ui-icon ui-icon-pencil' %>
 		</div>
