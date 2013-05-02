@@ -90,5 +90,4 @@ Then(/^the caption should be saved in the database$/) do
   image = ExamImage.find(1)
   image.caption.should == 'newcaption'
   current_path.should == edit_examination_path(:id => @exam1_1_1, :locale => I18n.locale)
-  page.should have_content 'newcaption'
 end
