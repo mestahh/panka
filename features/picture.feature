@@ -42,3 +42,11 @@ Feature: I would like to be able to upload several images to the examinations.
 		When I open the picture from the edit examination view
 		And I click on the picture
 		Then I should see the edit examination page
+		
+	Scenario: Edit picture is available
+	
+		Given I have the background
+		And I have a picture
+		When I visit the edit picture link
+		And modify the caption of the picture
+		Then the caption should be saved in the database

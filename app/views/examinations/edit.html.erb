@@ -1,4 +1,5 @@
 <%= render 'form' %>
+<hr />
 <div>
 <%= form_for(@picture) do |f| %>
 <%= f.hidden_field :exam_id, :value => params[:id] %>
@@ -11,11 +12,15 @@
 </div>
 <% end %>
 </div>
+<hr />
 <div id="exam_pictures">
 	<% @examination.exam_images.each do |image| %>
+	<p>Caption: <%= image.caption %></p>
 	<div class="exam_image">
 		<%= link_to (image_tag (image.image.thumb.url)), image_path(:id => image.id) %>
-		
+		<div class="edit">
+			<%= link_to 'edit', edit_image_path(:id => image.id), :class => 'ui-icon ui-icon-pencil' %>
+		</div>
 		<div class="delete">
 			<%= link_to 'Delete picture', delete_image_path(:id => image.id, :exam_id => params[:id]), :method => 'delete', :class => 'ui-icon ui-icon-trash' %>
 		</div>

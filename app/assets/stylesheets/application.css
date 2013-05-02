@@ -46,6 +46,14 @@ div.exam_image:hover div.delete{
     visibility: visible;
 }
 
+div .edit {
+	visibility: hidden;
+}
+
+div.exam_image:hover div.edit{
+    visibility: visible;
+}
+
 #header #menu {
 	float: right;
 }

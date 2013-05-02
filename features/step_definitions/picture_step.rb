@@ -73,3 +73,19 @@ end
 Then(/^I should see the edit examination page$/) do
   current_path.should == edit_examination_path(:id => @exam1_1_1)
 end
+
+When(/^I visit the edit picture link$/) do
+  visit edit_image_path(:id => 1)
+end
+
+When(/^modify the caption of the picture$/) do
+  fill_in 'exam_image_caption', :with => 'newcaption'
+  click_button 'Edit Exam image'
+end
+
+Then(/^the caption should be saved in the database$/) do
+  image = ExamImage.find(1)
+  image.caption.should == 'newcaption'
+  current_path.should == edit_examination_path(:id => @exam1_1_1, :locale => I18n.locale)
+  page.should have_content 'newcaption'
+end

@@ -43,6 +43,8 @@ Panka::Application.routes.draw do
     
     controller :images do
       delete 'delete_image' => :destroy
+      get 'edit_image' => :edit
+      put 'exam_image' => :update
     end
 
   end
