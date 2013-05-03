@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-
+  helper_method :sort_column, :sort_direction
   before_filter :check_login
   def index
     flash[:alert] = nil
