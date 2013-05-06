@@ -13,13 +13,13 @@ gem 'carrierwave'
 gem 'rmagick', '2.13.2'
 gem 'dynamic_form'
 
-group :production, :staging do
-  gem "pg"
-end
+#group :production, :staging do
+#  gem "pg"
+#end
 
-group :development, :test do
+#group :development, :test do
   gem 'sqlite3'  
-end
+#end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
