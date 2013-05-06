@@ -88,6 +88,7 @@ GEM
     multi_json (1.7.2)
     nokogiri (1.5.9)
     nokogiri (1.5.9-x86-mingw32)
+    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -170,6 +171,7 @@ DEPENDENCIES
   dynamic_form
   factory_girl (= 4.1.0)
   jquery-rails
+  pg
   rails (= 3.2.13)
   rmagick (= 2.13.2)
   rspec-rails

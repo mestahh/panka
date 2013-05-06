@@ -5,13 +5,21 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'jquery-rails'
 
 gem 'will_paginate', '~> 3.0'
 gem 'carrierwave'
 gem 'rmagick', '2.13.2'
 gem 'dynamic_form'
+
+group :production, :staging do
+  gem "pg"
+end
+
+group :development, :test do
+  gem 'sqlite3'  
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

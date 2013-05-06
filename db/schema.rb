@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130502043300) do
 
-  create_table "allergies", :force => true do |t|
-    t.string   "name"
-    t.integer  "guest_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "exam_images", :force => true do |t|
     t.integer  "examination_id"
     t.string   "image"
@@ -64,13 +57,6 @@ ActiveRecord::Schema.define(:version => 20130502043300) do
     t.string   "problem_appeared"
     t.string   "possible_reason_of_problem"
     t.boolean  "visited_dermatologist"
-  end
-
-  create_table "pictures", :force => true do |t|
-    t.string   "name"
-    t.binary   "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
