@@ -18,6 +18,11 @@
 				<%= f.label t('guests.name') %>
 			</div>
 			<div class="field">
+				<%= f.text_field :phone %>
+				<%= f.label t('guests.phone') %>
+			</div>
+			<hr/>
+			<div class="field">
 				<%= f.text_field :birth %>
 				<%= f.label t('guests.birth'), :class => 'datepicker' %>
 			</div>
@@ -36,10 +41,6 @@
 			<div class="field">
 				<%= f.text_field :postal_code %>
 				<%= f.label t('guests.postal_code') %>
-			</div>
-			<div class="field">
-				<%= f.text_field :phone %>
-				<%= f.label t('guests.phone') %>
 			</div>
 			<div class="field">
 				<%= f.text_field :email %>
