@@ -5,8 +5,9 @@ else
 end
 %>
 <%= form_for(@examination) do |f| %>
-<div class="form ui-corner-top">
+<div class="form">
 	<%= f.hidden_field :guest_id, :value => @examination.guest_id %>
+	<h4 class="ui-corner-top">Edit examination</h4>
 	<div class="content">
 		<div class="field">
 			<%= f.text_field :anamnezis, :readonly => @enabled %>
@@ -24,10 +25,9 @@ end
 			<%= f.text_field :charge %>
 			<%= f.label t('examinations.charge') %>
 		</div>
-
-	</div>
-	<div class="actions">
-		<%= f.submit :class => 'submit' %>
+		<div class="actions">
+			<%= f.submit :class => 'submit' %>
+		</div>
 	</div>
 </div>
 <% end %>

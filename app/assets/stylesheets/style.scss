@@ -4,18 +4,50 @@ $content_background: #ffffff;
 $hover_background: #2f343a;
 $light_color: #eeeeee; 
 $margin: 1em;
+$padding: 1em;
+$font_color_on_dark: #ffebb5;
 
 .comment {
-    border:1px solid $border;  
-    background-color: $light_color;  
-    padding:8px;
-    margin-bottom: $margin; 
+  
+  margin-bottom: $margin;
+    
+    h4 {
+      background-color: $hover_background;
+      margin-bottom: 0px;
+      padding-left: $padding;
+      color: $light_color; 
+    }
+    
+    content {
+      color: #aaaaaa;
+    }
 }
-.tabbed_area, .form, .widget {  
-    border:1px solid $border;  
-    background-color: $background;  
-    padding:8px;
-    margin-bottom: $margin;      
+
+hr {
+  margin-top: $margin;
+}
+
+.tabbed_area {
+  padding: $padding;
+  background: $background;
+  
+  h4 {
+      margin-bottom: $margin;
+      color: $light_color;  
+  }
+}
+
+.form, .widget {  
+    
+    h4 {
+      background-color: $hover_background;
+      margin-bottom: 0px;
+      padding-left: $padding;
+      font-family:Verdana, Arial, Helvetica, sans-serif;  
+      font-weight:bold;  
+      text-transform:uppercase;
+      color: $font_color_on_dark;
+    }      
 }  
 
 ul.tabs {  
@@ -41,6 +73,7 @@ ul.tabs {
       }  
   }   
 } 
+ 
   
 ul.tabs li a:hover {  
     background-color: $hover_background; 
@@ -55,8 +88,9 @@ ul.tabs li a.active {
 
 .content {  
     background-color: $content_background;  
-    padding: 10px;  
-    border:1px solid $border;    
+    padding: $padding; 
+    border:1px solid $border;   
+    margin-bottom: $margin; 
 }  
 #content_2 { display:none; } 
 

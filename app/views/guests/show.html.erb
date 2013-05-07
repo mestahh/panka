@@ -1,6 +1,6 @@
 <div class="widget ui-corner-top">
-	<h4><%= @guest.name %></h4>
-	<div class="content ui-corner-top">
+	<h4 class="ui-corner-top"><%= @guest.name %></h4>
+	<div class="content">
 		<table width="100%">
 			<tr>
 				<td class="bold"><%= t('.name') %></td><td><%= @guest.name %></td><td class="bold"><%= t('.birth') %></td><td><%= @guest.birth %></td>
@@ -23,9 +23,9 @@
 		</div>
 	</div>
 </div>
-<div class="widget ui-corner-top">
-	<h4>Examinations</h4>
-	<div class="content ui-corner-top">
+<div class="widget">
+	<h4 class="ui-corner-top">Examinations</h4>
+	<div class="content">
 		<table width="100%">
 			<thead>
 				<th><%= t('.date') %></th><th><%= t('.anamnezis') %></th><th><%= t('.status') %></th><th><%= t('.treatment') %></th><th><%= t('.charge') %></th><th></th><th></th>

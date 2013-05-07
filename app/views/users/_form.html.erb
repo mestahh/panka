@@ -1,5 +1,6 @@
 <%= form_for @user do |f| %>
-<div class="form ui-corner-top">
+<div class="form">
+	<h4 class="ui-corner-top">Accunt</h4>
 	<div class="content">
 		<div class="field">
 			<%= f.text_field :username %>
@@ -21,9 +22,9 @@
 			<%= f.select :language, User::LANGUAGES, :prompt => t('users.select_language') %>
 			<%= f.label :language, t('users.language') %>
 		</div>
-	</div>
-	<div class="actions">
-		<%= f.submit :class => 'submit' %>
+		<div class="actions">
+			<%= f.submit :class => 'submit' %>
+		</div>
 	</div>
 </div>
 <% end %>

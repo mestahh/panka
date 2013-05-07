@@ -1,7 +1,7 @@
 <div class="widget ui-corner-top">
 
-	<h4><%= link_to @examination.guest.name, guest_path(:id => @examination.guest.id) %></h4>
-	<div class="content ui-corner-top">
+	<h4 class="ui-corner-top"><%= link_to @examination.guest.name, guest_path(:id => @examination.guest.id) %></h4>
+	<div class="content">
 		<div>
 			<span><%= t(".last_modified") %></span>
 			<span><%= @examination.updated_at %></span>
@@ -31,25 +31,28 @@
 </div>
 
 <% @examination.comments.each do |comment| %>
-<div class="comment ui-corner-top">
+<div class="comment">
+	<h4 class="ui-corner-top"><%= comment.created_at %></h4>
 	<div class="content">
-		<%= comment.content %>
+		<div>
+			<%= comment.content %>
+		</div>
 	</div>
 </div>
 <% end %>
 
 <%= form_for(@comment) do |f| %>
-<div class="widget ui-corner-top">
+<div class="widget">
+	<h4 class="ui-corner-top">Comment</h4>
 	<div class="content">
 		<%= f.hidden_field :commentable_id, :value => @examination.id %>
 		<%= f.hidden_field :commentable_type, :value => 'Examination' %>
 		<div class="field">
 			<%= f.text_field :content %>
-			<%= f.label 'Comment' %>
 		</div>
-	</div>
-	<div class="actions">
-		<%= f.submit :class => 'submit' %>
+		<div class="actions">
+			<%= f.submit :class => 'submit' %>
+		</div>
 	</div>
 </div>
 <% end %>

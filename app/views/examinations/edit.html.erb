@@ -1,22 +1,24 @@
 <%= render 'form' %>
 <hr />
-<div>
-<%= form_for(@picture) do |f| %>
-<%= f.hidden_field :exam_id, :value => params[:id] %>
-<div class="field">
-	<%= f.file_field :exam_image %>
-	<%= f.label 'exam_image' %>
+<div class="form">
+	<%= form_for(@picture) do |f| %>
+	<h4 class="ui-corner-top">Upload picture</h4>
+	<div class="content">
+		<%= f.hidden_field :exam_id, :value => params[:id] %>
+		<div class="field">
+			<%= f.file_field :exam_image %>
+			<%= f.label 'exam_image' %>
+		</div>
+		<div class="field">
+			<%= f.text_field :caption %>
+			<%= f.label :caption %>
+		</div>
+		<div class="actions">
+			<%= f.submit :class => 'submit', :value => "Upload" %>
+		</div>
+	</div>
+	<% end %>
 </div>
-<div class="field">
-	<%= f.text_field :caption %>
-	<%= f.label :caption %>
-</div>
-<div class="actions">
-	<%= f.submit :class => 'submit', :value => "Upload" %>
-</div>
-<% end %>
-</div>
-<hr />
 <div id="exam_pictures">
 	<% @examination.exam_images.each do |image| %>
 	<div class="exam_image">

@@ -1,21 +1,21 @@
 <%= form_tag find_guest_path do %>
-<div class="form ui-corner-top">
-	<div class="content ui-corner-top">
-		<h1><%= t('.guests') %></h1>
+<div class="form">
+	<h4 class="ui-corner-top"><%= t('.guests') %></h4>
+	<div class="content">
 		<div class="field">
 			<%= hidden_field_tag :mode, params[:mode], :value => params[:mode] %>
 			<%= text_field_tag :search_field, params[:search_field] %>
-
 		</div>
-	</div>
-	<div class="actions">
-		<%= submit_tag t('.search_button'), :class => 'submit' %>
+		<div class="actions">
+			<%= submit_tag t('.search_button'), :class => 'submit' %>
+		</div>
 	</div>
 </div>
 
 <% end %>
-<div class="form ui-corner-top">
-	<div class="content ui-corner-top">
+<div class="form">
+	<h4 class="ui-corner-top">Results</h4>
+	<div class="content">
 		<table id="guests" width="100%">
 			<thead>
 				<th><%= t('.name') %></th>

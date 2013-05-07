@@ -1,7 +1,7 @@
 <%= form_tag do %>
 <div class="form">
+	<h4 class="ui-corner-top"><%= t('.please_login') %></h4>
 	<div class="content">
-		<h1><%= t('.please_login') %></h1>
 		<div class="field">
 			<%= text_field_tag :username, params[:username] %>
 			<label for="username" ><%= t('.username') %></label>
@@ -10,9 +10,9 @@
 			<%= password_field_tag :password, params[:password] %>
 			<label for="password"><%= t('.password') %></label>
 		</div>
-	</div>
-	<div class="actions">
-		<%= submit_tag t('.login'), :class => 'submit' %>
+		<div class="actions">
+			<%= submit_tag t('.login'), :class => 'submit' %>
+		</div>
 	</div>
 </div>
 <% end %>
