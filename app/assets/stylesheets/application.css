@@ -73,15 +73,7 @@ div.exam_image:hover div.edit{
 	color: #d19405;
 	padding: 10px;
 }
- 
-a {
-	color: #d19405;
-	text-decoration: none;
-}
 
-li {
-	list-style: none;
-}
 
 input, textarea, .checkbox {
 	margin-top: 10px;
@@ -106,10 +98,7 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
 }
 
-form label {
-	margin-left: 10px;
-	color: #999999;
-}
+
 
 tr td, tr th {
 	padding: 10px;
