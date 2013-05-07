@@ -1,45 +1,54 @@
-.tabbed_area {  
-    border:1px solid #494e52;  
-    background-color:#636d76;  
+$border: #494e52;
+$background: #636d76;
+$content_background: #ffffff;
+$hover_background: #2f343a; 
+
+
+
+.tabbed_area, .form {  
+    border:1px solid $border;  
+    background-color: $background;  
     padding:8px;      
 }  
 
 ul.tabs {  
-  margin:0px; padding:0px;  
+    margin:0px; padding:0px;  
     margin-top:5px;  
-    margin-bottom:5px;  
-}  
-ul.tabs li {  
-    list-style:none;  
-    display:inline;  
-    margin-left: 0px;
-}  
-
-ul.tabs li a {  
-    background-color:#464c54;  
-    color:#ffebb5;  
-    padding:8px 14px 8px 14px;  
-    text-decoration:none;  
-    font-size:9px;  
-    font-family:Verdana, Arial, Helvetica, sans-serif;  
-    font-weight:bold;  
-    text-transform:uppercase;  
-    border:1px solid #464c54;   
-}  
+    margin-bottom:5px; 
+   
+    li {  
+      list-style:none;  
+      display:inline;  
+      margin-left: 0px;
+    
+      a {  
+        background-color:#464c54;  
+        color:#ffebb5;  
+        padding:8px 14px 8px 14px;  
+        text-decoration:none;  
+        font-size:9px;  
+        font-family:Verdana, Arial, Helvetica, sans-serif;  
+        font-weight:bold;  
+        text-transform:uppercase;  
+        border:1px solid #464c54;   
+      }  
+  }   
+} 
+  
 ul.tabs li a:hover {  
-    background-color:#2f343a;  
+    background-color: $hover_background; 
     border-color:#2f343a;  
 }  
 ul.tabs li a.active {  
-    background-color:#ffffff;  
+    background-color:$content_background;  
     color:#282e32;  
-    border:1px solid #464c54;   
-    border-bottom: 1px solid #ffffff;  
+    border:1px solid $border;   
+    border-bottom: 1px solid $content_background;  
 }  
 
 .content {  
-    background-color:#ffffff;  
-    padding:10px;  
-    border:1px solid #464c54;     
+    background-color: $content_background;  
+    padding: 10px;  
+    border:1px solid $border;    
 }  
 #content_2 { display:none; } 

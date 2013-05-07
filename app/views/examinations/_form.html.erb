@@ -1,43 +1,33 @@
 <% unless (params[:guest_id])
-     @readonly = true	
-   else 
-     @readonly = false		
-   end
+  @readonly = true
+else
+  @readonly = false
+end
 %>
 <%= form_for(@examination) do |f| %>
-<% if @examination.errors.any? %>
-<div id="errorExplanation">
-	<h2><%= pluralize(@examination.errors.count, "error") %> prohibited
-	this examination from being saved:</h2>
-	<ul>
-		<% @examination.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
-<%= f.hidden_field :guest_id, :value => @examination.guest_id %>
-<p>
-	<div class="field">
-		<%= f.text_field :anamnezis, :readonly => @enabled %>
-		<%= f.label t('examinations.anamnezis') %>
+<div class="form ui-corner-top">
+	<%= f.hidden_field :guest_id, :value => @examination.guest_id %>
+	<div class="content">
+		<div class="field">
+			<%= f.text_field :anamnezis, :readonly => @enabled %>
+			<%= f.label t('examinations.anamnezis') %>
+		</div>
+		<div class="field">
+			<%= f.text_field :status %>
+			<%= f.label t('examinations.status') %>
+		</div>
+		<div class="field">
+			<%= f.text_area :treatment %>
+			<%= f.label t('examinations.treatment') %>
+		</div>
+		<div class="field">
+			<%= f.text_field :charge %>
+			<%= f.label t('examinations.charge') %>
+		</div>
+
 	</div>
-	<div class="field">
-		<%= f.text_field :status %>
-		<%= f.label t('examinations.status') %>
-	</div>
-	<div class="field">
-		<%= f.text_area :treatment %>
-		<%= f.label t('examinations.treatment') %>
-	</div>
-	<div class="field">
-		<%= f.text_field :charge %>
-		<%= f.label t('examinations.charge') %>
-	</div>
-	
 	<div class="actions">
 		<%= f.submit :class => 'submit' %>
 	</div>
+</div>
 <% end %>
