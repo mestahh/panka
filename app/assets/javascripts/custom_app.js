@@ -11,7 +11,7 @@ $(function() {
 		var tab = $(this).attr("id");
 		var tab_number = tab.substr(tab.length - 1)
 
-		$(".content").hide();
+		$(".tabbed_area > .content").hide();
 		$("#content_" + tab_number).show();
 
 		return false;
