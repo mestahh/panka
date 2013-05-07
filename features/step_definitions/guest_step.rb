@@ -25,7 +25,7 @@ When(/^I am adding a new guest to the database$/) do
 end
 
 Then(/^the new guest should be stored$/) do
-  current_path.should == main_index_path(I18n.locale)
+  current_path.should == new_examination_path(I18n.locale)
   Guest.count.should == 7
   guest = Guest.find_by_name 'Kovacs Janos'
   guest.name.should == 'Kovacs Janos'
@@ -223,4 +223,5 @@ end
 Then(/^there should be no error message on the page$/) do
   page.should_not have_content 'There is no guest with this name.'
 end
+
 

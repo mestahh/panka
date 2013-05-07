@@ -24,11 +24,10 @@
 				</div>
 			</div>
 			<div id="leftmenu" class="grid_2">
+				<% if session[:user] %>
 				<div class="widget ui-corner-top">
 					<div class="content">
 						<ul id="menu">
-
-							<% if session[:user] %>
 
 							<li>
 								<%= link_to t('.add_guest'), new_guest_path %>
@@ -40,10 +39,10 @@
 								<%= link_to t('.examinations'), examinations_path %>
 							</li>
 
-							<% end %>
 						</ul>
 					</div>
 				</div>
+				<% end %>
 			</div>
 			<div id="main" class="grid_10">
 				<%= render 'message/message_line' %>

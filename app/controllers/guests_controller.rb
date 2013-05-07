@@ -15,7 +15,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(params[:guest])
     @guest.user = User.find(session[:user])
     if @guest.save
-      redirect_to main_index_path, :notice => 'Guest stored.'
+      redirect_to new_examination_path(:guest_id => @guest.id), :notice => 'Guest stored.'
     else
       render :new
     end
