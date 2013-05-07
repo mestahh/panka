@@ -1,39 +1,50 @@
 <%= form_tag find_guest_path do %>
-<fieldset>
-	<h1><%= t('.guests') %></h1>
-	<div>
-		<%= hidden_field_tag :mode, params[:mode], :value => params[:mode] %>
-		<%= text_field_tag :search_field, params[:search_field] %>
+<div class="form ui-corner-top">
+	<div class="content ui-corner-top">
+		<h1><%= t('.guests') %></h1>
+		<div class="field">
+			<%= hidden_field_tag :mode, params[:mode], :value => params[:mode] %>
+			<%= text_field_tag :search_field, params[:search_field] %>
+
+		</div>
+	</div>
+	<div class="actions">
 		<%= submit_tag t('.search_button'), :class => 'submit' %>
 	</div>
-</fieldset>
+</div>
+
 <% end %>
-<table id="guests" width="100%">
-	<thead>
-		<th><%= t('.name') %></th>
-		<th><%= t('.mother') %></th>
-		<th><%= t('.birth') %></th>
-		<th><%= t('.city') %></th>
-		<th></th>
-		<th></th>
-	</thead>
+<div class="form ui-corner-top">
+	<div class="content ui-corner-top">
+		<table id="guests" width="100%">
+			<thead>
+				<th><%= t('.name') %></th>
+				<th><%= t('.mother') %></th>
+				<th><%= t('.birth') %></th>
+				<th><%= t('.city') %></th>
+				<th></th>
+				<th></th>
+			</thead>
 
-	<% @guests.each do |guest| %>
-	<tr>
+			<% @guests.each do |guest| %>
+			<tr>
 
-		<%
-		unless (params[:mode]) %>
-		<td><%= link_to guest.name, guest_path(:id => guest.id) %></td>
-		<%	else %>
-		<td><%= link_to guest.name, new_examination_path(:guest_id => guest.id) %></td>
-		<% end %>
+				<%
+				unless (params[:mode]) %>
+				<td><%= link_to guest.name, guest_path(:id => guest.id) %></td>
+				<%	else %>
+				<td><%= link_to guest.name, new_examination_path(:guest_id => guest.id) %></td>
+				<% end %>
 
-		<td><%= guest.mother %></td>
-		<td><%= guest.birth %></td>
-		<td><%= guest.city %></td>
-		<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
-		<td><%= link_to 'Delete guest', guest_path(:id => guest.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
-	</tr>
+				<td><%= guest.mother %></td>
+				<td><%= guest.birth %></td>
+				<td><%= guest.city %></td>
+				<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
+				<td><%= link_to 'Delete guest', guest_path(:id => guest.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
+			</tr>
 
-	<% end %>
-</table>
+			<% end %>
+		</table>
+
+	</div>
+</div>

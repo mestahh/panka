@@ -1,27 +1,31 @@
-<h1><%= link_to @examination.guest.name, guest_path(:id => @examination.guest.id) %></h1>
-<div>
-	<span><%= t(".last_modified") %></span>
-	<span><%= @examination.updated_at %></span>
-</div>
-<div>
-	<span><%= t(".created_at") %></span><span><%= @examination.created_at %></span>
-</div>
-<div>
-	<span><%= t(".anamnezis") %></span>
-	<span><%= @examination.anamnezis %></span>
-</div>
-<div>
-	<span><%= t(".status") %></span>
-	<span><%= @examination.status %></span>
-</div>
-<div>
-	<span><%= t(".treatment") %></span>
-	<span><%= @examination.treatment %></span>
-</div>
-<div>
-	<span><%= t(".charge") %></span>
-	<span><%= @examination.charge %></span>
-</div>
+<div class="widget ui-corner-top">
 
-<%= link_to 'Delete examination', examination_path(:id => @examination.id), :method => 'delete', :confirm => t("are_you_sure"), :class => 'ui-icon ui-icon-trash' %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'ui-icon ui-icon-pencil' %>
+	<h4><%= link_to @examination.guest.name, guest_path(:id => @examination.guest.id) %></h4>
+	<div class="content ui-corner-top">
+		<div>
+			<span><%= t(".last_modified") %></span>
+			<span><%= @examination.updated_at %></span>
+		</div>
+		<div>
+			<span><%= t(".created_at") %></span><span><%= @examination.created_at %></span>
+		</div>
+		<div>
+			<span><%= t(".anamnezis") %></span>
+			<span><%= @examination.anamnezis %></span>
+		</div>
+		<div>
+			<span><%= t(".status") %></span>
+			<span><%= @examination.status %></span>
+		</div>
+		<div>
+			<span><%= t(".treatment") %></span>
+			<span><%= @examination.treatment %></span>
+		</div>
+		<div>
+			<span><%= t(".charge") %></span>
+			<span><%= @examination.charge %></span>
+		</div>
 
+		<%= link_to 'Delete examination', examination_path(:id => @examination.id), :method => 'delete', :confirm => t("are_you_sure"), :class => 'ui-icon ui-icon-trash' %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'ui-icon ui-icon-pencil' %>
+	</div>
+</div>

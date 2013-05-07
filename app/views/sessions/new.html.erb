@@ -1,17 +1,19 @@
 <%= form_tag do %>
-  <fieldset>
-    <h1><%= t('.please_login') %></h1>
-    <p>
-      <%= text_field_tag :username, params[:username] %>
-      <label for="username" ><%= t('.username') %></label>
-    </p>
-	<p>
-      <%= password_field_tag :password, params[:password] %>
-      <label for="password"><%= t('.password') %></label>
-    </p>
-    <p>
-      <%= submit_tag t('.login'), :class => 'submit' %>
-    </p>
-  </fieldset>
+<div class="form">
+	<div class="content">
+		<h1><%= t('.please_login') %></h1>
+		<div class="field">
+			<%= text_field_tag :username, params[:username] %>
+			<label for="username" ><%= t('.username') %></label>
+		</div>
+		<div class="field">
+			<%= password_field_tag :password, params[:password] %>
+			<label for="password"><%= t('.password') %></label>
+		</div>
+	</div>
+	<div class="actions">
+		<%= submit_tag t('.login'), :class => 'submit' %>
+	</div>
+</div>
 <% end %>
 

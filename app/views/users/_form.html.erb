@@ -1,28 +1,29 @@
 <%= form_for @user do |f| %>
-<fieldset>
-	<div>
-		<%= f.text_field :username %>
-		<%= f.label :username, t('users.username') %>
+<div class="form ui-corner-top">
+	<div class="content">
+		<div class="field">
+			<%= f.text_field :username %>
+			<%= f.label :username, t('users.username') %>
+		</div>
+		<div class="field">
+			<%= f.password_field :password %>
+			<%= f.label :password, t('users.password') %>
+		</div>
+		<div class="field">
+			<%= f.password_field :password_confirmation %>
+			<%= f.label :password_confirmation, t('users.password_confirm') %>
+		</div>
+		<div class="field">
+			<%= f.text_field :email %>
+			<%= f.label :email, t('users.email') %>
+		</div>
+		<div class="field">
+			<%= f.select :language, User::LANGUAGES, :prompt => t('users.select_language') %>
+			<%= f.label :language, t('users.language') %>
+		</div>
 	</div>
-	<div>
-		<%= f.password_field :password %>
-		<%= f.label :password, t('users.password') %>
-	</div>
-	<div>
-		<%= f.password_field :password_confirmation %>
-		<%= f.label :password_confirmation, t('users.password_confirm') %>
-	</div>
-	<div>
-		<%= f.text_field :email %>
-		<%= f.label :email, t('users.email') %>
-	</div>
-	<div>
-		<%= f.select :language, User::LANGUAGES, :prompt => t('users.select_language')
-		%>
-		<%= f.label :language, t('users.language') %>
-	</div>
-	<div>
+	<div class="actions">
 		<%= f.submit :class => 'submit' %>
 	</div>
-</fieldset>
+</div>
 <% end %>

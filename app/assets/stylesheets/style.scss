@@ -2,13 +2,14 @@ $border: #494e52;
 $background: #636d76;
 $content_background: #ffffff;
 $hover_background: #2f343a; 
+$margin: 1em;
 
 
-
-.tabbed_area, .form {  
+.tabbed_area, .form, .widget {  
     border:1px solid $border;  
     background-color: $background;  
-    padding:8px;      
+    padding:8px;
+    margin-bottom: $margin;      
 }  
 
 ul.tabs {  
@@ -52,3 +53,7 @@ ul.tabs li a.active {
     border:1px solid $border;    
 }  
 #content_2 { display:none; } 
+
+#back {
+  text-align: center;
+}

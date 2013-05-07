@@ -7,46 +7,57 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div id="container" class="container_12">
+		<div id="container" class="container_12 ui-corner-top">
 			<div id="header" class="grid_12">
 				<h1>Panka</h1>
-				<p><%= t('.title') %></p>
+				<p>
+					<%= t('.title') %>
+				</p>
 				<div id="menu">
 					<% unless session[:user] %>
-						<%= link_to t('.registration'), new_user_path %>
-						<%= link_to t('.login'), login_path %>
+					<%= link_to t('.registration'), new_user_path %>
+					<%= link_to t('.login'), login_path %>
 					<% else %>
-						<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %>
-						<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
+					<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %>
+					<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
 					<% end %>
 				</div>
 			</div>
 			<div id="leftmenu" class="grid_2">
-				<ul id="menu">
+				<div class="widget ui-corner-top">
+					<div class="content">
+						<ul id="menu">
 
-					<% if session[:user] %>
-				
-					<li>
-						<%= link_to t('.add_guest'), new_guest_path %>
-					</li>
-					<li>
-						<%= link_to t('.guests'), guests_path %>
-					</li>
-					<li>
-						<%= link_to t('.examinations'), examinations_path %>
-					</li>
-			
-					<% end %>
-				</ul>
+							<% if session[:user] %>
+
+							<li>
+								<%= link_to t('.add_guest'), new_guest_path %>
+							</li>
+							<li>
+								<%= link_to t('.guests'), guests_path %>
+							</li>
+							<li>
+								<%= link_to t('.examinations'), examinations_path %>
+							</li>
+
+							<% end %>
+						</ul>
+					</div>
+				</div>
 			</div>
 			<div id="main" class="grid_10">
 				<%= render 'message/message_line' %>
 				<%= yield %>
-			<div id="back"><%= link_to t('.back'), :back %></div>
+				<div id="back">
+					<%= link_to t('.back'), :back %>
+				</div>
 			</div>
 			<div id="footer" class="grid_12">
-				<p>Panka, <%= t('.title') %>
-				<br>2013, All rights reserved.</p>
+				<p>
+					Panka, <%= t('.title') %>
+					<br>
+					2013, All rights reserved.
+				</p>
 			</div>
 		</div>
 	</body>

@@ -1,40 +1,47 @@
-<h1><%= @guest.name %></h1>
-
-<table width="100%">
-	<tr>
-		<td class="bold"><%= t('.name') %></td><td><%= @guest.name %></td><td class="bold"><%= t('.birth') %></td><td><%= @guest.birth %></td>
-	</tr>
-	<tr>
-		<td class="bold"><%= t('.mother') %></td><td><%= @guest.mother %></td><td class="bold"><%= t('.address') %></td><td><%= @guest.address %></td>
-	</tr>
-	<tr>
-		<td class="bold"><%= t('.city') %></td><td><%= @guest.city %></td><td class="bold"><%= t('.postal_code') %></td><td><%= @guest.postal_code %></td>
-	</tr>
-	<tr>
-		<td class="bold"><%= t('.phone') %></td><td><%= @guest.phone %></td><td class="bold"><%= t('.email') %></td><td><%= @guest.email %></td>
-	</tr>
-	<tr>
-		<td class="bold"><%= t('.allergies') %></td><td><%= @guest.allergies %></td><td class="bold"></td><td></td>
-	</tr>
-</table>
-<div>
-	<%= link_to 'Edit', edit_guest_path(:id => @guest.id), :class => 'ui-icon ui-icon-pencil' %> <%= link_to 'Add examination', new_examination_path(:guest_id => @guest.id), :class => 'ui-icon ui-icon-plus' %>
+<div class="widget ui-corner-top">
+	<h4><%= @guest.name %></h4>
+	<div class="content ui-corner-top">
+		<table width="100%">
+			<tr>
+				<td class="bold"><%= t('.name') %></td><td><%= @guest.name %></td><td class="bold"><%= t('.birth') %></td><td><%= @guest.birth %></td>
+			</tr>
+			<tr>
+				<td class="bold"><%= t('.mother') %></td><td><%= @guest.mother %></td><td class="bold"><%= t('.address') %></td><td><%= @guest.address %></td>
+			</tr>
+			<tr>
+				<td class="bold"><%= t('.city') %></td><td><%= @guest.city %></td><td class="bold"><%= t('.postal_code') %></td><td><%= @guest.postal_code %></td>
+			</tr>
+			<tr>
+				<td class="bold"><%= t('.phone') %></td><td><%= @guest.phone %></td><td class="bold"><%= t('.email') %></td><td><%= @guest.email %></td>
+			</tr>
+			<tr>
+				<td class="bold"><%= t('.allergies') %></td><td><%= @guest.allergies %></td><td class="bold"></td><td></td>
+			</tr>
+		</table>
+		<div>
+			<%= link_to 'Edit', edit_guest_path(:id => @guest.id), :class => 'ui-icon ui-icon-pencil' %> <%= link_to 'Add examination', new_examination_path(:guest_id => @guest.id), :class => 'ui-icon ui-icon-plus' %>
+		</div>
+	</div>
 </div>
-<hr />
-<table width="100%">
-	<thead>
-		<th><%= t('.date') %></th><th><%= t('.anamnezis') %></th><th><%= t('.status') %></th><th><%= t('.treatment') %></th><th><%= t('.charge') %></th><th></th><th></th>
-	</thead>
-	<% @guest.examinations.each do |examination| %>
-	<tr>
-		<td><%= link_to examination.updated_at, examination_path(:id => examination.id) %></td>
-		<td><%= truncate(examination.anamnezis, :length => 20) %></td>
-		<td><%= truncate(examination.status, :length => 20) %></td>
-		<td><%= truncate(examination.treatment, :length => 20) %></td>
-		<td><%= examination.charge %></td>
-		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
-		<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
-	</tr>
-	<% end %>
-</table>
+<div class="widget ui-corner-top">
+	<h4>Examinations</h4>
+	<div class="content ui-corner-top">
+		<table width="100%">
+			<thead>
+				<th><%= t('.date') %></th><th><%= t('.anamnezis') %></th><th><%= t('.status') %></th><th><%= t('.treatment') %></th><th><%= t('.charge') %></th><th></th><th></th>
+			</thead>
+			<% @guest.examinations.each do |examination| %>
+			<tr>
+				<td><%= link_to examination.updated_at, examination_path(:id => examination.id) %></td>
+				<td><%= truncate(examination.anamnezis, :length => 20) %></td>
+				<td><%= truncate(examination.status, :length => 20) %></td>
+				<td><%= truncate(examination.treatment, :length => 20) %></td>
+				<td><%= examination.charge %></td>
+				<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
+				<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
 

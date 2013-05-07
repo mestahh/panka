@@ -1,42 +1,48 @@
 <%= form_tag search_exam_path do %>
-<fieldset>
-	<h1><%= t('.search') %></h1>
-	<p>
-		<%= text_field_tag :from_date, params[:from_date], :class => 'datepicker' %>
-		<label for="from_date" ><%= t('.from_date') %></label>
-
-		<%= text_field_tag :to_date, params[:to_date], :class => 'datepicker' %>
-		<label for="to_date" ><%= t('.to_date') %></label>
-	</p>
-	<p>
+<div class="form">
+	<div class="content">
+		<h1><%= t('.search') %></h1>
+		<div class="field">
+			<%= text_field_tag :from_date, params[:from_date], :class => 'datepicker' %>
+			<label for="from_date" ><%= t('.from_date') %></label>
+		</div>
+		<div class="field">
+			<%= text_field_tag :to_date, params[:to_date], :class => 'datepicker' %>
+			<label for="to_date" ><%= t('.to_date') %></label>
+		</div>
+	</div>
+	<div class="actions">
 		<%= submit_tag t('.search'), :class => 'submit' %>
-	</p>
-</fieldset>
+	</div>
+</div>
 <% end %>
+<div class="form ui-corner-top">
+	<div class="content ui-corner-top">
+		<table width="100%">
+			<thead>
+				<tr>
+					<th><%= t('examinations.date') %></th>
+					<th><%= t('examinations..anamnezis') %></th>
+					<th><%= t('examinations.status') %></th>
+					<th><%= t('examinations..treatment') %></th>
+					<th><%= t('examinations..charge') %></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<% @examinations.each do |examination| %>
+			<tr>
+				<td><%= link_to examination.updated_at, examination_path(:id => examination.id) %></td>
+				<td><%= truncate(examination.anamnezis, :lentgh => 20) %></td>
+				<td><%= truncate(examination.status, :length => 20) %></td>
+				<td><%= truncate(examination.treatment, :length => 20) %></td>
+				<td><%= examination.charge %> Ft</td>
+				<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
+				<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => t('are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
+			</tr>
+			<% end %>
 
-<table width="100%">
-	<thead>
-		<tr>
-			<th><%= t('examinations.date') %></th>
-			<th><%= t('examinations..anamnezis') %></th>
-			<th><%= t('examinations.status') %></th>
-			<th><%= t('examinations..treatment') %></th>
-			<th><%= t('examinations..charge') %></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<% @examinations.each do |examination| %>
-	<tr>
-		<td><%= link_to examination.updated_at, examination_path(:id => examination.id) %></td>
-		<td><%= truncate(examination.anamnezis, :lentgh => 20) %></td>
-		<td><%= truncate(examination.status, :length => 20) %></td>
-		<td><%= truncate(examination.treatment, :length => 20) %></td>
-		<td><%= examination.charge %> Ft</td>
-		<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
-		<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => t('are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
-	</tr>
-	<% end %>
-
-</table>
-<%= will_paginate @examinations %>
+		</table>
+	</div>
+	<%= will_paginate @examinations %>
+</div>

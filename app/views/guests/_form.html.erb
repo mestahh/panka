@@ -2,7 +2,7 @@
 
 <div id="tabbed_box_1" class="tabbed_box">
 
-	<div class="tabbed_area">
+	<div class="tabbed_area ui-corner-top">
 		<%= f.error_messages %>
 		<ul class="tabs">
 			<li>
@@ -12,7 +12,7 @@
 				<a href="" id="tab2" class="tab">Stat</a>
 			</li>
 		</ul>
-		<div id="content_1" class="content">
+		<div id="content_1" class="content ui-corner-tr">
 			<div class="field">
 				<%= f.text_field :name %>
 				<%= f.label t('guests.name') %>
@@ -46,7 +46,7 @@
 				<%= f.label t('guests.email') %>
 			</div>
 		</div>
-		<div id="content_2" class="content">
+		<div id="content_2" class="content ui-corner-tr">
 			<div class="field">
 				<%= f.text_field :allergies %>
 				<%= f.label t('guests.allergies') %>
