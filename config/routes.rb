@@ -18,6 +18,10 @@ Panka::Application.routes.draw do
     resources :images, :only => :show
     get "main/index"
     
+    controller :comments do
+      post "comments" => :create
+    end
+    
     controller :sessions do
       get 'login' => :new
       post 'login' => :create

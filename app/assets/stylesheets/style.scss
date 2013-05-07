@@ -1,10 +1,16 @@
 $border: #494e52;
 $background: #636d76;
 $content_background: #ffffff;
-$hover_background: #2f343a; 
+$hover_background: #2f343a;
+$light_color: #eeeeee; 
 $margin: 1em;
 
-
+.comment {
+    border:1px solid $border;  
+    background-color: $light_color;  
+    padding:8px;
+    margin-bottom: $margin; 
+}
 .tabbed_area, .form, .widget {  
     border:1px solid $border;  
     background-color: $background;  

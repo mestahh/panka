@@ -6,4 +6,5 @@ class Examination < ActiveRecord::Base
   validates :anamnezis, :charge, :guest_id , :status, :treatment, :presence => true
   
   has_many :exam_images
+  has_many :comments, :as => :commentable
 end

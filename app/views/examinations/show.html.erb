@@ -29,3 +29,27 @@
 		<%= link_to 'Delete examination', examination_path(:id => @examination.id), :method => 'delete', :confirm => t("are_you_sure"), :class => 'ui-icon ui-icon-trash' %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'ui-icon ui-icon-pencil' %>
 	</div>
 </div>
+
+<% @examination.comments.each do |comment| %>
+<div class="comment ui-corner-top">
+	<div class="content">
+		<%= comment.content %>
+	</div>
+</div>
+<% end %>
+
+<%= form_for(@comment) do |f| %>
+<div class="widget ui-corner-top">
+	<div class="content">
+		<%= f.hidden_field :commentable_id, :value => @examination.id %>
+		<%= f.hidden_field :commentable_type, :value => 'Examination' %>
+		<div class="field">
+			<%= f.text_field :content %>
+			<%= f.label 'Comment' %>
+		</div>
+	</div>
+	<div class="actions">
+		<%= f.submit :class => 'submit' %>
+	</div>
+</div>
+<% end %>

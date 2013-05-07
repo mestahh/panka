@@ -27,6 +27,7 @@ class ExaminationsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @examination = Examination.find(params[:id]);
     if (@examination.guest.user_id != session[:user])
       redirect_to main_index_path, :alert => 'You can not access this page!'
