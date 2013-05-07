@@ -64,6 +64,7 @@ hu:
     index:
       search_button: Keresés
       guests: Vendégek
+      search: Keresés
   
   examinations:
     date: Dátum

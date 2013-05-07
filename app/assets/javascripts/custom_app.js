@@ -8,11 +8,7 @@ $(function() {
 
 		$(".active").removeClass("active");
 		$(this).addClass("active");
-		var tab = $(this).attr("id");
-		var tab_number = tab.substr(tab.length - 1)
-
-		$(".tabbed_area > .content").hide();
-		$("#content_" + tab_number).show();
+		
 
 		return false;
 

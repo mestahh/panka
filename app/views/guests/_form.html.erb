@@ -1,16 +1,9 @@
 <%= form_for(@guest) do |f| %>
-<div class="tabbed_area ui-corner-top">
+<div class="form">
 <h4 class="ui-corner-top">Add guest</h4>
+	
+	<div id="content_1" class="content">
 	<%= f.error_messages %>
-	<ul class="tabs">
-		<li>
-			<a href="" id="tab1" class="tab active ui-corner-tl">Guest</a>
-		</li>
-		<li>
-			<a href="" id="tab2" class="tab">Stat</a>
-		</li>
-	</ul>
-	<div id="content_1" class="content ui-corner-tr">
 		<div class="field">
 			<%= f.text_field :name %>
 			<%= f.label t('guests.name') %>
@@ -48,7 +41,8 @@
 			<%= f.submit :class => 'submit' %>
 		</div>
 	</div>
-	<div id="content_2" class="content ui-corner-tr">
+	 <h4 class="ui-corner-top">Statistical data</h4>
+	<div id="content_2" class="content">
 		<div class="field">
 			<%= f.text_field :allergies %>
 			<%= f.label t('guests.allergies') %>

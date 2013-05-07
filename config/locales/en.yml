@@ -69,6 +69,7 @@ en:
     index:
       search_button: Search
       guests: Guests
+      search: Search
 
   
   examinations:
