@@ -1,21 +1,35 @@
 $border: #494e52;
-$background: #636d76;
-$content_background: #ffffff;
-$hover_background: #2f343a;
-$light_color: #eeeeee; 
+
+$base: #ffffff;
+$dark: #132240;
+$light_dark: #3966bf;
+$light_color: #ffeadd;
+$grey: #dddddd;
+
 $margin: 1em;
 $padding: 1em;
-$font_color_on_dark: #ffebb5;
+
+
+#container {
+  border: 1px solid $border;
+  background-color: $grey;
+  margin-top: 20px;
+  padding: 10px;
+
+}
 
 .comment {
   
   margin-bottom: $margin;
     
     h4 {
-      background-color: $hover_background;
+      border-top: 1px solid $border;
+      border-left: 1px solid $border;
+      border-right: 1px solid $border;
+      background-color: $light_dark;
       margin-bottom: 0px;
       padding-left: $padding;
-      color: $light_color; 
+      color: $base; 
     }
     
     content {
@@ -27,24 +41,55 @@ hr {
   margin-top: $margin;
 }
 
+a {
+  text-decoration: none;
+}
+
+#leftmenu {
+  ul {
+    list-style: none;
+      padding: 0px;
+    li {
+      border-bottom: 1px solid $border;
+      padding: $padding;
+      margin-left: 0px;
+      text-transform: uppercase;
+    }
+    
+    li:hover, li:hover > a {
+      background-color: $light-dark;
+      color: $base;
+    }
+  }
+}
 
 
 .form, .widget {  
     
     h4 {
-      background-color: $hover_background;
+      border-top: 1px solid $border;
+      border-left: 1px solid $border;
+      border-right: 1px solid $border;
+      background-color: $light_dark;
       margin-bottom: 0px;
       padding-left: $padding;
       font-family:Verdana, Arial, Helvetica, sans-serif;  
       font-weight:bold;  
       text-transform:uppercase;
-      color: $font_color_on_dark;
+      color: $base;
     }      
 }  
 
 .content {  
-    background-color: $content_background;  
+    background-color: $base;  
     padding: $padding; 
+    border:1px solid $border;   
+    margin-bottom: $margin; 
+}  
+
+.content_nopadding {  
+    background-color: $base;  
+    padding: 0px; 
     border:1px solid $border;   
     margin-bottom: $margin; 
 }  
