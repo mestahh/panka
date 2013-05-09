@@ -4,7 +4,7 @@ class Guest < ActiveRecord::Base
   attr_accessible :litres_of_liquid_per_day, :problem_appeared, :possible_reason_of_problem, :visited_dermatologist
   has_many :examinations
   belongs_to :user
-  
+  has_many :comments, :as => :commentable
   validates :name, :phone, :presence => true
   
   def self.search(query, user_id)

@@ -23,6 +23,7 @@ class GuestsController < ApplicationController
 
   def show
     @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
+    @comment = Comment.new
     if (@guest.nil?)
       redirect_to main_index_path, :alert => 'You are not allowed to view this page!'
     return

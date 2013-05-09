@@ -29,33 +29,8 @@
 		<%= link_to 'Delete examination', examination_path(:id => @examination.id), :method => 'delete', :confirm => t("are_you_sure"), :class => 'ui-icon ui-icon-trash' %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'ui-icon ui-icon-pencil' %>
 	</div>
 </div>
+<% @commentable = @examination %>
+<% @commentable_type = 'Examination' %>
+<%= render 'comments/comment' %>
 
-<% @examination.comments.each do |comment| %>
-<div class="comment">
-	<div class="comment_title ui-corner-top">
-		<h4><%= comment.created_at %></h4>
-		<span class="header_icons"><%= link_to 'Delete comment', comments_path(:id => comment.id, :commentable => 'exam', :commentable_id => @examination.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %> </span>
-	</div>
-	<div class="content">
-		<div>
-			<%= comment.content %>
-		</div>
-	</div>
-</div>
-<% end %>
 
-<%= form_for(@comment) do |f| %>
-<div class="widget">
-	<h4 class="ui-corner-top">Comment</h4>
-	<div class="content">
-		<%= f.hidden_field :commentable_id, :value => @examination.id %>
-		<%= f.hidden_field :commentable_type, :value => 'Examination' %>
-		<div class="field">
-			<%= f.text_field :content %>
-		</div>
-		<div class="actions">
-			<%= f.submit :class => 'submit' %>
-		</div>
-	</div>
-</div>
-<% end %>
