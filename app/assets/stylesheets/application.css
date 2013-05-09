@@ -11,21 +11,21 @@
  *= require_self
  *= require_tree .
  */
-.field_with_errors > input {
+/*.field_with_errors > input {
 	border: 1px solid red;
 	display: inline;
 }
 
 .exam_image img {
     filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(1); /* Webkit Nightlies & Google Chrome Canary */
-   	margin: 10px;
+  /*  filter: gray; /* IE6-9 */
+  /*  -webkit-filter: grayscale(1); /* Webkit Nightlies & Google Chrome Canary */ 
+  /* 	margin: 10px;
 }
  
 .exam_image img:hover {
     filter: none; /* Applies to FF + IE */
-    -webkit-filter: grayscale(0);
+  /*  -webkit-filter: grayscale(0);
 }
 
 .field_with_error  {
@@ -133,5 +133,4 @@ body {
 
 .submit {
 	margin-top: 10px;
-}
-
+}*/

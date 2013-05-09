@@ -112,8 +112,8 @@ Then(/^the new values should be stored$/) do
 end
 
 When(/^search for the first guest name$/) do
-  fill_in 'search_field', :with => 'Mar'
-  click_button 'Search'
+  find("#main").fill_in 'search_field', :with => 'Mar'
+  find("#main").click_button 'Search'
 end
 
 When(/^I visit the page for displaying all guests$/) do
@@ -141,7 +141,7 @@ end
 
 When(/^I try to search for an empty guestname$/) do
   visit guests_path
-  click_button 'Search'
+  find("#main").click_button 'Search'
 end
 
 Then(/^I should see no guests on the finder page$/) do
@@ -155,8 +155,8 @@ Then(/^I should see no guests on the finder page$/) do
 end
 
 When(/^search for a non\-existing name$/) do
-  fill_in 'search_field', :with => 'Mo'
-  click_button 'Search'
+  find("#main").fill_in 'search_field', :with => 'Mo'
+  find("#main").click_button 'Search'
 end
 
 When(/^I visit the guests page in select mode$/) do
@@ -205,13 +205,13 @@ When(/^I visit the second users guest delete link$/) do
 end
 
 When(/^search for the first guests name$/) do
-  fill_in 'search_field', :with => @guest1_1.name
-  click_button 'Search'
+  find("#main").fill_in 'search_field', :with => @guest1_1.name
+  find("#main").click_button 'Search'
 end
 
 When(/^search for the second guest name$/) do
-  fill_in 'search_field', :with => 'Pista'
-  click_button 'Search'
+  find("#main").fill_in 'search_field', :with => 'Pista'
+  find("#main").click_button 'Search'
 end
 
 Then(/^I should see the first users guest and not the second$/) do

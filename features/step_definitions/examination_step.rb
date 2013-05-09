@@ -143,7 +143,7 @@ When(/^I enter the dates for the the first examination in the date filters$/) do
 end
 
 When(/^I click on the search button$/) do
-  click_button 'Search'
+  find("#main").click_button 'Search'
 end
 
 Then(/^I should see the first examination listed$/) do
@@ -238,8 +238,8 @@ end
 
 When(/^search for a guest on the opened guests page and select the found guest$/) do
   page.should have_content @guest1_1.name
-  fill_in 'search_field', :with => @guest1_1.name
-  click_button 'Search'
+  find("#main").fill_in 'search_field', :with => @guest1_1.name
+  find("#main").click_button 'Search'
   click_link @guest1_1.name
 end
 

@@ -7,52 +7,66 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div id="container" class="container_12 ui-corner-top">
-			<div id="header" class="grid_12">
-				<h1>Panka</h1>
-				<p>
-					<%= t('.title') %>
-				</p>
+		<div id="container">
+			<div id="header">
+				<div id="title">
+					<h1>Panka</h1>
+					<p>
+						<%= t('.title') %>
+					</p>
+				</div>
 				<div id="menu">
 					<% unless session[:user] %>
 					<%= link_to t('.registration'), new_user_path %>
 					<%= link_to t('.login'), login_path %>
 					<% else %>
-					<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %>
+					<% @user = User.find(session[:user]) %>
+					<span class="bold_grey">Hello, <%= @user.username %></span> |
+					<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %> |
 					<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
+					<div class="last_login">
+						2011-12-12 12:12:12
+					</div>
 					<% end %>
 				</div>
 			</div>
-			<div id="leftmenu" class="grid_2">
-				<% if session[:user] %>
-				<div class="widget">
-					<h4 class="ui-corner-top">Menu</h4>
-					<div class="content_nopadding">
-						<ul id="menu">
 
-							<li>
-								<%= link_to t('.add_guest'), new_guest_path %>
-							</li>
-							<li>
-								<%= link_to t('.guests'), guests_path %>
-							</li>
-							<li>
-								<%= link_to t('.examinations'), examinations_path %>
-							</li>
+			<% if session[:user] %>
+			<div id="header_menu">
+				<ul>
+					<li class="first">
+						<%= link_to 'Home', main_index_path %>
+					</li>
+					<li>
+						<%= link_to t('.add_guest'), new_guest_path %>
+					</li>
+					<li>
+						<%= link_to t('.guests'), guests_path %>
+					</li>
+					<li>
+						<%= link_to t('.examinations'), examinations_path %>
+					</li>
 
-						</ul>
-					</div>
+				</ul>
+
+				<div id="nav_search">
+					<%= form_tag find_guest_path do %>
+					<%= text_field_tag :search_field, params[:search_field], :placeholder => 'name' %>
+					<%= submit_tag 'Search' %>
+					<% end %>
 				</div>
-				<% end %>
 			</div>
-			<div id="main" class="grid_10">
+			<% end %>
+
+			<div id="main">
 				<%= render 'message/message_line' %>
 				<%= yield %>
 				<div id="back">
 					<%= link_to t('.back'), :back %>
 				</div>
 			</div>
-			<div id="footer" class="grid_12">
+
+			<div id="footer">
 				<p>
 					Panka, <%= t('.title') %>
 					<br>
