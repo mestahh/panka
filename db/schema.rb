@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507134720) do
+ActiveRecord::Schema.define(:version => 20130509150228) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130507134720) do
     t.string   "problem_appeared"
     t.string   "possible_reason_of_problem"
     t.boolean  "visited_dermatologist"
+    t.boolean  "vip"
   end
 
   create_table "users", :force => true do |t|

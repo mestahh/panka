@@ -90,6 +90,17 @@ Feature: Guest handling
 		And search for the first guest name
 		Then there should be no error message on the page
 
+	Scenario: Guest can be marked as VIP
 		
+		When I visit the guests page
+		And I mark the guest as a VIP
+		Then the guest should be marked as VIP
+		
+	Scenario: A bad VIP Guest can be marked as non-VIP
+		
+		Given I have a bad VIP guest
+		When I visit the guests page
+		And I mark the guest as a non VIP
+		Then the guest should be marked as non VIP
 	
 	

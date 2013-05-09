@@ -214,11 +214,6 @@ tr td, tr th {
   padding: 10px;
 }
 
-thead tr {
-  border-bottom: solid 2px #aaaaaa;
-}
-
-
 .bold_grey {
   color: $grey;
   font-weight: bold;
@@ -230,4 +225,23 @@ a {
 
 #back {
   text-align: center;
+}
+
+table {
+  tr {
+    border-bottom: 1px solid $border;
+  }
+  
+  th {
+    color: $white;
+    font-weight: bold;
+    background-color: $blue;
+    border: none;
+    
+  }
+  
+  tr:nth-child(odd) {
+     background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #eeeeee), to(#FFFFFF));
+     background: -moz-linear-gradient(top, #FFFFFF, #eeeeee 1px, #FFFFFF 25px);
+  }
 }

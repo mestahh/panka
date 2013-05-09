@@ -224,4 +224,28 @@ Then(/^there should be no error message on the page$/) do
   page.should_not have_content 'There is no guest with this name.'
 end
 
+When(/^I mark the guest as a VIP$/) do
+  click_link 'vip'
+end
+
+Then(/^the guest should be marked as VIP$/) do
+  guest = Guest.find(@guest1_1.id)
+  guest.vip.should == true
+end
+
+Given(/^I have a bad VIP guest$/) do
+  @guest1_1.vip = true
+  @guest1_1.save
+end
+
+When(/^I mark the guest as a non VIP$/) do
+  click_link 'vip'
+end
+
+Then(/^the guest should be marked as non VIP$/) do
+  guest = Guest.find(@guest1_1.id)
+  guest.vip.should == false
+end
+
+
 

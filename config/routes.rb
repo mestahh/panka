@@ -23,6 +23,10 @@ Panka::Application.routes.draw do
       delete "comments" => :destroy
     end
     
+    controller :services do
+      get "mark_vip" => :mark_vip
+    end
+    
     controller :sessions do
       get 'login' => :new
       post 'login' => :create
