@@ -2,6 +2,12 @@ require 'factory_girl'
 
 FactoryGirl.define do
 
+  factory :comment do |comment|
+    comment.content 'blabla'
+    comment.commentable_id 1
+    comment.commentable_type 'Examination'
+  end
+
   factory :guest do |guest|
     guest.name 'Bob'
     guest.birth '1952.04.12.'

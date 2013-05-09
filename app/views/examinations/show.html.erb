@@ -32,7 +32,10 @@
 
 <% @examination.comments.each do |comment| %>
 <div class="comment">
-	<h4 class="ui-corner-top"><%= comment.created_at %></h4>
+	<div class="comment_title ui-corner-top">
+		<h4><%= comment.created_at %></h4>
+		<span class="header_icons"><%= link_to 'Delete comment', comments_path(:id => comment.id, :commentable => 'exam', :commentable_id => @examination.id), :method => 'delete', :class => 'ui-icon ui-icon-trash' %> </span>
+	</div>
 	<div class="content">
 		<div>
 			<%= comment.content %>

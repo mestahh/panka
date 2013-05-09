@@ -20,6 +20,7 @@ Panka::Application.routes.draw do
     
     controller :comments do
       post "comments" => :create
+      delete "comments" => :destroy
     end
     
     controller :sessions do

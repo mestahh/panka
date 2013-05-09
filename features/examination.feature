@@ -123,8 +123,4 @@ Feature: Examination
 		And I click on the select guest button
 		Then there should not be a Select guest first message.
 		
-	Scenario: Comment examination
 	
-		When I visit that examinations page
-		And I put a comment on that
-		Then my comment should be saved and displayed.

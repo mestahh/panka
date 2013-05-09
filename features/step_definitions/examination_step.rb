@@ -251,17 +251,3 @@ end
 Then(/^there should not be a Select guest first message\.$/) do
   page.should_not have_content('Please select a guest first!')
 end
-
-When(/^I put a comment on that$/) do
-  fill_in 'comment_content', :with => 'my comment'
-  click_button 'Comment'
-end
-
-Then(/^my comment should be saved and displayed\.$/) do
-  Comment.count.should == 1
-  comment = Comment.find(1)
-  comment.commentable_id.should == @exam1_1_1.id
-  current_path.should == examination_path(I18n.locale, :id => @exam1_1_1.id)
-  page.should have_content 'my comment'
-end
-

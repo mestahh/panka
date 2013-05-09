@@ -3,6 +3,7 @@ $light_grey: #6c7275;
 $blue: #508db8;
 $header_dark: #363d3f;
 $header_light: #42494c;
+$border: #aaaaaa;
 
 $header_menu_dark: #525a5d;
 $header_menu_light: #5c6467;
@@ -25,6 +26,9 @@ $small: 0.8em;
 #container {
   
   background-color: $grey;
+  font-family: Verdana, Arial;
+  color: $light_grey;
+  font-size: 12px;
   
   #header {
     padding-top: $padding;
@@ -113,6 +117,38 @@ $small: 0.8em;
     padding-left: $padding_side;
     margin-top: $margin;
     
+    .comment{ 
+      .comment_title {
+        overflow: hidden;
+        border-top: 1px solid $border;
+        border-left: 1px solid $border;
+        border-right: 1px solid $border;
+        color: $light_grey;
+        padding: $padding_small;
+        
+        h4 {
+          float: left;
+          display: inline;
+        }
+        
+        .header_icons {
+          float: right;
+          display: inline;
+        }
+        
+      }
+      
+      .content {
+       border-bottom: 1px solid $border;
+        border-left: 1px solid $border;
+        border-right: 1px solid $border;
+        background-color: $white;
+        padding: $padding;
+        margin-bottom: $margin;
+      }
+      
+    }
+    
     .form, .widget {
       
       margin-bottom: $margin;
@@ -158,6 +194,7 @@ $small: 0.8em;
         }
       }
     }
+  
   }
   
   #footer {
