@@ -8,18 +8,6 @@ When(/^I am adding a new guest to the database$/) do
   fill_in 'guest_postal_code', :with => '2890'
   fill_in 'guest_phone', :with => '06305554534'
   fill_in 'guest_email', :with => 'k.j@email.com'
-  fill_in 'guest_allergies', :with => 'mogyoroallergia'
-  fill_in 'guest_diseases', :with => 'nincs'
-  fill_in 'guest_medicines', :with => 'algopyrin'
-  fill_in 'guest_vitamins', :with => 'C vitamin'
-  uncheck 'guest_hormon_treatment'
-  check 'guest_smoking'
-  fill_in 'guest_litres_of_liquid_per_day', :with => 2
-  check 'guest_sun_protector'
-  fill_in 'guest_main_problem', :with => 'Nagyon szaraz'
-  fill_in 'guest_problem_appeared', :with => 'fel eve'
-  fill_in 'guest_possible_reason_of_problem', :with => 'nem kenem'
-  check 'guest_visited_dermatologist'
 
   click_button 'Add Guest'
 end
@@ -37,18 +25,7 @@ Then(/^the new guest should be stored$/) do
   guest.phone.should == '06305554534'
   guest.email.should == 'k.j@email.com'
   guest.user.id.should == @user1.id
-  guest.allergies.should == 'mogyoroallergia'
-  guest.diseases.should == 'nincs'
-  guest.medicines.should == 'algopyrin'
-  guest.vitamins.should == 'C vitamin'
-  guest.hormon_treatment.should == false
-  guest.smoking.should == true
-  guest.litres_of_liquid_per_day.should == 2
-  guest.sun_protector.should == true
-  guest.main_problem.should == 'Nagyon szaraz'
-  guest.problem_appeared.should == 'fel eve'
-  guest.possible_reason_of_problem.should == 'nem kenem'
-  guest.visited_dermatologist.should == true
+
 end
 
 When(/^I visit the guests page$/) do
@@ -72,19 +49,7 @@ When(/^change the values$/) do
   fill_in 'guest_postal_code', :with => '2900'
   fill_in 'guest_phone', :with => '06205554535'
   fill_in 'guest_email', :with => 'k.j@gmail.com'
-  fill_in 'guest_allergies', :with => 'mogyoroallergia'
-  fill_in 'guest_diseases', :with => 'nincs'
-  fill_in 'guest_medicines', :with => 'algopyrin'
-  fill_in 'guest_vitamins', :with => 'C vitamin'
-  uncheck 'guest_hormon_treatment'
-  check 'guest_smoking'
-  fill_in 'guest_litres_of_liquid_per_day', :with => 2
-  check 'guest_sun_protector'
-  fill_in 'guest_main_problem', :with => 'Nagyon szaraz'
-  fill_in 'guest_problem_appeared', :with => 'fel eve'
-  fill_in 'guest_possible_reason_of_problem', :with => 'nem kenem'
-  check 'guest_visited_dermatologist'
-  click_button 'Edit'
+  click_button 'Edit Guest'
 end
 
 Then(/^the new values should be stored$/) do
@@ -97,18 +62,6 @@ Then(/^the new values should be stored$/) do
   guest.postal_code.should == 2900
   guest.phone.should == '06205554535'
   guest.email.should == 'k.j@gmail.com'
-  guest.allergies.should == 'mogyoroallergia'
-  guest.diseases.should == 'nincs'
-  guest.medicines.should == 'algopyrin'
-  guest.vitamins.should == 'C vitamin'
-  guest.hormon_treatment.should == false
-  guest.smoking.should == true
-  guest.litres_of_liquid_per_day.should == 2
-  guest.sun_protector.should == true
-  guest.main_problem.should == 'Nagyon szaraz'
-  guest.problem_appeared.should == 'fel eve'
-  guest.possible_reason_of_problem.should == 'nem kenem'
-  guest.visited_dermatologist.should == true
 end
 
 When(/^search for the first guest name$/) do
@@ -247,5 +200,40 @@ Then(/^the guest should be marked as non VIP$/) do
   guest.vip.should == false
 end
 
+When(/^I click on the statistics link$/) do
+  click_link 'Statistics'
+end
 
+When(/^fill in the statistical data and submit it$/) do
+
+  fill_in 'statistic_allergies', :with => 'mogyoroallergia'
+  fill_in 'statistic_diseases', :with => 'nincs'
+  fill_in 'statistic_medicines', :with => 'algopyrin'
+  fill_in 'statistic_vitamins', :with => 'C vitamin'
+  uncheck 'statistic_hormon_treatment'
+  check 'statistic_smoking'
+  fill_in 'statistic_litres_of_liquid_per_day', :with => 2
+  check 'statistic_sun_protector'
+  fill_in 'statistic_main_problem', :with => 'Nagyon szaraz'
+  fill_in 'statistic_problem_appeared', :with => 'fel eve'
+  fill_in 'statistic_possible_reason_of_problem', :with => 'nem kenem'
+  fill_in 'statistic_visited_dermatologist', :with => 'volt es jo volt'
+  click_button 'Add statistics'
+end
+
+Then(/^a statistics data should be stored\.$/) do
+  stat = Statistic.find(1)
+  stat.allergies.should == 'mogyoroallergia'
+  stat.diseases.should == 'nincs'
+  stat.medicines.should == 'algopyrin'
+  stat.vitamins.should == 'C vitamin'
+  stat.hormon_treatment.should == false
+  stat.smoking.should == true
+  stat.litres_of_liquid_per_day.should == 2
+  stat.sun_protector.should == true
+  stat.main_problem.should == 'Nagyon szaraz'
+  stat.problem_appeared.should == 'fel eve'
+  stat.possible_reason_of_problem.should == 'nem kenem'
+  stat.visited_dermatologist.should == "volt es jo volt"
+end
 

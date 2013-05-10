@@ -102,5 +102,17 @@ Feature: Guest handling
 		When I visit the guests page
 		And I mark the guest as a non VIP
 		Then the guest should be marked as non VIP
+		
+	Scenario: Adding statistical data to a guest
+		
+		When I visit the guests page
+		And I click on the statistics link
+		And fill in the statistical data and submit it
+		Then I should see the guests page
+		And a statistics data should be stored.
+		
+		
+		
+		
 	
 	

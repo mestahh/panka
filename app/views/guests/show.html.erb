@@ -16,7 +16,7 @@
 				<td class="bold"><%= t('.phone') %></td><td><%= @guest.phone %></td><td class="bold"><%= t('.email') %></td><td><%= @guest.email %></td>
 			</tr>
 			<tr>
-				<td class="bold"><%= t('.allergies') %></td><td><%= @guest.allergies %></td><td class="bold">VIP</td><td>
+				<td class="bold"><%= t('.allergies') %></td><td><%= link_to 'Statistics', new_statistic_path(:guest_id => @guest.id)%></td><td class="bold">VIP</td><td>
 					<div class="<%= if @guest.vip 
 						 'ui-state-highlight noborder' 
 						 end

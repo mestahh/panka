@@ -1,9 +1,9 @@
 <%= form_for(@guest) do |f| %>
 <div class="form">
-<h4 class="ui-corner-top">Add guest</h4>
-	
+	<h4 class="ui-corner-top">Add guest</h4>
+
 	<div id="content_1" class="content">
-	<%= f.error_messages %>
+		<%= f.error_messages %>
 		<div class="field">
 			<%= f.text_field :name %>
 			<%= f.label t('guests.name') %>
@@ -41,57 +41,7 @@
 			<%= f.submit :class => 'submit' %>
 		</div>
 	</div>
-	 <h4 class="ui-corner-top">Statistical data</h4>
-	<div id="content_2" class="content">
-		<div class="field">
-			<%= f.text_field :allergies %>
-			<%= f.label t('guests.allergies') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :diseases %>
-			<%= f.label t('guests.diseases') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :medicines %>
-			<%= f.label t('guests.medicines') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :vitamins %>
-			<%= f.label t('guests.vitamins') %>
-		</div>
-		<div class="field">
-			<%= f.check_box :hormon_treatment %>
-			<%= f.label t('guests.hormon_treatment') %>
-		</div>
-		<div class="field">
-			<%= f.check_box :smoking %>
-			<%= f.label t('guests.smoking') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :litres_of_liquid_per_day %>
-			<%= f.label t('guests.litres_of_liquid_per_day') %>
-		</div>
-		<div class="field">
-			<%= f.check_box :sun_protector %>
-			<%= f.label t('guests.sun_protector') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :main_problem %>
-			<%= f.label t('guests.main_problem') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :problem_appeared %>
-			<%= f.label t('guests.problem_appeared') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :possible_reason_of_problem %>
-			<%= f.label t('guests.possible_reason_of_problem') %>
-		</div>
-		<div class="field">
-			<%= f.check_box :visited_dermatologist, :class => 'checkbox' %>
-			<%= f.label t('guests.visited_dermatologist') %>
-		</div>
-	</div>
+
 </div>
 
 <% end %>

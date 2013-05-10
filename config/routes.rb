@@ -27,6 +27,11 @@ Panka::Application.routes.draw do
       get "mark_vip" => :mark_vip
     end
     
+    controller :statistics do
+      get "new_statistic" => :new
+      post "statistics" => :create
+    end
+    
     controller :sessions do
       get 'login' => :new
       post 'login' => :create
