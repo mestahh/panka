@@ -104,6 +104,7 @@ $small: 0.8em;
         
       li:hover {
           background-color: $white;
+          transition: background-color 0.4s ease;
       }
       
       li:hover > a {
@@ -169,7 +170,7 @@ $small: 0.8em;
           padding: $padding_small;
           margin-bottom: $margin;
           
-          input {
+          input, textarea {
             margin-top: 10px;
             padding: 9px;
             border: solid 1px #E5E5E5;
@@ -227,9 +228,22 @@ a {
   text-align: center;
 }
 
+.vip {
+  background-color: red;
+}
+
+.noborder {
+  border: none;
+}
+
 table {
   tr {
     border-bottom: 1px solid $border;
+  }
+  
+  tr:nth-child(odd) {
+     background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #eeeeee), to(#FFFFFF));
+     background: -moz-linear-gradient(top, #FFFFFF, #eeeeee 1px, #FFFFFF 25px);
   }
   
   th {
@@ -237,11 +251,6 @@ table {
     font-weight: bold;
     background-color: $blue;
     border: none;
-    
   }
   
-  tr:nth-child(odd) {
-     background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #eeeeee), to(#FFFFFF));
-     background: -moz-linear-gradient(top, #FFFFFF, #eeeeee 1px, #FFFFFF 25px);
-  }
 }

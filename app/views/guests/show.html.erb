@@ -1,7 +1,7 @@
 <div class="widget ui-corner-top">
 	<h4 class="ui-corner-top"><%= @guest.name %></h4>
 	<div class="content">
-		<%= link_to 'vip', mark_vip_path(:guest_id => @guest.id), :remote => true %>
+
 		<table width="100%">
 			<tr>
 				<td class="bold"><%= t('.name') %></td><td><%= @guest.name %></td><td class="bold"><%= t('.birth') %></td><td><%= @guest.birth %></td>
@@ -16,7 +16,14 @@
 				<td class="bold"><%= t('.phone') %></td><td><%= @guest.phone %></td><td class="bold"><%= t('.email') %></td><td><%= @guest.email %></td>
 			</tr>
 			<tr>
-				<td class="bold"><%= t('.allergies') %></td><td><%= @guest.allergies %></td><td class="bold"></td><td></td>
+				<td class="bold"><%= t('.allergies') %></td><td><%= @guest.allergies %></td><td class="bold">VIP</td><td>
+					<div class="<%= if @guest.vip 
+						 'ui-state-highlight noborder' 
+						 end
+						 %>">
+						<%= link_to 'vip', mark_vip_path(:guest_id => @guest.id), :remote => true, :id => 'vip', :class => 'ui-icon ui-icon-star' %>
+					</div>
+				</td>
 			</tr>
 		</table>
 		<div>
