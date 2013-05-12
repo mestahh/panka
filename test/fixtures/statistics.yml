@@ -1,31 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  allergies: MyString
-  diseases: MyString
-  medicines: MyString
-  contraceptive: false
-  vitamins: MyString
-  hormon_treatment: false
-  smoking: false
-  litres_of_liquid_per_day: 
-  sun_protector: false
-  main_problem: MyString
-  problem_appeared: MyString
-  possible_reason_of_problem: MyString
-  visited_dermatologist: MyString
-
-two:
-  allergies: MyString
-  diseases: MyString
-  medicines: MyString
-  contraceptive: false
-  vitamins: MyString
-  hormon_treatment: false
-  smoking: false
-  litres_of_liquid_per_day: 
-  sun_protector: false
-  main_problem: MyString
-  problem_appeared: MyString
-  possible_reason_of_problem: MyString
-  visited_dermatologist: MyString
+# one:
+  # allergies: MyString
+  # diseases: MyString
+  # medicines: MyString
+  # contraceptive: false
+  # vitamins: MyString
+  # hormon_treatment: false
+  # smoking: false
+  # litres_of_liquid_per_day: 
+  # sun_protector: false
+  # main_problem: MyString
+  # problem_appeared: MyString
+  # possible_reason_of_problem: MyString
+  # visited_dermatologist: MyString
+# 
+# two:
+  # allergies: MyString
+  # diseases: MyString
+  # medicines: MyString
+  # contraceptive: false
+  # vitamins: MyString
+  # hormon_treatment: false
+  # smoking: false
+  # litres_of_liquid_per_day: 
+  # sun_protector: false
+  # main_problem: MyString
+  # problem_appeared: MyString
+  # possible_reason_of_problem: MyString
+  # visited_dermatologist: MyString

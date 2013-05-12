@@ -222,7 +222,7 @@ When(/^fill in the statistical data and submit it$/) do
 end
 
 Then(/^a statistics data should be stored\.$/) do
-  stat = Statistic.find(1)
+  stat = Statistic.find(@guest1_1.statistic.id)
   stat.allergies.should == 'mogyoroallergia'
   stat.diseases.should == 'nincs'
   stat.medicines.should == 'algopyrin'
