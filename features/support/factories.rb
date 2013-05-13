@@ -20,6 +20,22 @@ FactoryGirl.define do
     guest.user_id 1
   end
 
+  factory :statistic do |stat|
+    stat.allergies 'nincs'
+    stat.diseases 'kohoges'
+    stat.medicines 'kalmopyrin'
+    stat.vitamins 'D vitamin'
+    stat.hormon_treatment true
+    stat.smoking false
+    stat.litres_of_liquid_per_day 3
+    stat.sun_protector false
+    stat.main_problem 'szaraz'
+    stat.problem_appeared '1 eve'
+    stat.possible_reason_of_problem 'kenem'
+    stat.visited_dermatologist "nem volt es nem jo volt"
+
+  end
+
   factory :user do |user|
     user.username 'bob'
     user.salt 'secret'

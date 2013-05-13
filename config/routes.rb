@@ -30,6 +30,8 @@ Panka::Application.routes.draw do
     controller :statistics do
       get "new_statistic" => :new
       post "statistics" => :create
+      get "edit_statistic" => :edit
+      put "statistic" => :update
     end
     
     controller :sessions do

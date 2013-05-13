@@ -16,14 +16,19 @@
 				<td class="bold"><%= t('.phone') %></td><td><%= @guest.phone %></td><td class="bold"><%= t('.email') %></td><td><%= @guest.email %></td>
 			</tr>
 			<tr>
-				<td class="bold"><%= t('.allergies') %></td><td><%= link_to 'Statistics', new_statistic_path(:guest_id => @guest.id)%></td><td class="bold">VIP</td><td>
-					<div class="<%= if @guest.vip 
-						 'ui-state-highlight noborder' 
-						 end
-						 %>">
-						<%= link_to 'vip', mark_vip_path(:guest_id => @guest.id), :remote => true, :id => 'vip', :class => 'ui-icon ui-icon-star' %>
-					</div>
-				</td>
+				<td class="bold"><%= t('.statistics') %></td><td>
+					<% unless @guest.statistic %>
+						<%= link_to 'Statistics', new_statistic_path(:guest_id => @guest.id)%>
+					<% else %>
+						<%= link_to 'Statistics', edit_statistic_path(:id => @guest.statistic.id, :guest_id => @guest.id)%>
+					<% end %>
+					</td><td class="bold">VIP</td><td>
+				<div class="<%= if @guest.vip
+            'ui-state-highlight noborder'
+          end
+%>">
+					<%= link_to 'vip', mark_vip_path(:guest_id => @guest.id), :remote => true, :id => 'vip', :class => 'ui-icon ui-icon-star' %>
+				</div></td>
 			</tr>
 		</table>
 		<div>
