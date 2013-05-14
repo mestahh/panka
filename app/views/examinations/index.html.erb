@@ -1,21 +1,5 @@
-<%= form_tag search_exam_path do %>
-<div class="form">
-	<h4 class="ui-corner-top"><%= t('.search') %></h4>
-	<div class="content">
-		<div class="field">
-			<%= text_field_tag :from_date, params[:from_date], :class => 'datepicker' %>
-			<label for="from_date" ><%= t('.from_date') %></label>
-		</div>
-		<div class="field">
-			<%= text_field_tag :to_date, params[:to_date], :class => 'datepicker' %>
-			<label for="to_date" ><%= t('.to_date') %></label>
-		</div>
-		<div class="actions">
-			<%= submit_tag t('.search'), :class => 'submit' %>
-		</div>
-	</div>
-</div>
-<% end %>
+<%= render 'exam_search/search_form' %>
+
 <div class="form">
 	<h4 class="ui-corner-top">Examinations</h4>
 	<div class="content">
