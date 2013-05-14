@@ -1,7 +1,10 @@
 <%= form_for @user do |f| %>
 <div class="form">
-	<h4 class="ui-corner-top">Accunt</h4>
+	<h4 class="ui-corner-top"><%= t('.account') %></h4>
 	<div class="content">
+		<div class="error_messages">
+			<%= error_messages_for :user %>	
+		</div>
 		<div class="field">
 			<%= f.text_field :username %>
 			<%= f.label :username, t('users.username') %>

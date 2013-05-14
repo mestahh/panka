@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path
     else
-      redirect_to new_user_path
+      render :new
     end
 
   end
@@ -32,8 +32,8 @@ class UsersController < ApplicationController
       I18n.locale = @user.language
       redirect_to main_index_path
     else
-      flash[:alert] = "The email is required!"
-      redirect_to edit_user_path(@user.id)
+      #flash[:alert] = @user.errors
+      render :edit
     end
 
   end

@@ -254,3 +254,16 @@ table {
   }
   
 }
+
+.field_with_errors {
+  display: inline;
+  color: red;
+}
+
+.error_messages {
+  color: red;
+  .errorExplanation: {
+    font-size: $small;
+    font-style: italic;
+  }
+}

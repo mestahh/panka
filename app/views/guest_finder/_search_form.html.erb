@@ -1,0 +1,14 @@
+<%= form_tag find_guest_path do %>
+<div class="form">
+	<h4 class="ui-corner-top"><%= 'Search' %></h4>
+	<div class="content">
+		<div class="field">
+			<%= text_field_tag :search_field, params[:search_field] %>
+			<%= hidden_field_tag :mode, params[:mode], :value => params[:mode] %>
+		</div>
+		<div class="actions">
+			<%= submit_tag 'Search', :class => 'submit' %>
+		</div>
+	</div>
+</div>
+<% end %>

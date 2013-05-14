@@ -70,7 +70,21 @@ Feature: users can be CRUD
 		Given I have the background
 		And I visit the edit user page
 		When I change the user data and the email is empty
-		Then I should see the edit page and the error message: The email is required!
+		Then I should see the edit page and the error message: Email can't be blank
+		
+	Scenario: Edit user data and empty password field
+	
+		Given I have the background
+		And I visit the edit user page
+		When I change the user data and the password is empty
+		Then I should see the edit page and the error message: Password can't be blank
+		
+	Scenario: Edit user data and empty username field
+	
+		Given I have the background
+		And I visit the edit user page
+		When I change the user data and the username is empty
+		Then I should see the edit page and the error message: Username can't be blank
 	
 		
 		

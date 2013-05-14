@@ -33,7 +33,7 @@ Given(/^enter new user data with an existing username$/) do
 end
 
 Then(/^I should see the register page$/) do
-  current_path.should == new_user_path(I18n.locale)
+  page.should have_content 'Register'
 end
 
 Then(/^no user should be created$/) do
@@ -122,13 +122,23 @@ When(/^I change the user data and the email is empty$/) do
 end
 
 Then(/^I should see the edit page and the error message: (.*)$/) do |message|
-  current_path.should == edit_user_path(I18n.locale, :id => @user1.id)
+  page.should have_content 'Edit'
   page.should have_content message
 end
 
 When(/^I change the user data and the username is empty$/) do
   fill_in 'user_username', :with => ''
   fill_in 'user_password', :with => 'hallo'
+  fill_in 'user_password_confirmation', :with => 'hallo'
+  fill_in 'user_email', :with => 'm@t.hu'
+  select 'hu', :from => 'user_language'
+  click_button 'Edit'
+end
+
+
+When(/^I change the user data and the password is empty$/) do
+  fill_in 'user_username', :with => 'bob'
+  fill_in 'user_password', :with => ''
   fill_in 'user_password_confirmation', :with => 'hallo'
   fill_in 'user_email', :with => 'm@t.hu'
   select 'hu', :from => 'user_language'

@@ -25,7 +25,7 @@ en:
       my_account: My account
       back: back
       title: Online guest register for beauticians and dermatologists
-      
+    
   sessions:
     new:
       password: password  
