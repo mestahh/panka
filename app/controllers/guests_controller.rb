@@ -4,7 +4,11 @@ class GuestsController < ApplicationController
   def index
     flash[:alert] = nil
     @user = User.find(session[:user])
-    @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20, :conditions => [ 'user_id = ?', session[:user]]
+    if (@user.admin)
+      @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20
+    else
+      @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20, :conditions => [ 'user_id = ?', session[:user]]
+    end
   end
 
   def new
@@ -58,13 +62,13 @@ class GuestsController < ApplicationController
     @guest.delete
     redirect_to guests_path, :notice => 'Guest deleted.'
   end
-  
+
   private
-  
+
   def sort_column
     Guest.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end

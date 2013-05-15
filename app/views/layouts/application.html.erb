@@ -46,8 +46,12 @@
 					<li>
 						<%= link_to t('.examinations'), examinations_path %>
 					</li>
-
-				</ul>
+					<% if @user.admin %>
+					<li>
+						<a href="#">Admin</a>
+					</li>
+					<% end %>
+				</ul<
 
 				<div id="nav_search">
 					<%= form_tag find_guest_path do %>
