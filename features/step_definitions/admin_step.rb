@@ -65,3 +65,15 @@ def login (user)
   fill_in 'password', :with => user.password
   click_button 'Login'
 end
+
+When(/^I visit the all guests page$/) do
+  visit guests_path
+end
+
+When(/^press delete on another users guest$/) do
+  click_link 'guest' + @guest2.id.to_s
+end
+
+Then(/^the guest should be deleted$/) do
+  Guest.count.should == 2
+end

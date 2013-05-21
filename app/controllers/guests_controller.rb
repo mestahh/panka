@@ -56,10 +56,16 @@ class GuestsController < ApplicationController
   end
 
   def destroy
-    @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
+    @user = User.find(session[:user])
+    if (@user.admin == true) 
+      @guest = Guest.find(params[:id])
+    else
+      @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
+    end
+    
     if (@guest.nil?)
       redirect_to main_index_path
-    return
+      return
     end
     @guest.delete
     redirect_to guests_path, :notice => 'Guest deleted.'
