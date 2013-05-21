@@ -45,6 +45,20 @@ Then(/^I should see the other users guests$/) do
   page.should have_content 'Pista'
 end
 
+When(/^the admin visits an edit page of a users guest$/) do
+  visit edit_guest_path(:id => @guest2.id)
+end
+
+When(/^modifies some guest data$/) do
+ fill_in 'guest_name', :with => 'newname'
+ click_button 'Edit Guest'
+end
+
+Then(/^the changes should be saved\.$/) do
+  guest = Guest.find(@guest2.id)
+  guest.name.should == 'newname'
+end
+
 def login (user) 
   visit login_path(:en)
   fill_in 'username', :with => user.username

@@ -1,6 +1,7 @@
 class GuestsController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :check_login
+  
   def index
     flash[:alert] = nil
     @user = User.find(session[:user])
@@ -35,8 +36,9 @@ class GuestsController < ApplicationController
   end
 
   def edit
-    @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
-    if (@guest.nil?)
+    @guest = Guest.find_by_id(params[:id])
+    @user = User.find(session[:user])
+    if (@guest.nil? || (@user.admin == false && session[:user] != @guest.user_id))
       redirect_to main_index_path, :alert => 'You are not allowed to view this page!'
     return
     end

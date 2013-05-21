@@ -19,3 +19,11 @@ Feature: There should be an admin on the page
 		When I click on the guests link
 		Then I should see the other users guests
 		
+	Scenario: The admin can edit all the guests
+	
+		Given I am logged in as an admin
+		And there is another user with guests
+		When the admin visits an edit page of a users guest
+		And modifies some guest data
+		Then the changes should be saved.
+		

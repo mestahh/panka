@@ -42,6 +42,7 @@ FactoryGirl.define do
     user.email 'bob@gmail.com'
     user.password '1'
     user.language 'en'
+    user.admin 'false'
   end
 
   factory :examination do |exam|
