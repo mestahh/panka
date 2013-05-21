@@ -31,8 +31,8 @@
 				</div></td>
 			</tr>
 		</table>
-		<div>
-			<%= link_to 'Edit', edit_guest_path(:id => @guest.id), :class => 'ui-icon ui-icon-pencil' %> <%= link_to 'Add examination', new_examination_path(:guest_id => @guest.id), :class => 'ui-icon ui-icon-plus' %>
+		<div class="button_row">
+			<%= link_to 'Edit', edit_guest_path(:id => @guest.id), :class => 'button' %> <%= link_to 'Add examination', new_examination_path(:guest_id => @guest.id), :class => 'button' %>
 		</div>
 	</div>
 </div>

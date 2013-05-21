@@ -1,6 +1,7 @@
 $(document).tooltip();
 $(function() {
 	$(".submit").button();
+	$(".button").button();
 	$(".datepicker").datepicker({
 		dateFormat : 'yy-mm-dd'
 	});
