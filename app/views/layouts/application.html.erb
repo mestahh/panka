@@ -46,6 +46,9 @@
 					<li>
 						<%= link_to t('.examinations'), examinations_path %>
 					</li>
+					<li>
+						<%= link_to 'Add examination', new_examination_path %>
+					</li>
 					<% if @user.admin %>
 					<li>
 						<a href="#">Admin</a>

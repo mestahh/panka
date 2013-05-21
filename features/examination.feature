@@ -123,4 +123,11 @@ Feature: Examination
 		And I click on the select guest button
 		Then there should not be a Select guest first message.
 		
+	Scenario: There should be an add examination link in the main menu
+	
+		When I visit the application
+		And I click the add examination link
+		Then I should see the new examination page without a guest parameter
+		
+		
 	

@@ -11,7 +11,7 @@ end
 
 When(/^I click on the add examination link on the guests page$/) do
   visit guest_path(:id => @guest1_1.id)
-  click_link 'Add examination'
+  find("#main").click_link 'Add examination'
 end
 
 When(/^fill in all the fields on the examination$/) do
@@ -250,4 +250,16 @@ end
 
 Then(/^there should not be a Select guest first message\.$/) do
   page.should_not have_content('Please select a guest first!')
+end
+
+When(/^I visit the application$/) do
+  visit main_index_path
+end
+
+When(/^I click the add examination link$/) do
+  click_link 'Add examination'
+end
+
+Then(/^I should see the new examination page without a guest parameter$/) do
+  current_path.should == new_examination_path(:locale => I18n.locale)
 end
