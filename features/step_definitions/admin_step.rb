@@ -77,3 +77,11 @@ end
 Then(/^the guest should be deleted$/) do
   Guest.count.should == 2
 end
+
+When(/^select the other users guest$/) do
+  click_link @guest2.name
+end
+
+Then(/^I should see the selected guest$/) do
+  current_path.should == guest_path(:id => @guest2.id, :locale => I18n.locale)
+end

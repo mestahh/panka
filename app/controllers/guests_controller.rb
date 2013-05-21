@@ -5,7 +5,7 @@ class GuestsController < ApplicationController
   def index
     flash[:alert] = nil
     @user = User.find(session[:user])
-    if (@user.admin)
+    if @user.admin
       @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20
     else
       @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20, :conditions => [ 'user_id = ?', session[:user]]
@@ -27,20 +27,20 @@ class GuestsController < ApplicationController
   end
 
   def show
-    @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
+    @guest = get_guest(params)
     @comment = Comment.new
-    if (@guest.nil?)
+    if @guest.nil?
       redirect_to main_index_path, :alert => 'You are not allowed to view this page!'
     return
     end
   end
 
   def edit
-    @guest = Guest.find_by_id(params[:id])
-    @user = User.find(session[:user])
-    if (@guest.nil? || (@user.admin == false && session[:user] != @guest.user_id))
+    @guest = get_guest(params)
+
+    if @guest.nil?
       redirect_to main_index_path, :alert => 'You are not allowed to view this page!'
-    return
+      return
     end
   end
 
@@ -56,22 +56,26 @@ class GuestsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(session[:user])
-    if (@user.admin == true) 
-      @guest = Guest.find(params[:id])
-    else
-      @guest = Guest.find_by_id_and_user_id(params[:id], session[:user])
-    end
-    
-    if (@guest.nil?)
+    guest = get_guest(params)
+
+    if guest.nil?
       redirect_to main_index_path
       return
     end
-    @guest.delete
+    guest.delete
     redirect_to guests_path, :notice => 'Guest deleted.'
   end
 
   private
+
+  def get_guest(params)
+    user = User.find(session[:user])
+    if (user.admin == true)
+      Guest.find(params[:id])
+    else
+      Guest.find_by_id_and_user_id(params[:id], session[:user])
+    end
+  end
 
   def sort_column
     Guest.column_names.include?(params[:sort]) ? params[:sort] : "name"

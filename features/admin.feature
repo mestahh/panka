@@ -35,3 +35,11 @@ Feature: There should be an admin on the page
 		And press delete on another users guest
 		Then the guest should be deleted
 		
+	Scenario: The admin can view other users guest
+	
+		Given I am logged in as an admin
+		And there is another user with guests
+		When I visit the all guests page
+		And select the other users guest
+		Then I should see the selected guest
+		
