@@ -3,7 +3,6 @@ When(/^I click on the statistics link$/) do
 end
 
 When(/^fill in the statistical data and submit it$/) do
-
   fill_in 'statistic_allergies', :with => 'mogyoroallergia'
   fill_in 'statistic_diseases', :with => 'nincs'
   fill_in 'statistic_medicines', :with => 'algopyrin'
@@ -16,11 +15,10 @@ When(/^fill in the statistical data and submit it$/) do
   fill_in 'statistic_problem_appeared', :with => 'fel eve'
   fill_in 'statistic_possible_reason_of_problem', :with => 'nem kenem'
   fill_in 'statistic_visited_dermatologist', :with => 'volt es jo volt'
-  click_button 'Add statistics'
+  click_button 'Add Statistic'
 end
 
 When(/^change the statistical data and submit it$/) do
-
   fill_in 'statistic_allergies', :with => 'mogyoroallergia'
   fill_in 'statistic_diseases', :with => 'nincs'
   fill_in 'statistic_medicines', :with => 'algopyrin'
@@ -33,7 +31,7 @@ When(/^change the statistical data and submit it$/) do
   fill_in 'statistic_problem_appeared', :with => 'fel eve'
   fill_in 'statistic_possible_reason_of_problem', :with => 'nem kenem'
   fill_in 'statistic_visited_dermatologist', :with => 'volt es jo volt'
-  click_button 'Edit statistics'
+  click_button 'Edit Statistic'
 end
 
 Then(/^a statistics data should be stored\.$/) do

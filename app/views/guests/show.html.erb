@@ -20,7 +20,7 @@
 					<% unless @guest.statistic %>
 						<%= link_to 'Statistics', new_statistic_path(:guest_id => @guest.id)%>
 					<% else %>
-						<%= link_to 'Statistics', edit_statistic_path(:id => @guest.statistic.id, :guest_id => @guest.id)%>
+						<%= link_to 'Statistics', edit_statistic_path(:guest_id => @guest.id, :id => @guest.statistic.id) %>
 					<% end %>
 					</td><td class="bold">VIP</td><td>
 				<div class="<%= if @guest.vip

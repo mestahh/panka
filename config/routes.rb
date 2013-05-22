@@ -14,7 +14,7 @@ Panka::Application.routes.draw do
 #   resources :products
 
   scope '(:locale)' do
-    resources :guests, :examinations, :users
+    resources :guests, :examinations, :users, :statistics
     resources :images, :only => :show
     get "main/index"
     
@@ -27,12 +27,7 @@ Panka::Application.routes.draw do
       get "mark_vip" => :mark_vip
     end
     
-    controller :statistics do
-      get "new_statistic" => :new
-      post "statistics" => :create
-      get "edit_statistic" => :edit
-      put "statistic" => :update
-    end
+    
     
     controller :sessions do
       get 'login' => :new
