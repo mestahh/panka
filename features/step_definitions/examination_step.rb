@@ -108,7 +108,7 @@ Then(/^I should see the guests page$/) do
 end
 
 When(/^I visit that examinations edit page$/) do
-  visit edit_examination_path(:id => @exam1_1_1.id)
+  visit edit_examination_path(:id => @exam1_1_1.id, :guest_id => @guest1_1.id)
 end
 
 When(/^change its values$/) do
