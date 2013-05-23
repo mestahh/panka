@@ -1,0 +1,9 @@
+<tr>
+	<td><%= link_to examination.updated_at, examination_path(:id => examination.id) %></td>
+	<td><%= examination.anamnezis %></td>
+	<td><%= examination.status %></td>
+	<td><%= examination.treatment %></td>
+	<td><%= examination.charge %></td>
+	<td><%= link_to 'Edit', edit_examination_path(:id => examination.id), :class => 'ui-icon ui-icon-pencil' %></td>
+	<td><%= link_to 'Delete', examination_path(:id => examination.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
+</tr>

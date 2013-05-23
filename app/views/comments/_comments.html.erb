@@ -1,0 +1,17 @@
+<%= render :partial => 'comments/comment', :collection => @commentable.comments %>
+
+<%= form_for(@comment) do |f| %>
+<div class="widget">
+	<h4 class="ui-corner-top">Comment</h4>
+	<div class="content">
+		<%= f.hidden_field :commentable_id, :value => @commentable.id %>
+		<%= f.hidden_field :commentable_type, :value => @commentable_type %>
+		<div class="field">
+			<%= f.text_area :content %>
+		</div>
+		<div class="actions">
+			<%= f.submit :class => 'submit' %>
+		</div>
+	</div>
+</div>
+<% end %>

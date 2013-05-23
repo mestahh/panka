@@ -20,15 +20,5 @@
 	<% end %>
 </div>
 <div id="exam_pictures">
-	<% @examination.exam_images.each do |image| %>
-	<div class="exam_image">
-		<%= link_to (image_tag (image.image.thumb.url)), image_path(:id => image.id), :title => image.caption %>
-		<div class="edit">
-			<%= link_to 'edit', edit_image_path(:id => image.id), :class => 'ui-icon ui-icon-pencil' %>
-		</div>
-		<div class="delete">
-			<%= link_to 'Delete picture', delete_image_path(:id => image.id, :exam_id => params[:id]), :method => 'delete', :class => 'ui-icon ui-icon-trash' %>
-		</div>
-	</div>
-	<% end %>
+	<%= render :partial => 'image', :collection => @examination.exam_images %>
 </div>
