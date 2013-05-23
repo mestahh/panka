@@ -13,24 +13,7 @@
 				<th></th>
 			</thead>
 
-			<% @guests.each do |guest| %>
-			<tr>
-
-				<%
-				unless (params[:mode]) %>
-				<td><%= link_to guest.name, guest_path(:id => guest.id) %></td>
-				<%	else %>
-				<td><%= link_to guest.name, new_examination_path(:guest_id => guest.id) %></td>
-				<% end %>
-
-				<td><%= guest.mother %></td>
-				<td><%= guest.birth %></td>
-				<td><%= guest.city %></td>
-				<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
-				<td><%= link_to 'Delete guest', guest_path(:id => guest.id), :method => 'delete', :confirm => t('.are_you_sure'), :class => 'ui-icon ui-icon-trash' %></td>
-			</tr>
-
-			<% end %>
+			<%= render :partial => 'guests/guest', :collection => @guests %>
 		</table>
 
 	</div>

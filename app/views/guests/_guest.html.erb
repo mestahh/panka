@@ -1,0 +1,9 @@
+<tr>
+	<td><%= get_guest_name_link_or_selector(guest) %></td>
+	<td><%= guest.examinations.count %></td>
+	<td><%= guest.mother %></td>
+	<td><%= guest.birth %></td>
+	<td><%= guest.city %></td>
+	<td><%= link_to 'Edit', edit_guest_path(:id => guest.id), :class => 'ui-icon ui-icon-pencil' %></td>
+	<td><%= link_to 'Delete guest', guest_path(:id => guest.id), :method => 'delete', :confirm => 'Are you sure?', :class => 'ui-icon ui-icon-trash', :id => 'guest' + guest.id.to_s %></td>
+</tr>
