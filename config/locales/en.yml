@@ -20,12 +20,15 @@ en:
       add_guest: Add guest
       guests: Guests
       examinations: Examinations
+      back: back
+  
+  main:
+    header_menu:
+      title: Online guest register for beauticians and dermatologists
       log_out: Log out
       registration: Registration
       my_account: My account
-      back: back
-      title: Online guest register for beauticians and dermatologists
-    
+  
   sessions:
     new:
       password: password  

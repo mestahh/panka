@@ -19,11 +19,14 @@ hu:
       add_guest: Vendég felvétele
       guests: Vendégek
       examinations: Vizsgálatok
+      back: Vissza
+  
+  main:
+    header_menu:
+      title: Online vendégnyilvántartó kozmetikusoknak és bőrgyógyászoknak
       log_out: Kijelentkezes
       registration: Regisztráció
       my_account: Fiókom
-      back: Vissza
-      title: Online vendégnyilvántartó kozmetikusoknak és bőrgyógyászoknak
       
   sessions:
     new:

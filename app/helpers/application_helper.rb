@@ -7,4 +7,8 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}
   end
   
+  def get_user(user_id)
+    User.find(user_id)
+  end
+  
 end

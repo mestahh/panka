@@ -9,60 +9,11 @@
 	<body>
 		<div id="container">
 			<div id="header">
-				<div id="title">
-					<h1>Panka</h1>
-					<p>
-						<%= t('.title') %>
-					</p>
-				</div>
-				<div id="menu">
-					<% unless session[:user] %>
-					<%= link_to t('.registration'), new_user_path %>
-					<%= link_to t('.login'), login_path %>
-					<% else %>
-					<% @user = User.find(session[:user]) %>
-					<span class="bold_grey">Hello, <%= @user.username %></span> |
-					<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %> |
-					<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
-					<div class="last_login">
-						2011-12-12 12:12:12
-					</div>
-					<% end %>
-				</div>
+				<%= render 'main/header_menu' %>
 			</div>
 
-			<% if session[:user] %>
-			<div id="header_menu">
-				<ul>
-					<li class="first">
-						<%= link_to 'Home', main_index_path %>
-					</li>
-					<li>
-						<%= link_to t('.add_guest'), new_guest_path %>
-					</li>
-					<li>
-						<%= link_to t('.guests'), guests_path %>
-					</li>
-					<li>
-						<%= link_to t('.examinations'), examinations_path %>
-					</li>
-					<li>
-						<%= link_to 'Add examination', new_examination_path %>
-					</li>
-					<% if @user.admin %>
-					<li>
-						<a href="#">Admin</a>
-					</li>
-					<% end %>
-				</ul>
-
-				<div id="nav_search">
-					<%= form_tag find_guest_path do %>
-					<%= text_field_tag :search_field, params[:search_field], :placeholder => 'name' %>
-					<%= submit_tag 'Search' %>
-					<% end %>
-				</div>
-			</div>
+			<% if @user %>
+				<%= render 'main/navigation_menu' %>
 			<% end %>
 
 			<div id="main">
