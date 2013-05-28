@@ -86,5 +86,10 @@ Feature: users can be CRUD
 		When I change the user data and the username is empty
 		Then I should see the edit page and the error message: Username can't be blank
 	
-		
+	Scenario: User login time should be stored
+	
+		Given I have the background
+		And my last login was in yesterday
+		When I log out and log in again
+		Then the last login timestamp should be updated
 		

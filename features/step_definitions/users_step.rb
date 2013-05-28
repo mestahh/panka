@@ -145,3 +145,19 @@ When(/^I change the user data and the password is empty$/) do
   click_button 'Edit'
 end
 
+Given(/^my last login was in yesterday$/) do
+  @user1.last_login = Time.zone.now - 1.day
+  @user1.save
+end
+
+When(/^I log out and log in again$/) do
+  click_link 'Log out'
+  @last_login = @user1.last_login
+  login_with(@user1.username, @user1.password)
+end
+
+Then(/^the last login timestamp should be updated$/) do
+  user1 = User.find(@user1.id)
+  @last_login <=> user1.last_login
+end
+

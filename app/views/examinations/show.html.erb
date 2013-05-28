@@ -25,12 +25,20 @@
 			<span><%= t(".charge") %></span>
 			<span><%= @examination.charge %></span>
 		</div>
-
-		<%= link_to 'Delete examination', examination_path(:id => @examination.id), :method => 'delete', :confirm => t("are_you_sure"), :class => 'ui-icon ui-icon-trash' %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'ui-icon ui-icon-pencil' %>
+<div class="button_row">
+		<%= link_to 'Delete examination', examination_path(:id => @examination.id), :class => 'button', :method => 'delete', :confirm => t("are_you_sure") %> <%= link_to 'Edit', edit_examination_path(:id => @examination.id), :class => 'button' %>
+	</div>
 	</div>
 </div>
 <% @commentable = @examination %>
 <% @commentable_type = 'Examination' %>
 <%= render 'comments/comments' %>
+
+<div class="widget">
+	<h4 class="ui-corner-top">Images</h4>
+	<div class="content">
+		<%= render :partial => 'image', :collection => @examination.exam_images %>
+	</div>
+</div>
 
 

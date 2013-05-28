@@ -1,1 +1,7 @@
-<%= link_to (image_tag(@image.image.url)), :back %>
+<div class="widget">
+	<h4 class="ui-corner-top"><%= @image.caption %></h4>
+
+	<div class="content">
+		<%= link_to (image_tag(@image.image.url)), :back %>
+	</div>
+</div>

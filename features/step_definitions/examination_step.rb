@@ -245,7 +245,7 @@ end
 
 Then(/^I should see the new examination page with the selected guests ID\.$/) do
   current_path.should == new_examination_path(I18n.locale)
-  page.should have_content 'Add examination for ' + @guest1_1.name
+  page.should have_content 'Examination for ' + @guest1_1.name
 end
 
 Then(/^there should not be a Select guest first message\.$/) do

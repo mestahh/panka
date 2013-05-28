@@ -64,12 +64,12 @@ end
 
 When(/^I open the picture from the edit examination view$/) do
   visit edit_examination_path(:id => @exam1_1_1)
-  link = find(:xpath, "//*[@id=\"exam_pictures\"]/div[1]/a")
+  link = find(:xpath, "//*[@id=\"main\"]/div[2]/div/div/a/img")
   link.click
 end
 
 When(/^I click on the picture$/) do
-  picture = find(:xpath, "//*[@id=\"main\"]/a")
+  picture = find(:xpath, "//*[@id=\"main\"]/div[2]/div/div/a/img")
   picture.click
 end
 

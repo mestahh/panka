@@ -1,7 +1,7 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
-  attr_accessible :password, :username, :email, :password_confirmation, :language, :admin
+  attr_accessible :password, :username, :email, :password_confirmation, :language, :admin, :last_login
 
   LANGUAGES = ["en", "hu"]
 

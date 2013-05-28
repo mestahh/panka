@@ -6,15 +6,15 @@
 </div>
 <div id="menu">
 	<% unless session[:user] %>
-		<%= link_to t('.registration'), new_user_path %>
-		<%= link_to t('.login'), login_path %>
+	<%= link_to t('.registration'), new_user_path %>
+	<%= link_to t('.login'), login_path %>
 	<% else %>
 	<% @user = get_user(session[:user]) %>
 	<span class="bold_grey">Hello, <%= @user.username %></span> |
 	<%= link_to t('.my_account'), edit_user_path(:id => session[:user]) %> |
 	<%= link_to t('.log_out'), logout_path, :method => 'delete' %>
 	<div class="last_login">
-		2011-12-12 12:12:12
+		Last login: <%= @user.last_login %>
 	</div>
 	<% end %>
 </div>

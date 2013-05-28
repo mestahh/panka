@@ -6,4 +6,18 @@ module GuestsHelper
       link_to guest.name, new_examination_path(:guest_id => guest.id)
     end
   end
+
+  def statistic_link(guest)
+    unless guest.statistic
+      link_to 'Statistics', new_statistic_path(:guest_id => guest.id)
+    else
+      link_to 'Statistics', edit_statistic_path(:guest_id => guest.id, :id => guest.statistic.id)
+    end
+  end
+
+  def vip_class
+    if @guest.vip
+      'ui-state-highlight noborder'
+    end
+  end
 end

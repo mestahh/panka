@@ -11,6 +11,8 @@ class SessionsController < ApplicationController
  		user = User.authenticate(params[:username], params[:password])
 		if (user)
  			session[:user] = user.id
+ 			user.last_login = Time.now
+ 			puts "basssza" unless user.update_attribute('last_login', Time.now)
  			I18n.locale = user.language
  			redirect_to main_index_path
  		else

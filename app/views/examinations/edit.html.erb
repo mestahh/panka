@@ -19,6 +19,9 @@
 	</div>
 	<% end %>
 </div>
-<div id="exam_pictures">
-	<%= render :partial => 'image', :collection => @examination.exam_images %>
+<div class="widget">
+	<h4 class="ui-corner-top">Images</h4>
+	<div class="content">
+		<%= render :partial => 'image', :collection => @examination.exam_images %>
+	</div>
 </div>

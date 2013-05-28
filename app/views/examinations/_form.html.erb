@@ -3,11 +3,10 @@
 <div class="form">
 	<h4 class="ui-corner-top">Edit examination</h4>
 	<div class="content">
-		<% unless (params[:guest_id]) %>
-			
+		<% unless @examination.guest_id %>
 			<p><%= link_to 'Select guest', guests_path(:mode => 'select', :from => new_examination_path) %></p>
 		<% else %>
-		<p>Add examination for <%= @examination.guest.name %></p>
+		<p>Examination for <%= @examination.guest.name %></p>
 		<%= f.hidden_field :guest_id, :value => @examination.guest_id %>
 		<div class="field">
 			<%= f.text_field :anamnezis %>

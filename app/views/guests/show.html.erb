@@ -16,17 +16,8 @@
 				<td class="bold"><%= t('.phone') %></td><td><%= @guest.phone %></td><td class="bold"><%= t('.email') %></td><td><%= @guest.email %></td>
 			</tr>
 			<tr>
-				<td class="bold"><%= t('.statistics') %></td><td>
-					<% unless @guest.statistic %>
-						<%= link_to 'Statistics', new_statistic_path(:guest_id => @guest.id)%>
-					<% else %>
-						<%= link_to 'Statistics', edit_statistic_path(:guest_id => @guest.id, :id => @guest.statistic.id) %>
-					<% end %>
-					</td><td class="bold">VIP</td><td>
-				<div class="<%= if @guest.vip
-            'ui-state-highlight noborder'
-          end
-%>">
+				<td class="bold"><%= t('.statistics') %></td><td> <%= statistic_link(@guest) %></td><td class="bold">VIP</td><td>
+				<div class="<%= vip_class %>">
 					<%= link_to 'vip', mark_vip_path(:guest_id => @guest.id), :remote => true, :id => 'vip', :class => 'ui-icon ui-icon-star' %>
 				</div></td>
 			</tr>
@@ -36,12 +27,19 @@
 		</div>
 	</div>
 </div>
+
 <div class="widget">
 	<h4 class="ui-corner-top">Examinations</h4>
 	<div class="content">
 		<table width="100%">
 			<thead>
-				<th><%= t('.date') %></th><th><%= t('.anamnezis') %></th><th><%= t('.status') %></th><th><%= t('.treatment') %></th><th><%= t('.charge') %></th><th></th><th></th>
+				<th><%= t('.date') %></th>
+				<th><%= t('.anamnezis') %></th>
+				<th><%= t('.status') %></th>
+				<th><%= t('.treatment') %></th>
+				<th><%= t('.charge') %></th>
+				<th></th>
+				<th></th>
 			</thead>
 			<%= render :partial => 'examinations/examination', :collection => @guest.examinations %>
 		</table>
