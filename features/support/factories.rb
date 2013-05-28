@@ -39,7 +39,7 @@ FactoryGirl.define do
   factory :user do |user|
     user.username 'bob'
     user.salt 'secret'
-    user.email 'bob@gmail.com'
+    user.email 'bob@testmail.com'
     user.password '1'
     user.language 'en'
     user.admin 'false'

@@ -93,3 +93,9 @@ Feature: users can be CRUD
 		When I log out and log in again
 		Then the last login timestamp should be updated
 		
+	Scenario: The user requests a forgot password email
+	
+		Given I visit the forgot password link
+		When I enter my email address and submit the form
+		Then I should receive an email
+		

@@ -25,6 +25,15 @@ class SessionsController < ApplicationController
 		redirect_to login_path, :notice => 'Successful log out.'
 	end
 	
+	def show_forgot_password
+	  
+	end
+	
+	def send_forgot_password
+	  UserMailer.reset_password(params[:email]).deliver
+	  redirect_to(login_path(), :notice => 'Email sent.')
+	end
+	
 	def redirect_to_login(message)
 	  redirect_to login_path, :alert => message
 	end

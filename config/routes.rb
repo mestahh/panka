@@ -17,6 +17,7 @@ Panka::Application.routes.draw do
     resources :guests, :examinations, :users, :statistics
     resources :images, :only => :show
     get "main/index"
+   
     
     controller :comments do
       post "comments" => :create
@@ -33,6 +34,8 @@ Panka::Application.routes.draw do
       get 'login' => :new
       post 'login' => :create
       delete 'logout' => :destroy
+      get 'forgot_password' => :show_forgot_password
+      post 'forgot_password' => :send_forgot_password
     end
 
     controller :guests do

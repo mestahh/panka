@@ -161,3 +161,18 @@ Then(/^the last login timestamp should be updated$/) do
   @last_login <=> user1.last_login
 end
 
+Given(/^I visit the forgot password link$/) do
+  @user = FactoryGirl.create(:user)
+  visit "/"
+  click_link 'Forgot password?'
+end
+
+When(/^I enter my email address and submit the form$/) do
+  fill_in 'email', :with => @user.email
+  click_button 'Send'
+end
+
+Then(/^I should receive an email$/) do
+  last_mail = ActionMailer::Base.deliveries.last
+  last_mail.to.should include(@user.email)
+end
