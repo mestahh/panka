@@ -1,47 +1,34 @@
-<%= form_for(@guest) do |f| %>
-<div class="form">
-	<h4 class="ui-corner-top">Add guest</h4>
-
-	<div class="content">
-		<%= f.error_messages %>
-		<div class="field">
-			<%= f.text_field :name %>
-			<%= f.label t('guests.name') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :phone %>
-			<%= f.label t('guests.phone') %>
-		</div>
-		<hr/>
-		<div class="field">
-			<%= f.text_field :birth %>
-			<%= f.label t('guests.birth'), :class => 'datepicker' %>
-		</div>
-		<div class="field">
-			<%= f.text_field :mother %>
-			<%= f.label t('guests.mother') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :address %>
-			<%= f.label t('guests.address') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :city %>
-			<%= f.label t('guests.city') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :postal_code %>
-			<%= f.label t('guests.postal_code') %>
-		</div>
-		<div class="field">
-			<%= f.text_field :email %>
-			<%= f.label t('guests.email') %>
-		</div>
-		<div class="actions">
-			<%= f.submit :class => 'submit' %>
-		</div>
-	</div>
-
+<%= f.error_messages %>
+<div class="field">
+	<%= f.text_field :name %>
+	<%= f.label t('guests.name') %>
 </div>
-
-<% end %>
+<div class="field">
+	<%= f.text_field :phone %>
+	<%= f.label t('guests.phone') %>
+</div>
+<hr/>
+<div class="field">
+	<%= f.text_field :birth %>
+	<%= f.label t('guests.birth'), :class => 'datepicker' %>
+</div>
+<div class="field">
+	<%= f.text_field :mother %>
+	<%= f.label t('guests.mother') %>
+</div>
+<div class="field">
+	<%= f.text_field :address %>
+	<%= f.label t('guests.address') %>
+</div>
+<div class="field">
+	<%= f.text_field :city %>
+	<%= f.label t('guests.city') %>
+</div>
+<div class="field">
+	<%= f.text_field :postal_code %>
+	<%= f.label t('guests.postal_code') %>
+</div>
+<div class="field">
+	<%= f.text_field :email %>
+	<%= f.label t('guests.email') %>
+</div>

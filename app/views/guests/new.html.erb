@@ -1,1 +1,15 @@
-<%= render 'form' %>
+<%= form_for(@guest) do |f| %>
+<div class="form">
+	<h4 class="ui-corner-top">Add guest</h4>
+
+	<div class="content">
+		<%= render 'form', :f => f %>
+		<div class="actions">
+			<%= f.submit :class => 'submit' %>
+			<%= f.submit :class => 'submit', :value => 'Add Statistic' %>
+		</div>
+	</div>
+
+</div>
+
+<% end %>

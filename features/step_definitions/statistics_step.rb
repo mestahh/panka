@@ -72,3 +72,23 @@ Then(/^a statistics data should be changed\.$/) do
   stat.possible_reason_of_problem.should == 'nem kenem'
   stat.visited_dermatologist.should == "volt es jo volt"
 end
+
+When(/^I visit the add guest page$/) do
+  visit new_guest_path
+end
+
+When(/^fill in the form$/) do
+  fill_in_new_guest
+end
+
+When(/^I click on the add statistic button$/) do
+  click_button 'Add Statistic'
+end
+
+Then(/^the guest should be saved$/) do
+  Guest.count.should == 7
+end
+
+Then(/^the new statistic page should be shown$/) do
+  current_path.should == new_statistic_path(I18n.locale)
+end

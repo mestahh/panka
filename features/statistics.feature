@@ -20,3 +20,11 @@ Feature: The guest can have statistical data linked to him.
 		And change the statistical data and submit it
 		Then I should see the guests page
 		And a statistics data should be changed.
+		
+	Scenario: Save guest can be followed by statistics
+	
+		When I visit the add guest page
+		And fill in the form
+		And I click on the add statistic button
+		Then the guest should be saved
+		And the new statistic page should be shown

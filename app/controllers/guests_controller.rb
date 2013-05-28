@@ -19,8 +19,13 @@ class GuestsController < ApplicationController
   def create
     @guest = Guest.new(params[:guest])
     @guest.user = User.find(session[:user])
+    
     if @guest.save
-      redirect_to new_examination_path(:guest_id => @guest.id), :notice => 'Guest stored.'
+      if (params[:commit] == 'Add Statistic')
+        redirect_to new_statistic_path(:guest_id => @guest.id), :notice => 'Guest stored.'
+      else        
+        redirect_to new_examination_path(:guest_id => @guest.id), :notice => 'Guest stored.'
+      end
     else
       render :new
     end
