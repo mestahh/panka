@@ -99,3 +99,8 @@ Feature: users can be CRUD
 		When I enter my email address and submit the form
 		Then I should receive an email
 		
+	Scenario: A user should be able to change his password
+	
+		Given I visit the edit user page with my authentication link
+		Then I should be able to change my password
+		

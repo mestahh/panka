@@ -43,6 +43,7 @@ FactoryGirl.define do
     user.password '1'
     user.language 'en'
     user.admin 'false'
+    user.auth_token 'er0889879iuhjjbll'
   end
 
   factory :examination do |exam|

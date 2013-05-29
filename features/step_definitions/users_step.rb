@@ -176,3 +176,12 @@ Then(/^I should receive an email$/) do
   last_mail = ActionMailer::Base.deliveries.last
   last_mail.to.should include(@user.email)
 end
+
+Then(/^I should be able to change my password$/) do
+  page.should have_content('Edit user')
+end
+
+Given(/^I visit the edit user page with my authentication link$/) do
+  @user1 = FactoryGirl.create(:user)
+  visit edit_user_path(:id => @user1.id, :auth_token => @user1.auth_token)
+end

@@ -1,6 +1,7 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
+  before_create {generate_token(:auth_token)}
   attr_accessible :password, :username, :email, :password_confirmation, :language, :admin, :last_login
 
   LANGUAGES = ["en", "hu"]
@@ -20,8 +21,16 @@ class User < ActiveRecord::Base
         end end
     end
 
-    def encrypt_password(password, salt) Digest::SHA2.hexdigest(password + "wibble" + salt)
-    end end
+    def encrypt_password(password, salt)
+      Digest::SHA2.hexdigest(password + "wibble" + salt)
+    end
+  end
+  
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
 
   # 'password' is a virtual attribute
   def password=(password)
@@ -46,11 +55,10 @@ class User < ActiveRecord::Base
 end
 
 class EmailValidator < ActiveModel::EachValidator
-  
   def validate_each(record, attribute, value)
     unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
       record.errors[attribute] << (options[:message] || "is not an email")
     end
   end
-  
+
 end
