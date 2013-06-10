@@ -1,7 +1,7 @@
 class ExaminationsController < ApplicationController
   before_filter :check_login
+  
   def index
-
     if (params[:guest_id])
       @examinations = Examination.paginate :page => params[:page], :per_page => 20, :conditions => [ 'user_id = ? and guest_id = ?', session[:user], params[:guest_id]]
     else
@@ -52,10 +52,7 @@ class ExaminationsController < ApplicationController
   end
 
   def save_image
-    image = ExamImage.new
-    image.examination_id = params[:exam_image][:exam_id]
-    image.image = params[:exam_image][:exam_image]
-    image.caption = params[:exam_image][:caption]
+    image = create_image(params[:exam_image])
     begin
       image.save!
     rescue
@@ -82,4 +79,14 @@ class ExaminationsController < ApplicationController
     end
   end
 
+
+  private 
+  
+  def create_image image_param
+    image = ExamImage.new
+    image.examination_id = image_param[:exam_id]
+    image.image = image_param[:exam_image]
+    image.caption = image_param[:caption]
+    image
+  end
 end

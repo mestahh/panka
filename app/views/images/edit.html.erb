@@ -1,11 +1,16 @@
 <%= form_for(@image) do |f| %>
 <%= f.hidden_field :exam_id, :value => @image.examination_id %>
 <%= f.hidden_field :id, :value => params[:id] %>
-<div class="field">
-	<%= f.text_field :caption %>
-	<%= f.label :caption %>
-</div>
-<div class="actions">
-	<%= f.submit :class => 'submit' %>
+<div class="form">
+	<h4 class="ui-corner-top">Edit picture</h4>
+	<div class="content">
+		<div class="field">
+			<%= f.text_field :caption %>
+			<%= f.label :caption %>
+		</div>
+		<div class="actions">
+			<%= f.submit :class => 'submit' %>
+		</div>
+	</div>
 </div>
 <% end %>

@@ -20,8 +20,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     
-
-    
     unless @user.id == session[:user] || @user.auth_token == params[:auth_token]
       redirect_to main_index_path, :alert => 'You are not allowed to view this page'
     end

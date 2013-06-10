@@ -20,7 +20,9 @@
 				<%= render 'message/message_line' %>
 				<%= yield %>
 				<div id="back">
+					<% if logged_in %>
 					<%= link_to t('.back'), :back %>
+					<% end %>
 				</div>
 			</div>
 

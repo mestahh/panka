@@ -98,6 +98,7 @@ Feature: users can be CRUD
 		Given I visit the forgot password link
 		When I enter my email address and submit the form
 		Then I should receive an email
+		And the mail should contain a link with my auth_token	
 		
 	Scenario: A user should be able to change his password
 	

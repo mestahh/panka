@@ -17,7 +17,11 @@ Panka::Application.routes.draw do
     resources :guests, :examinations, :users, :statistics
     resources :images, :only => :show
     get "main/index"
-   
+    
+    
+    controller :users do
+      get 'reset_password' => :edit
+    end
     
     controller :comments do
       post "comments" => :create

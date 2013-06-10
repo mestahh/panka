@@ -185,3 +185,9 @@ Given(/^I visit the edit user page with my authentication link$/) do
   @user1 = FactoryGirl.create(:user)
   visit edit_user_path(:id => @user1.id, :auth_token => @user1.auth_token)
 end
+
+Then(/^the mail should contain a link with my auth_token$/) do
+  auth_mail = ActionMailer::Base.deliveries.last
+  assert_match(/#{@user.auth_token}/, auth_mail.body.to_s)
+  
+end

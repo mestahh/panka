@@ -30,7 +30,8 @@ class SessionsController < ApplicationController
 	end
 	
 	def send_forgot_password
-	  UserMailer.reset_password(params[:email]).deliver
+	  @user = User.find_by_email(params[:email])
+	  UserMailer. reset_password(@user).deliver
 	  redirect_to(login_path(), :notice => 'Email sent.')
 	end
 	

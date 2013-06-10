@@ -11,4 +11,10 @@ module ApplicationHelper
     User.find(user_id)
   end
   
+  def logged_in
+    unless session[:user] == nil
+      return true
+    end
+  end
+  
 end

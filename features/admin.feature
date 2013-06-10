@@ -43,3 +43,10 @@ Feature: There should be an admin on the page
 		And select the other users guest
 		Then I should see the selected guest
 		
+	Scenario: The admin can view other users examinations
+	
+		Given I am logged in as an admin
+		And there is another user with guests and examinations
+		When I visit the other guests examination
+		Then I should see the examination
+		

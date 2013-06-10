@@ -4,12 +4,7 @@ class GuestsController < ApplicationController
   
   def index
     flash[:alert] = nil
-    @user = User.find(session[:user])
-    if @user.admin
-      @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20
-    else
-      @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20, :conditions => [ 'user_id = ?', session[:user]]
-    end
+    @guests = Guest.paginate :page => params[:page], :order => sort_column + " " + sort_direction, :per_page => 20, :conditions => user_conditions
   end
 
   def new
@@ -19,11 +14,11 @@ class GuestsController < ApplicationController
   def create
     @guest = Guest.new(params[:guest])
     @guest.user = User.find(session[:user])
-    
+
     if @guest.save
       if (params[:commit] == 'Add Statistic')
         redirect_to new_statistic_path(:guest_id => @guest.id), :notice => 'Guest stored.'
-      else        
+      else
         redirect_to new_examination_path(:guest_id => @guest.id), :notice => 'Guest stored.'
       end
     else
@@ -45,7 +40,7 @@ class GuestsController < ApplicationController
 
     if @guest.nil?
       redirect_to main_index_path, :alert => 'You are not allowed to view this page!'
-      return
+    return
     end
   end
 
@@ -90,4 +85,12 @@ class GuestsController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
+  def user_conditions
+    @user = User.find(session[:user])
+    if @user.admin
+    return []
+    else
+      [ 'user_id = ?', session[:user]]
+    end
+  end
 end

@@ -85,3 +85,17 @@ end
 Then(/^I should see the selected guest$/) do
   current_path.should == guest_path(:id => @guest2.id, :locale => I18n.locale)
 end
+
+Given(/^there is another user with guests and examinations$/) do
+  @user = FactoryGirl.create(:user, username: 'otheruser')
+  @guest = FactoryGirl.create(:guest)
+  @exam = FactoryGirl.create(:examination)
+end
+
+When(/^I visit the other guests examination$/) do
+  visit examination_path(:id => @exam.id)
+end
+
+Then(/^I should see the examination$/) do
+  page.should have_content 'Nyavaja' 
+end

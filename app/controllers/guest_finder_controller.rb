@@ -1,7 +1,6 @@
 class GuestFinderController < ApplicationController
-  
+    
 
-  
   def search
     if params[:search_field] == ''
       @guests = []
